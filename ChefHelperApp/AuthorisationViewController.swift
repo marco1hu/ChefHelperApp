@@ -26,4 +26,7 @@ class AuthorisationViewController: UIViewController {
     }
     */
 
+    @IBAction func handleCancel(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
 }

@@ -34,6 +34,18 @@
 		3896DFE22C83F78300C3AF25 /* KeychainWrapperError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DFE12C83F78300C3AF25 /* KeychainWrapperError.swift */; };
 		3896DFE52C83F8E800C3AF25 /* Authorisation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3896DFE42C83F8E800C3AF25 /* Authorisation.storyboard */; };
 		3896DFE72C83F8FE00C3AF25 /* AuthorisationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DFE62C83F8FE00C3AF25 /* AuthorisationViewController.swift */; };
+		3896DFF42C840BC900C3AF25 /* FloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DFEB2C840BC900C3AF25 /* FloatingLabelTextField.swift */; };
+		3896DFF52C840BC900C3AF25 /* FloatingLabelTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3896DFEC2C840BC900C3AF25 /* FloatingLabelTextField.xib */; };
+		3896DFF62C840BC900C3AF25 /* FloatingLabelTextFieldContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DFED2C840BC900C3AF25 /* FloatingLabelTextFieldContainerView.swift */; };
+		3896DFF72C840BC900C3AF25 /* FloatingLabelTextFieldContainerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3896DFEE2C840BC900C3AF25 /* FloatingLabelTextFieldContainerView.xib */; };
+		3896DFF82C840BC900C3AF25 /* TextFieldLeftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DFEF2C840BC900C3AF25 /* TextFieldLeftView.swift */; };
+		3896DFF92C840BC900C3AF25 /* TextFieldLeftView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3896DFF02C840BC900C3AF25 /* TextFieldLeftView.xib */; };
+		3896DFFA2C840BC900C3AF25 /* TextFieldRightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DFF12C840BC900C3AF25 /* TextFieldRightView.swift */; };
+		3896DFFB2C840BC900C3AF25 /* TextFieldRightView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3896DFF22C840BC900C3AF25 /* TextFieldRightView.xib */; };
+		3896DFFF2C840BE800C3AF25 /* CategoriesCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3896DFFC2C840BE800C3AF25 /* CategoriesCollectionCell.xib */; };
+		3896E0002C840BE800C3AF25 /* CategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DFFD2C840BE800C3AF25 /* CategoriesCollectionViewCell.swift */; };
+		3896E0042C840C0700C3AF25 /* RicettaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896E0012C840C0700C3AF25 /* RicettaCollectionViewCell.swift */; };
+		3896E0052C840C0700C3AF25 /* RicettaCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3896E0022C840C0700C3AF25 /* RicettaCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +96,18 @@
 		3896DFE12C83F78300C3AF25 /* KeychainWrapperError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapperError.swift; sourceTree = "<group>"; };
 		3896DFE42C83F8E800C3AF25 /* Authorisation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authorisation.storyboard; sourceTree = "<group>"; };
 		3896DFE62C83F8FE00C3AF25 /* AuthorisationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorisationViewController.swift; sourceTree = "<group>"; };
+		3896DFEB2C840BC900C3AF25 /* FloatingLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingLabelTextField.swift; sourceTree = "<group>"; };
+		3896DFEC2C840BC900C3AF25 /* FloatingLabelTextField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FloatingLabelTextField.xib; sourceTree = "<group>"; };
+		3896DFED2C840BC900C3AF25 /* FloatingLabelTextFieldContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingLabelTextFieldContainerView.swift; sourceTree = "<group>"; };
+		3896DFEE2C840BC900C3AF25 /* FloatingLabelTextFieldContainerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FloatingLabelTextFieldContainerView.xib; sourceTree = "<group>"; };
+		3896DFEF2C840BC900C3AF25 /* TextFieldLeftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldLeftView.swift; sourceTree = "<group>"; };
+		3896DFF02C840BC900C3AF25 /* TextFieldLeftView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldLeftView.xib; sourceTree = "<group>"; };
+		3896DFF12C840BC900C3AF25 /* TextFieldRightView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldRightView.swift; sourceTree = "<group>"; };
+		3896DFF22C840BC900C3AF25 /* TextFieldRightView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldRightView.xib; sourceTree = "<group>"; };
+		3896DFFC2C840BE800C3AF25 /* CategoriesCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoriesCollectionCell.xib; sourceTree = "<group>"; };
+		3896DFFD2C840BE800C3AF25 /* CategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
+		3896E0012C840C0700C3AF25 /* RicettaCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RicettaCollectionViewCell.swift; sourceTree = "<group>"; };
+		3896E0022C840C0700C3AF25 /* RicettaCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RicettaCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,10 +159,10 @@
 		3896DF842C83EE6400C3AF25 /* ChefHelperApp */ = {
 			isa = PBXGroup;
 			children = (
+				3896DFC92C83F18B00C3AF25 /* CustomComponents */,
 				3896DFE32C83F8C800C3AF25 /* Authorisation */,
 				3896DFDE2C83F73A00C3AF25 /* Keychain */,
 				3896DFD22C83F5AA00C3AF25 /* NetworkServices */,
-				3896DFC92C83F18B00C3AF25 /* CustomComponents */,
 				3896DFBD2C83F10100C3AF25 /* Profile */,
 				3896DFBC2C83F0EE00C3AF25 /* Saved */,
 				3896DFBB2C83F0E600C3AF25 /* Search */,
@@ -219,6 +243,9 @@
 		3896DFC92C83F18B00C3AF25 /* CustomComponents */ = {
 			isa = PBXGroup;
 			children = (
+				3896DFF32C840BC900C3AF25 /* FloatingLabelTextField */,
+				3896DFFE2C840BE800C3AF25 /* CategoriesCollectionCell */,
+				3896E0032C840C0700C3AF25 /* RicettaCollectionCell */,
 			);
 			name = CustomComponents;
 			sourceTree = "<group>";
@@ -250,6 +277,39 @@
 				3896DFE62C83F8FE00C3AF25 /* AuthorisationViewController.swift */,
 			);
 			name = Authorisation;
+			sourceTree = "<group>";
+		};
+		3896DFF32C840BC900C3AF25 /* FloatingLabelTextField */ = {
+			isa = PBXGroup;
+			children = (
+				3896DFEB2C840BC900C3AF25 /* FloatingLabelTextField.swift */,
+				3896DFEC2C840BC900C3AF25 /* FloatingLabelTextField.xib */,
+				3896DFED2C840BC900C3AF25 /* FloatingLabelTextFieldContainerView.swift */,
+				3896DFEE2C840BC900C3AF25 /* FloatingLabelTextFieldContainerView.xib */,
+				3896DFEF2C840BC900C3AF25 /* TextFieldLeftView.swift */,
+				3896DFF02C840BC900C3AF25 /* TextFieldLeftView.xib */,
+				3896DFF12C840BC900C3AF25 /* TextFieldRightView.swift */,
+				3896DFF22C840BC900C3AF25 /* TextFieldRightView.xib */,
+			);
+			path = FloatingLabelTextField;
+			sourceTree = "<group>";
+		};
+		3896DFFE2C840BE800C3AF25 /* CategoriesCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				3896DFFC2C840BE800C3AF25 /* CategoriesCollectionCell.xib */,
+				3896DFFD2C840BE800C3AF25 /* CategoriesCollectionViewCell.swift */,
+			);
+			path = CategoriesCollectionCell;
+			sourceTree = "<group>";
+		};
+		3896E0032C840C0700C3AF25 /* RicettaCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				3896E0012C840C0700C3AF25 /* RicettaCollectionViewCell.swift */,
+				3896E0022C840C0700C3AF25 /* RicettaCollectionViewCell.xib */,
+			);
+			path = RicettaCollectionCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,11 +424,17 @@
 			files = (
 				3896DF922C83EE6600C3AF25 /* Assets.xcassets in Resources */,
 				3896DFE52C83F8E800C3AF25 /* Authorisation.storyboard in Resources */,
+				3896DFF52C840BC900C3AF25 /* FloatingLabelTextField.xib in Resources */,
+				3896DFF72C840BC900C3AF25 /* FloatingLabelTextFieldContainerView.xib in Resources */,
 				3896DF952C83EE6600C3AF25 /* Base in Resources */,
+				3896DFFB2C840BC900C3AF25 /* TextFieldRightView.xib in Resources */,
 				3896DF8D2C83EE6400C3AF25 /* Base in Resources */,
+				3896DFF92C840BC900C3AF25 /* TextFieldLeftView.xib in Resources */,
 				3896DFBF2C83F12300C3AF25 /* Home.storyboard in Resources */,
 				3896DFC42C83F14200C3AF25 /* Saved.storyboard in Resources */,
 				3896DFC62C83F14A00C3AF25 /* Profile.storyboard in Resources */,
+				3896E0052C840C0700C3AF25 /* RicettaCollectionViewCell.xib in Resources */,
+				3896DFFF2C840BE800C3AF25 /* CategoriesCollectionCell.xib in Resources */,
 				3896DFC12C83F12F00C3AF25 /* Search.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -394,16 +460,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3896E0042C840C0700C3AF25 /* RicettaCollectionViewCell.swift in Sources */,
 				3896DFD92C83F62D00C3AF25 /* NetworkLogger.swift in Sources */,
 				3896DFCD2C83F20000C3AF25 /* SearchViewController.swift in Sources */,
 				3896DFE22C83F78300C3AF25 /* KeychainWrapperError.swift in Sources */,
 				3896DFCB2C83F1E500C3AF25 /* HomeViewController.swift in Sources */,
+				3896DFF42C840BC900C3AF25 /* FloatingLabelTextField.swift in Sources */,
 				3896DFCF2C83F22000C3AF25 /* SavedViewController.swift in Sources */,
+				3896DFF62C840BC900C3AF25 /* FloatingLabelTextFieldContainerView.swift in Sources */,
+				3896DFFA2C840BC900C3AF25 /* TextFieldRightView.swift in Sources */,
 				3896DFDD2C83F66400C3AF25 /* Router.swift in Sources */,
 				3896DFD42C83F5D700C3AF25 /* APIManager.swift in Sources */,
+				3896DFF82C840BC900C3AF25 /* TextFieldLeftView.swift in Sources */,
 				3896DF902C83EE6400C3AF25 /* ChefHelperApp.xcdatamodeld in Sources */,
 				3896DFE72C83F8FE00C3AF25 /* AuthorisationViewController.swift in Sources */,
 				3896DF862C83EE6400C3AF25 /* AppDelegate.swift in Sources */,
+				3896E0002C840BE800C3AF25 /* CategoriesCollectionViewCell.swift in Sources */,
 				3896DFDB2C83F64A00C3AF25 /* Reachability.swift in Sources */,
 				3896DFC82C83F18700C3AF25 /* MainTabBarController.swift in Sources */,
 				3896DFD12C83F23700C3AF25 /* ProfileViewController.swift in Sources */,

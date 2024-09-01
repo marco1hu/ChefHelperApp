@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="RicettaCollectionViewCell" customModule="ChefHelperApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="217" height="256"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="217" height="256"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="35X-rt-SGH" userLabel="ContentView">
+                        <rect key="frame" x="0.0" y="0.0" width="217" height="256"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fJz-SK-vLP">
+                                <rect key="frame" x="0.0" y="0.0" width="217" height="217"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome Ricetta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pi7-Vp-Yl1">
+                                <rect key="frame" x="10" y="225" width="197" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="pi7-Vp-Yl1" secondAttribute="trailing" constant="10" id="1an-BH-qnV"/>
+                            <constraint firstAttribute="trailing" secondItem="fJz-SK-vLP" secondAttribute="trailing" id="9tp-kY-zIx"/>
+                            <constraint firstItem="fJz-SK-vLP" firstAttribute="top" secondItem="35X-rt-SGH" secondAttribute="top" id="EV3-f0-Ihh"/>
+                            <constraint firstAttribute="bottom" secondItem="pi7-Vp-Yl1" secondAttribute="bottom" constant="8" id="KSe-ZY-QEM"/>
+                            <constraint firstItem="fJz-SK-vLP" firstAttribute="leading" secondItem="35X-rt-SGH" secondAttribute="leading" id="NfK-pt-UXF"/>
+                            <constraint firstItem="pi7-Vp-Yl1" firstAttribute="leading" secondItem="35X-rt-SGH" secondAttribute="leading" constant="10" id="dc6-id-8Lr"/>
+                            <constraint firstItem="pi7-Vp-Yl1" firstAttribute="top" secondItem="fJz-SK-vLP" secondAttribute="bottom" constant="8" id="gRs-0n-8OR"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="35X-rt-SGH" secondAttribute="trailing" id="CiC-jb-ETI"/>
+                <constraint firstItem="35X-rt-SGH" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="DKD-Cg-lFh"/>
+                <constraint firstItem="35X-rt-SGH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Hhx-bg-Svi"/>
+                <constraint firstAttribute="bottom" secondItem="35X-rt-SGH" secondAttribute="bottom" id="O6P-86-Puf"/>
+            </constraints>
+            <size key="customSize" width="217" height="256"/>
+            <connections>
+                <outlet property="backView" destination="35X-rt-SGH" id="lIl-OD-5q3"/>
+                <outlet property="nomeLottoLabel" destination="pi7-Vp-Yl1" id="d98-66-cgz"/>
+            </connections>
+            <point key="canvasLocation" x="367.17557251908397" y="19.718309859154932"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

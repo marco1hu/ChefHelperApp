@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FloatingLabelTextField" customModule="all_in_ios" customModuleProvider="target">
+            <connections>
+                <outlet property="containerView" destination="a0g-RN-uKq" id="yKe-4L-f35"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="Hc9-Ho-Kl3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="189"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a0g-RN-uKq" customClass="FloatingLabelTextFieldContainerView" customModule="all_in_ios" customModuleProvider="target">
+                    <rect key="frame" x="8" y="8" width="377" height="173"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="a0g-RN-uKq" secondAttribute="trailing" constant="8" id="Pvh-NU-PqE"/>
+                <constraint firstAttribute="bottom" secondItem="a0g-RN-uKq" secondAttribute="bottom" constant="8" id="jgx-EZ-BHH"/>
+                <constraint firstItem="a0g-RN-uKq" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="okd-oe-x18"/>
+                <constraint firstItem="a0g-RN-uKq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="xSA-K5-mWJ"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="136.64122137404578" y="253.87323943661974"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
