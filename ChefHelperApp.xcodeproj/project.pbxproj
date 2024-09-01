@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3896DF862C83EE6400C3AF25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DF852C83EE6400C3AF25 /* AppDelegate.swift */; };
 		3896DF882C83EE6400C3AF25 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DF872C83EE6400C3AF25 /* SceneDelegate.swift */; };
-		3896DF8A2C83EE6400C3AF25 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DF892C83EE6400C3AF25 /* ViewController.swift */; };
 		3896DF8D2C83EE6400C3AF25 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3896DF8C2C83EE6400C3AF25 /* Base */; };
 		3896DF902C83EE6400C3AF25 /* ChefHelperApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3896DF8E2C83EE6400C3AF25 /* ChefHelperApp.xcdatamodeld */; };
 		3896DF922C83EE6600C3AF25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3896DF912C83EE6600C3AF25 /* Assets.xcassets */; };
@@ -17,6 +16,24 @@
 		3896DFA02C83EE6600C3AF25 /* ChefHelperAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DF9F2C83EE6600C3AF25 /* ChefHelperAppTests.swift */; };
 		3896DFAA2C83EE6600C3AF25 /* ChefHelperAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DFA92C83EE6600C3AF25 /* ChefHelperAppUITests.swift */; };
 		3896DFAC2C83EE6600C3AF25 /* ChefHelperAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DFAB2C83EE6600C3AF25 /* ChefHelperAppUITestsLaunchTests.swift */; };
+		3896DFBF2C83F12300C3AF25 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3896DFBE2C83F12300C3AF25 /* Home.storyboard */; };
+		3896DFC12C83F12F00C3AF25 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3896DFC02C83F12F00C3AF25 /* Search.storyboard */; };
+		3896DFC42C83F14200C3AF25 /* Saved.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3896DFC32C83F14200C3AF25 /* Saved.storyboard */; };
+		3896DFC62C83F14A00C3AF25 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3896DFC52C83F14A00C3AF25 /* Profile.storyboard */; };
+		3896DFC82C83F18700C3AF25 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DFC72C83F18700C3AF25 /* MainTabBarController.swift */; };
+		3896DFCB2C83F1E500C3AF25 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DFCA2C83F1E500C3AF25 /* HomeViewController.swift */; };
+		3896DFCD2C83F20000C3AF25 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DFCC2C83F20000C3AF25 /* SearchViewController.swift */; };
+		3896DFCF2C83F22000C3AF25 /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DFCE2C83F22000C3AF25 /* SavedViewController.swift */; };
+		3896DFD12C83F23700C3AF25 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DFD02C83F23700C3AF25 /* ProfileViewController.swift */; };
+		3896DFD42C83F5D700C3AF25 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DFD32C83F5D700C3AF25 /* APIManager.swift */; };
+		3896DFD72C83F60F00C3AF25 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 3896DFD62C83F60F00C3AF25 /* AlamofireDynamic */; };
+		3896DFD92C83F62D00C3AF25 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DFD82C83F62D00C3AF25 /* NetworkLogger.swift */; };
+		3896DFDB2C83F64A00C3AF25 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DFDA2C83F64A00C3AF25 /* Reachability.swift */; };
+		3896DFDD2C83F66400C3AF25 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DFDC2C83F66400C3AF25 /* Router.swift */; };
+		3896DFE02C83F75500C3AF25 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DFDF2C83F75500C3AF25 /* KeychainWrapper.swift */; };
+		3896DFE22C83F78300C3AF25 /* KeychainWrapperError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DFE12C83F78300C3AF25 /* KeychainWrapperError.swift */; };
+		3896DFE52C83F8E800C3AF25 /* Authorisation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3896DFE42C83F8E800C3AF25 /* Authorisation.storyboard */; };
+		3896DFE72C83F8FE00C3AF25 /* AuthorisationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DFE62C83F8FE00C3AF25 /* AuthorisationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +57,6 @@
 		3896DF822C83EE6400C3AF25 /* ChefHelperApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChefHelperApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3896DF852C83EE6400C3AF25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3896DF872C83EE6400C3AF25 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3896DF892C83EE6400C3AF25 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3896DF8C2C83EE6400C3AF25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3896DF8F2C83EE6400C3AF25 /* ChefHelperApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ChefHelperApp.xcdatamodel; sourceTree = "<group>"; };
 		3896DF912C83EE6600C3AF25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +67,23 @@
 		3896DFA52C83EE6600C3AF25 /* ChefHelperAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChefHelperAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3896DFA92C83EE6600C3AF25 /* ChefHelperAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefHelperAppUITests.swift; sourceTree = "<group>"; };
 		3896DFAB2C83EE6600C3AF25 /* ChefHelperAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefHelperAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3896DFBE2C83F12300C3AF25 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		3896DFC02C83F12F00C3AF25 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		3896DFC32C83F14200C3AF25 /* Saved.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Saved.storyboard; sourceTree = "<group>"; };
+		3896DFC52C83F14A00C3AF25 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		3896DFC72C83F18700C3AF25 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		3896DFCA2C83F1E500C3AF25 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		3896DFCC2C83F20000C3AF25 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		3896DFCE2C83F22000C3AF25 /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
+		3896DFD02C83F23700C3AF25 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		3896DFD32C83F5D700C3AF25 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		3896DFD82C83F62D00C3AF25 /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
+		3896DFDA2C83F64A00C3AF25 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		3896DFDC2C83F66400C3AF25 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		3896DFDF2C83F75500C3AF25 /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
+		3896DFE12C83F78300C3AF25 /* KeychainWrapperError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapperError.swift; sourceTree = "<group>"; };
+		3896DFE42C83F8E800C3AF25 /* Authorisation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authorisation.storyboard; sourceTree = "<group>"; };
+		3896DFE62C83F8FE00C3AF25 /* AuthorisationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorisationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3896DFD72C83F60F00C3AF25 /* AlamofireDynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,10 +135,17 @@
 		3896DF842C83EE6400C3AF25 /* ChefHelperApp */ = {
 			isa = PBXGroup;
 			children = (
+				3896DFE32C83F8C800C3AF25 /* Authorisation */,
+				3896DFDE2C83F73A00C3AF25 /* Keychain */,
+				3896DFD22C83F5AA00C3AF25 /* NetworkServices */,
+				3896DFC92C83F18B00C3AF25 /* CustomComponents */,
+				3896DFBD2C83F10100C3AF25 /* Profile */,
+				3896DFBC2C83F0EE00C3AF25 /* Saved */,
+				3896DFBB2C83F0E600C3AF25 /* Search */,
+				3896DFBA2C83F0DF00C3AF25 /* Home */,
+				3896DFB82C83EFC000C3AF25 /* MainTabBar */,
 				3896DF852C83EE6400C3AF25 /* AppDelegate.swift */,
 				3896DF872C83EE6400C3AF25 /* SceneDelegate.swift */,
-				3896DF892C83EE6400C3AF25 /* ViewController.swift */,
-				3896DF8B2C83EE6400C3AF25 /* Main.storyboard */,
 				3896DF912C83EE6600C3AF25 /* Assets.xcassets */,
 				3896DF932C83EE6600C3AF25 /* LaunchScreen.storyboard */,
 				3896DF962C83EE6600C3AF25 /* Info.plist */,
@@ -130,6 +171,87 @@
 			path = ChefHelperAppUITests;
 			sourceTree = "<group>";
 		};
+		3896DFB82C83EFC000C3AF25 /* MainTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				3896DF8B2C83EE6400C3AF25 /* Main.storyboard */,
+				3896DFC72C83F18700C3AF25 /* MainTabBarController.swift */,
+			);
+			name = MainTabBar;
+			sourceTree = "<group>";
+		};
+		3896DFBA2C83F0DF00C3AF25 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				3896DFBE2C83F12300C3AF25 /* Home.storyboard */,
+				3896DFCA2C83F1E500C3AF25 /* HomeViewController.swift */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		3896DFBB2C83F0E600C3AF25 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				3896DFC02C83F12F00C3AF25 /* Search.storyboard */,
+				3896DFCC2C83F20000C3AF25 /* SearchViewController.swift */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		3896DFBC2C83F0EE00C3AF25 /* Saved */ = {
+			isa = PBXGroup;
+			children = (
+				3896DFC32C83F14200C3AF25 /* Saved.storyboard */,
+				3896DFCE2C83F22000C3AF25 /* SavedViewController.swift */,
+			);
+			name = Saved;
+			sourceTree = "<group>";
+		};
+		3896DFBD2C83F10100C3AF25 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				3896DFC52C83F14A00C3AF25 /* Profile.storyboard */,
+				3896DFD02C83F23700C3AF25 /* ProfileViewController.swift */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		3896DFC92C83F18B00C3AF25 /* CustomComponents */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = CustomComponents;
+			sourceTree = "<group>";
+		};
+		3896DFD22C83F5AA00C3AF25 /* NetworkServices */ = {
+			isa = PBXGroup;
+			children = (
+				3896DFD32C83F5D700C3AF25 /* APIManager.swift */,
+				3896DFD82C83F62D00C3AF25 /* NetworkLogger.swift */,
+				3896DFDA2C83F64A00C3AF25 /* Reachability.swift */,
+				3896DFDC2C83F66400C3AF25 /* Router.swift */,
+			);
+			name = NetworkServices;
+			sourceTree = "<group>";
+		};
+		3896DFDE2C83F73A00C3AF25 /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				3896DFDF2C83F75500C3AF25 /* KeychainWrapper.swift */,
+				3896DFE12C83F78300C3AF25 /* KeychainWrapperError.swift */,
+			);
+			name = Keychain;
+			sourceTree = "<group>";
+		};
+		3896DFE32C83F8C800C3AF25 /* Authorisation */ = {
+			isa = PBXGroup;
+			children = (
+				3896DFE42C83F8E800C3AF25 /* Authorisation.storyboard */,
+				3896DFE62C83F8FE00C3AF25 /* AuthorisationViewController.swift */,
+			);
+			name = Authorisation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,6 +268,9 @@
 			dependencies = (
 			);
 			name = ChefHelperApp;
+			packageProductDependencies = (
+				3896DFD62C83F60F00C3AF25 /* AlamofireDynamic */,
+			);
 			productName = ChefHelperApp;
 			productReference = 3896DF822C83EE6400C3AF25 /* ChefHelperApp.app */;
 			productType = "com.apple.product-type.application";
@@ -218,6 +343,9 @@
 				Base,
 			);
 			mainGroup = 3896DF792C83EE6400C3AF25;
+			packageReferences = (
+				3896DFD52C83F60E00C3AF25 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 3896DF832C83EE6400C3AF25 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -235,8 +363,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3896DF922C83EE6600C3AF25 /* Assets.xcassets in Resources */,
+				3896DFE52C83F8E800C3AF25 /* Authorisation.storyboard in Resources */,
 				3896DF952C83EE6600C3AF25 /* Base in Resources */,
 				3896DF8D2C83EE6400C3AF25 /* Base in Resources */,
+				3896DFBF2C83F12300C3AF25 /* Home.storyboard in Resources */,
+				3896DFC42C83F14200C3AF25 /* Saved.storyboard in Resources */,
+				3896DFC62C83F14A00C3AF25 /* Profile.storyboard in Resources */,
+				3896DFC12C83F12F00C3AF25 /* Search.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,9 +394,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3896DF8A2C83EE6400C3AF25 /* ViewController.swift in Sources */,
+				3896DFD92C83F62D00C3AF25 /* NetworkLogger.swift in Sources */,
+				3896DFCD2C83F20000C3AF25 /* SearchViewController.swift in Sources */,
+				3896DFE22C83F78300C3AF25 /* KeychainWrapperError.swift in Sources */,
+				3896DFCB2C83F1E500C3AF25 /* HomeViewController.swift in Sources */,
+				3896DFCF2C83F22000C3AF25 /* SavedViewController.swift in Sources */,
+				3896DFDD2C83F66400C3AF25 /* Router.swift in Sources */,
+				3896DFD42C83F5D700C3AF25 /* APIManager.swift in Sources */,
 				3896DF902C83EE6400C3AF25 /* ChefHelperApp.xcdatamodeld in Sources */,
+				3896DFE72C83F8FE00C3AF25 /* AuthorisationViewController.swift in Sources */,
 				3896DF862C83EE6400C3AF25 /* AppDelegate.swift in Sources */,
+				3896DFDB2C83F64A00C3AF25 /* Reachability.swift in Sources */,
+				3896DFC82C83F18700C3AF25 /* MainTabBarController.swift in Sources */,
+				3896DFD12C83F23700C3AF25 /* ProfileViewController.swift in Sources */,
+				3896DFE02C83F75500C3AF25 /* KeychainWrapper.swift in Sources */,
 				3896DF882C83EE6400C3AF25 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -611,6 +755,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3896DFD52C83F60E00C3AF25 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3896DFD62C83F60F00C3AF25 /* AlamofireDynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3896DFD52C83F60E00C3AF25 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = AlamofireDynamic;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		3896DF8E2C83EE6400C3AF25 /* ChefHelperApp.xcdatamodeld */ = {
