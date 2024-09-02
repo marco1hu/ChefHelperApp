@@ -34,7 +34,7 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
             label.font = UIFont(name: "Helvetica Neue", size: fontSize)
         }
         
-        label.textColor = UIColor.white
+        label.textColor = UIColor.black
         
         
         backView.layer.cornerRadius = 10

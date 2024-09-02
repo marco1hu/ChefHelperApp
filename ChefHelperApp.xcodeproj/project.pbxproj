@@ -26,7 +26,6 @@
 		3896DFCF2C83F22000C3AF25 /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DFCE2C83F22000C3AF25 /* SavedViewController.swift */; };
 		3896DFD12C83F23700C3AF25 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DFD02C83F23700C3AF25 /* ProfileViewController.swift */; };
 		3896DFD42C83F5D700C3AF25 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DFD32C83F5D700C3AF25 /* APIManager.swift */; };
-		3896DFD72C83F60F00C3AF25 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 3896DFD62C83F60F00C3AF25 /* AlamofireDynamic */; };
 		3896DFD92C83F62D00C3AF25 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DFD82C83F62D00C3AF25 /* NetworkLogger.swift */; };
 		3896DFDB2C83F64A00C3AF25 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DFDA2C83F64A00C3AF25 /* Reachability.swift */; };
 		3896DFDD2C83F66400C3AF25 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DFDC2C83F66400C3AF25 /* Router.swift */; };
@@ -42,10 +41,13 @@
 		3896DFF92C840BC900C3AF25 /* TextFieldLeftView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3896DFF02C840BC900C3AF25 /* TextFieldLeftView.xib */; };
 		3896DFFA2C840BC900C3AF25 /* TextFieldRightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DFF12C840BC900C3AF25 /* TextFieldRightView.swift */; };
 		3896DFFB2C840BC900C3AF25 /* TextFieldRightView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3896DFF22C840BC900C3AF25 /* TextFieldRightView.xib */; };
-		3896DFFF2C840BE800C3AF25 /* CategoriesCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3896DFFC2C840BE800C3AF25 /* CategoriesCollectionCell.xib */; };
+		3896DFFF2C840BE800C3AF25 /* CategoriesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3896DFFC2C840BE800C3AF25 /* CategoriesCollectionViewCell.xib */; };
 		3896E0002C840BE800C3AF25 /* CategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DFFD2C840BE800C3AF25 /* CategoriesCollectionViewCell.swift */; };
-		3896E0042C840C0700C3AF25 /* RicettaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896E0012C840C0700C3AF25 /* RicettaCollectionViewCell.swift */; };
-		3896E0052C840C0700C3AF25 /* RicettaCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3896E0022C840C0700C3AF25 /* RicettaCollectionViewCell.xib */; };
+		3896E0042C840C0700C3AF25 /* RecipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896E0012C840C0700C3AF25 /* RecipeCollectionViewCell.swift */; };
+		3896E0052C840C0700C3AF25 /* RecipeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3896E0022C840C0700C3AF25 /* RecipeCollectionViewCell.xib */; };
+		3896E0082C851FA400C3AF25 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896E0072C851FA400C3AF25 /* RecipeModel.swift */; };
+		3896E00A2C85255100C3AF25 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3896E0092C85255100C3AF25 /* Alamofire */; };
+		3896E00C2C85A35D00C3AF25 /* RecipeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896E00B2C85A35D00C3AF25 /* RecipeData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,10 +106,12 @@
 		3896DFF02C840BC900C3AF25 /* TextFieldLeftView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldLeftView.xib; sourceTree = "<group>"; };
 		3896DFF12C840BC900C3AF25 /* TextFieldRightView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldRightView.swift; sourceTree = "<group>"; };
 		3896DFF22C840BC900C3AF25 /* TextFieldRightView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldRightView.xib; sourceTree = "<group>"; };
-		3896DFFC2C840BE800C3AF25 /* CategoriesCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoriesCollectionCell.xib; sourceTree = "<group>"; };
+		3896DFFC2C840BE800C3AF25 /* CategoriesCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoriesCollectionViewCell.xib; sourceTree = "<group>"; };
 		3896DFFD2C840BE800C3AF25 /* CategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
-		3896E0012C840C0700C3AF25 /* RicettaCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RicettaCollectionViewCell.swift; sourceTree = "<group>"; };
-		3896E0022C840C0700C3AF25 /* RicettaCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RicettaCollectionViewCell.xib; sourceTree = "<group>"; };
+		3896E0012C840C0700C3AF25 /* RecipeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeCollectionViewCell.swift; sourceTree = "<group>"; };
+		3896E0022C840C0700C3AF25 /* RecipeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeCollectionViewCell.xib; sourceTree = "<group>"; };
+		3896E0072C851FA400C3AF25 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
+		3896E00B2C85A35D00C3AF25 /* RecipeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3896DFD72C83F60F00C3AF25 /* AlamofireDynamic in Frameworks */,
+				3896E00A2C85255100C3AF25 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,6 +172,7 @@
 				3896DFBB2C83F0E600C3AF25 /* Search */,
 				3896DFBA2C83F0DF00C3AF25 /* Home */,
 				3896DFB82C83EFC000C3AF25 /* MainTabBar */,
+				3896E0062C851F8900C3AF25 /* Models */,
 				3896DF852C83EE6400C3AF25 /* AppDelegate.swift */,
 				3896DF872C83EE6400C3AF25 /* SceneDelegate.swift */,
 				3896DF912C83EE6600C3AF25 /* Assets.xcassets */,
@@ -245,7 +250,7 @@
 			children = (
 				3896DFF32C840BC900C3AF25 /* FloatingLabelTextField */,
 				3896DFFE2C840BE800C3AF25 /* CategoriesCollectionCell */,
-				3896E0032C840C0700C3AF25 /* RicettaCollectionCell */,
+				3896E0032C840C0700C3AF25 /* RecipeCollectionCell */,
 			);
 			name = CustomComponents;
 			sourceTree = "<group>";
@@ -297,19 +302,28 @@
 		3896DFFE2C840BE800C3AF25 /* CategoriesCollectionCell */ = {
 			isa = PBXGroup;
 			children = (
-				3896DFFC2C840BE800C3AF25 /* CategoriesCollectionCell.xib */,
+				3896DFFC2C840BE800C3AF25 /* CategoriesCollectionViewCell.xib */,
 				3896DFFD2C840BE800C3AF25 /* CategoriesCollectionViewCell.swift */,
 			);
 			path = CategoriesCollectionCell;
 			sourceTree = "<group>";
 		};
-		3896E0032C840C0700C3AF25 /* RicettaCollectionCell */ = {
+		3896E0032C840C0700C3AF25 /* RecipeCollectionCell */ = {
 			isa = PBXGroup;
 			children = (
-				3896E0012C840C0700C3AF25 /* RicettaCollectionViewCell.swift */,
-				3896E0022C840C0700C3AF25 /* RicettaCollectionViewCell.xib */,
+				3896E0022C840C0700C3AF25 /* RecipeCollectionViewCell.xib */,
+				3896E0012C840C0700C3AF25 /* RecipeCollectionViewCell.swift */,
 			);
-			path = RicettaCollectionCell;
+			path = RecipeCollectionCell;
+			sourceTree = "<group>";
+		};
+		3896E0062C851F8900C3AF25 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3896E0072C851FA400C3AF25 /* RecipeModel.swift */,
+				3896E00B2C85A35D00C3AF25 /* RecipeData.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,7 +343,7 @@
 			);
 			name = ChefHelperApp;
 			packageProductDependencies = (
-				3896DFD62C83F60F00C3AF25 /* AlamofireDynamic */,
+				3896E0092C85255100C3AF25 /* Alamofire */,
 			);
 			productName = ChefHelperApp;
 			productReference = 3896DF822C83EE6400C3AF25 /* ChefHelperApp.app */;
@@ -433,8 +447,8 @@
 				3896DFBF2C83F12300C3AF25 /* Home.storyboard in Resources */,
 				3896DFC42C83F14200C3AF25 /* Saved.storyboard in Resources */,
 				3896DFC62C83F14A00C3AF25 /* Profile.storyboard in Resources */,
-				3896E0052C840C0700C3AF25 /* RicettaCollectionViewCell.xib in Resources */,
-				3896DFFF2C840BE800C3AF25 /* CategoriesCollectionCell.xib in Resources */,
+				3896E0052C840C0700C3AF25 /* RecipeCollectionViewCell.xib in Resources */,
+				3896DFFF2C840BE800C3AF25 /* CategoriesCollectionViewCell.xib in Resources */,
 				3896DFC12C83F12F00C3AF25 /* Search.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -460,7 +474,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3896E0042C840C0700C3AF25 /* RicettaCollectionViewCell.swift in Sources */,
+				3896E0042C840C0700C3AF25 /* RecipeCollectionViewCell.swift in Sources */,
+				3896E0082C851FA400C3AF25 /* RecipeModel.swift in Sources */,
+				3896E00C2C85A35D00C3AF25 /* RecipeData.swift in Sources */,
 				3896DFD92C83F62D00C3AF25 /* NetworkLogger.swift in Sources */,
 				3896DFCD2C83F20000C3AF25 /* SearchViewController.swift in Sources */,
 				3896DFE22C83F78300C3AF25 /* KeychainWrapperError.swift in Sources */,
@@ -840,10 +856,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3896DFD62C83F60F00C3AF25 /* AlamofireDynamic */ = {
+		3896E0092C85255100C3AF25 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 3896DFD52C83F60E00C3AF25 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = AlamofireDynamic;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 
