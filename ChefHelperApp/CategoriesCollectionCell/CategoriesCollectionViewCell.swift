@@ -1,6 +1,6 @@
 //
 //  CategoriesCollectionCell.swift
-//  all-in-ios
+//
 //
 //  Created by IFTS40 on 06/08/24.
 //

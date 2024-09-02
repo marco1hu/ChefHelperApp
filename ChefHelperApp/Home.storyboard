@@ -116,7 +116,7 @@
         <!--Storyboard Reference-->
         <scene sceneID="gC8-zY-syW">
             <objects>
-                <viewControllerPlaceholder id="B6a-yd-a9F" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="DetailRecipe" id="B6a-yd-a9F" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="JVb-VT-NsS"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OuE-2V-1Mw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

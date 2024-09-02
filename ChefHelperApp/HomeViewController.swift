@@ -114,6 +114,42 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         return UICollectionViewCell()
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch collectionView.tag{
+        case 0:
+            print(categories[indexPath.item])
+            
+            let cell = collectionView.cellForItem(at: indexPath) as! CategoriesCollectionViewCell
+        
+            cell.isSelectedCell = !cell.isSelectedCell
+            
+            cell.toggleSelected()
+            
+            //TODO: Logica filtri per categori<
+            
+            
+        case 1:
+            guard let vc = storyboard?.instantiateViewController(withIdentifier: "recipeDetails") as? DetailRecipeViewController else { return }
+            
+            
+            getRecipesDataById(id: recipes[indexPath.item].dataId){ data in
+                
+                if let data = data {
+                    vc.recipeData = data
+                    self.navigationController?.pushViewController(vc, animated: true)
+                } else {
+                    self.present(Utilities.shared.alertErrorGeneral(error: "Errore interno"), animated: true)
+                }
+            }
+            
+        default:
+            return
+        }
+    }
+    
+    
+    
+    
     
     //MARK: - Network Methods
 
@@ -139,6 +175,19 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             RecipeModel(id: 4, title: "Spaghetti Alfredo", image: UIImage(named: "spagAlfredo.jpeg")!, categoria: "Primo", dataId: 4, recipePostingDate: "2024-09-02"),
             RecipeModel(id: 5, title: "Spaghetti allo Scoglio", image: UIImage(named: "spagScoglio.jpeg")!, categoria: "Primo", dataId: 5, recipePostingDate: "2024-09-02")
         ]
+    }
+    
+    private func getRecipesDataById(id: Int, completion: @escaping (RecipeData?)->Void){
+        //TODO: chiamata API
+        let dataDummy = RecipeData(id: 0, title: "Spaghetti Cacio e Pepe", subtitle: "Dalla tradizione", portions: 3, difficulty: "Easy", ingredients: ["Formaggio Cacio", "Pepe", "Pasta"], 
+                                   steps: ["Prendi pentolino metti acqua e sale fai bollire",
+                                          "Taglia il formaggio",
+                                          "Macina pepe",
+                                          "Prepara ry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more rece",
+                                          "ry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more rece",
+                                          "ry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more rece"],
+                                   author: "N.N.")
+        completion(dataDummy)
     }
     
     

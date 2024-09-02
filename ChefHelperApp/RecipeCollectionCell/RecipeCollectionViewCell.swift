@@ -1,6 +1,6 @@
 //
-//  LottiCollectionViewCell.swift
-//  all-in-ios
+//  RecipeCollectionViewCell.swift
+//
 //
 //  Created by IFTS40 on 06/08/24.
 //
