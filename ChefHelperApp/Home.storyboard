@@ -106,22 +106,22 @@
                     <connections>
                         <outlet property="categoriesCollectionView" destination="WnK-Ch-Pdv" id="15X-Ng-dMe"/>
                         <outlet property="recipesCollectionView" destination="J3f-dD-Yrj" id="ODy-PK-Nwl"/>
-                        <segue destination="B6a-yd-a9F" kind="show" id="4l7-8f-1bP"/>
+                        <segue destination="wx7-Vk-Z5o" kind="show" identifier="toDetail" id="AfT-Qa-AXp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1052.6717557251909" y="-34.507042253521128"/>
         </scene>
-        <!--Storyboard Reference-->
-        <scene sceneID="gC8-zY-syW">
+        <!--DetailRecipe-->
+        <scene sceneID="37y-e4-kPb">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="DetailRecipe" id="B6a-yd-a9F" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="JVb-VT-NsS"/>
+                <viewControllerPlaceholder storyboardIdentifier="detailRecipe" storyboardName="DetailRecipe" id="wx7-Vk-Z5o" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="jke-9u-UgF"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OuE-2V-1Mw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IQ7-Nt-3TX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2007" y="-30"/>
+            <point key="canvasLocation" x="1802" y="-31"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XKn-P5-w5E">

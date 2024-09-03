@@ -18,8 +18,6 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
     private let fontSize: CGFloat = 18
     private let height: CGFloat = 30
     var isSelectedCell: Bool = false
-    var on: Bool = false //TODO: toggled or not toggled, magari da cmabiare nome
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,7 +36,7 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
         
         
         backView.layer.cornerRadius = 10
-        backView.backgroundColor = UIColor.white
+        backView.backgroundColor = UIColor.appColor3
         
         
         NSLayoutConstraint.activate([
@@ -53,12 +51,12 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
     }
     
     func toggleSelected (){
-        self.on = !self.on
+        
         DispatchQueue.main.async {
             if self.isSelectedCell {
-                self.backView.backgroundColor = #colorLiteral(red: 0.4322821506, green: 0.0007069214061, blue: 0.1281887532, alpha: 1)
+                self.backView.backgroundColor = #colorLiteral(red: 0.5803921569, green: 0.7058823529, blue: 0.6235294118, alpha: 1)
             }else{
-                self.backView.backgroundColor = #colorLiteral(red: 0.7803921569, green: 0, blue: 0.2235294118, alpha: 1)
+                self.backView.backgroundColor = #colorLiteral(red: 0.9882352941, green: 0.9725490196, blue: 0.9098039216, alpha: 1)
             }
         }
         

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38253A1E2C874414008FA9F8 /* DetailRecipe0TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38253A1C2C874414008FA9F8 /* DetailRecipe0TableViewCell.swift */; };
+		38253A1F2C874414008FA9F8 /* DetailRecipe0TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38253A1D2C874414008FA9F8 /* DetailRecipe0TableViewCell.xib */; };
+		38253A242C87542F008FA9F8 /* DetailRecipe1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38253A222C87542F008FA9F8 /* DetailRecipe1TableViewCell.swift */; };
+		38253A252C87542F008FA9F8 /* DetailRecipe1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38253A232C87542F008FA9F8 /* DetailRecipe1TableViewCell.xib */; };
+		38253A2D2C875A29008FA9F8 /* DifficultyLevelComponent.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38253A2C2C875A29008FA9F8 /* DifficultyLevelComponent.xib */; };
+		38253A2F2C875A3F008FA9F8 /* DifficultyLevelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38253A2E2C875A3F008FA9F8 /* DifficultyLevelComponent.swift */; };
 		3896DF862C83EE6400C3AF25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DF852C83EE6400C3AF25 /* AppDelegate.swift */; };
 		3896DF882C83EE6400C3AF25 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DF872C83EE6400C3AF25 /* SceneDelegate.swift */; };
 		3896DF8D2C83EE6400C3AF25 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3896DF8C2C83EE6400C3AF25 /* Base */; };
@@ -71,6 +77,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		38253A1C2C874414008FA9F8 /* DetailRecipe0TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRecipe0TableViewCell.swift; sourceTree = "<group>"; };
+		38253A1D2C874414008FA9F8 /* DetailRecipe0TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailRecipe0TableViewCell.xib; sourceTree = "<group>"; };
+		38253A222C87542F008FA9F8 /* DetailRecipe1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRecipe1TableViewCell.swift; sourceTree = "<group>"; };
+		38253A232C87542F008FA9F8 /* DetailRecipe1TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailRecipe1TableViewCell.xib; sourceTree = "<group>"; };
+		38253A2C2C875A29008FA9F8 /* DifficultyLevelComponent.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DifficultyLevelComponent.xib; sourceTree = "<group>"; };
+		38253A2E2C875A3F008FA9F8 /* DifficultyLevelComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyLevelComponent.swift; sourceTree = "<group>"; };
 		3896DF822C83EE6400C3AF25 /* ChefHelperApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChefHelperApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3896DF852C83EE6400C3AF25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3896DF872C83EE6400C3AF25 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +158,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38253A1B2C8743E3008FA9F8 /* Detail0RecipeCell */ = {
+			isa = PBXGroup;
+			children = (
+				38253A1C2C874414008FA9F8 /* DetailRecipe0TableViewCell.swift */,
+				38253A1D2C874414008FA9F8 /* DetailRecipe0TableViewCell.xib */,
+			);
+			name = Detail0RecipeCell;
+			sourceTree = "<group>";
+		};
+		38253A212C875405008FA9F8 /* Detail1RecipeCell */ = {
+			isa = PBXGroup;
+			children = (
+				38253A222C87542F008FA9F8 /* DetailRecipe1TableViewCell.swift */,
+				38253A232C87542F008FA9F8 /* DetailRecipe1TableViewCell.xib */,
+			);
+			name = Detail1RecipeCell;
+			sourceTree = "<group>";
+		};
+		38253A262C875481008FA9F8 /* DetailCells */ = {
+			isa = PBXGroup;
+			children = (
+				38253A1B2C8743E3008FA9F8 /* Detail0RecipeCell */,
+				38253A212C875405008FA9F8 /* Detail1RecipeCell */,
+			);
+			name = DetailCells;
+			sourceTree = "<group>";
+		};
+		38253A272C8756C8008FA9F8 /* DifficultyLevelComponent */ = {
+			isa = PBXGroup;
+			children = (
+				38253A2C2C875A29008FA9F8 /* DifficultyLevelComponent.xib */,
+				38253A2E2C875A3F008FA9F8 /* DifficultyLevelComponent.swift */,
+			);
+			path = DifficultyLevelComponent;
+			sourceTree = "<group>";
+		};
 		3896DF792C83EE6400C3AF25 = {
 			isa = PBXGroup;
 			children = (
@@ -169,17 +217,11 @@
 		3896DF842C83EE6400C3AF25 /* ChefHelperApp */ = {
 			isa = PBXGroup;
 			children = (
-				3896E0152C85CEC800C3AF25 /* SupportingFiles */,
 				3896DFC92C83F18B00C3AF25 /* CustomComponents */,
-				3896DFE32C83F8C800C3AF25 /* Authorisation */,
-				3896DFDE2C83F73A00C3AF25 /* Keychain */,
-				3896DFD22C83F5AA00C3AF25 /* NetworkServices */,
-				3896DFBD2C83F10100C3AF25 /* Profile */,
-				3896DFBC2C83F0EE00C3AF25 /* Saved */,
-				3896DFBB2C83F0E600C3AF25 /* Search */,
-				3896DFBA2C83F0DF00C3AF25 /* Home */,
 				3896DFB82C83EFC000C3AF25 /* MainTabBar */,
+				3896E0152C85CEC800C3AF25 /* SupportingFiles */,
 				3896E0062C851F8900C3AF25 /* Models */,
+				3896DFD22C83F5AA00C3AF25 /* NetworkServices */,
 				3896DF852C83EE6400C3AF25 /* AppDelegate.swift */,
 				3896DF872C83EE6400C3AF25 /* SceneDelegate.swift */,
 				3896DF912C83EE6600C3AF25 /* Assets.xcassets */,
@@ -212,6 +254,11 @@
 			children = (
 				3896DF8B2C83EE6400C3AF25 /* Main.storyboard */,
 				3896DFC72C83F18700C3AF25 /* MainTabBarController.swift */,
+				3896DFE32C83F8C800C3AF25 /* Authorisation */,
+				3896DFBD2C83F10100C3AF25 /* Profile */,
+				3896DFBC2C83F0EE00C3AF25 /* Saved */,
+				3896DFBB2C83F0E600C3AF25 /* Search */,
+				3896DFBA2C83F0DF00C3AF25 /* Home */,
 			);
 			name = MainTabBar;
 			sourceTree = "<group>";
@@ -256,6 +303,9 @@
 		3896DFC92C83F18B00C3AF25 /* CustomComponents */ = {
 			isa = PBXGroup;
 			children = (
+				38253A272C8756C8008FA9F8 /* DifficultyLevelComponent */,
+				38253A262C875481008FA9F8 /* DetailCells */,
+				38CD3F222C873C29007B4AE1 /* New Group */,
 				3896DFF32C840BC900C3AF25 /* FloatingLabelTextField */,
 				3896DFFE2C840BE800C3AF25 /* CategoriesCollectionCell */,
 				3896E0032C840C0700C3AF25 /* RecipeCollectionCell */,
@@ -346,9 +396,17 @@
 		3896E0152C85CEC800C3AF25 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				3896DFDE2C83F73A00C3AF25 /* Keychain */,
 				3896E0132C85CEBD00C3AF25 /* Utilities.swift */,
 			);
 			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		38CD3F222C873C29007B4AE1 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -466,7 +524,9 @@
 				3896DFF52C840BC900C3AF25 /* FloatingLabelTextField.xib in Resources */,
 				3896DFF72C840BC900C3AF25 /* FloatingLabelTextFieldContainerView.xib in Resources */,
 				3896DF952C83EE6600C3AF25 /* Base in Resources */,
+				38253A2D2C875A29008FA9F8 /* DifficultyLevelComponent.xib in Resources */,
 				3896DFFB2C840BC900C3AF25 /* TextFieldRightView.xib in Resources */,
+				38253A252C87542F008FA9F8 /* DetailRecipe1TableViewCell.xib in Resources */,
 				3896DF8D2C83EE6400C3AF25 /* Base in Resources */,
 				3896DFF92C840BC900C3AF25 /* TextFieldLeftView.xib in Resources */,
 				3896DFBF2C83F12300C3AF25 /* Home.storyboard in Resources */,
@@ -475,6 +535,7 @@
 				3896E0052C840C0700C3AF25 /* RecipeCollectionViewCell.xib in Resources */,
 				3896DFFF2C840BE800C3AF25 /* CategoriesCollectionViewCell.xib in Resources */,
 				3896DFC12C83F12F00C3AF25 /* Search.storyboard in Resources */,
+				38253A1F2C874414008FA9F8 /* DetailRecipe0TableViewCell.xib in Resources */,
 				3896E0102C85C89600C3AF25 /* DetailRecipe.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,7 +572,9 @@
 				3896DFCF2C83F22000C3AF25 /* SavedViewController.swift in Sources */,
 				3896DFF62C840BC900C3AF25 /* FloatingLabelTextFieldContainerView.swift in Sources */,
 				3896DFFA2C840BC900C3AF25 /* TextFieldRightView.swift in Sources */,
+				38253A2F2C875A3F008FA9F8 /* DifficultyLevelComponent.swift in Sources */,
 				3896DFDD2C83F66400C3AF25 /* Router.swift in Sources */,
+				38253A1E2C874414008FA9F8 /* DetailRecipe0TableViewCell.swift in Sources */,
 				3896DFD42C83F5D700C3AF25 /* APIManager.swift in Sources */,
 				3896DFF82C840BC900C3AF25 /* TextFieldLeftView.swift in Sources */,
 				3896DF902C83EE6400C3AF25 /* ChefHelperApp.xcdatamodeld in Sources */,
@@ -520,6 +583,7 @@
 				3896E0002C840BE800C3AF25 /* CategoriesCollectionViewCell.swift in Sources */,
 				3896E0122C85C8E100C3AF25 /* DetailRecipeViewController.swift in Sources */,
 				3896DFDB2C83F64A00C3AF25 /* Reachability.swift in Sources */,
+				38253A242C87542F008FA9F8 /* DetailRecipe1TableViewCell.swift in Sources */,
 				3896DFC82C83F18700C3AF25 /* MainTabBarController.swift in Sources */,
 				3896DFD12C83F23700C3AF25 /* ProfileViewController.swift in Sources */,
 				3896DFE02C83F75500C3AF25 /* KeychainWrapper.swift in Sources */,

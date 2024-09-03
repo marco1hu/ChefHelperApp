@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DifficultyLevelComponent" customModule="ChefHelperApp" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="8ev-Tw-7MV"/>
+                <outlet property="rect0" destination="KtA-SM-s03" id="bMr-aP-TZP"/>
+                <outlet property="rect1" destination="syx-o3-D79" id="niG-kj-3zv"/>
+                <outlet property="rect2" destination="DBd-1X-CCJ" id="Kiq-WB-Za3"/>
+                <outlet property="rect3" destination="HS2-B3-DLP" id="ur3-Wa-mNI"/>
+                <outlet property="rect4" destination="3XG-gP-6C6" id="105-TZ-Yro"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="520" height="224"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="IIm-H5-pKg">
+                    <rect key="frame" x="117" y="82" width="286" height="60"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KtA-SM-s03">
+                            <rect key="frame" x="0.0" y="0.0" width="30" height="60"/>
+                            <color key="backgroundColor" name="AppColor1"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="Lcp-dI-f7W"/>
+                                <constraint firstAttribute="width" secondItem="KtA-SM-s03" secondAttribute="height" multiplier="1:2" id="MBw-sk-RqP"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="syx-o3-D79">
+                            <rect key="frame" x="64" y="0.0" width="30" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="syx-o3-D79" secondAttribute="height" multiplier="1:2" id="d2E-EL-xGO"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DBd-1X-CCJ">
+                            <rect key="frame" x="128" y="0.0" width="30" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="DBd-1X-CCJ" secondAttribute="height" multiplier="1:2" id="Qkx-G3-xyz"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HS2-B3-DLP">
+                            <rect key="frame" x="192" y="0.0" width="30" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="HS2-B3-DLP" secondAttribute="height" multiplier="1:2" id="hlP-MB-GYl"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3XG-gP-6C6">
+                            <rect key="frame" x="256" y="0.0" width="30" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="3XG-gP-6C6" secondAttribute="height" multiplier="1:2" id="BOv-er-TGu"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="IIm-H5-pKg" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Mxy-lR-SfQ"/>
+                <constraint firstItem="IIm-H5-pKg" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="pSE-yE-vn9"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="537.40458015267177" y="103.52112676056339"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="AppColor1">
+            <color red="0.58039215686274515" green="0.70588235294117652" blue="0.62352941176470589" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
