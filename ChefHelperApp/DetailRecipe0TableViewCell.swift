@@ -36,12 +36,12 @@ class DetailRecipe0TableViewCell: UITableViewCell {
 
     private func setupUI(){
         recipeMainImageView.layer.cornerRadius = 8
-        recipeMainImageView.layer.borderColor = UIColor.black.cgColor
-        recipeMainImageView.layer.borderWidth = 1
+//        recipeMainImageView.layer.borderColor = UIColor.black.cgColor
+//        recipeMainImageView.layer.borderWidth = 1
         recipeMainImageView.contentMode = .scaleAspectFill
         authorLabel.text = ""
         subtitleLabel.text = ""
-        
+        self.selectionStyle = .none
     }
     
 }

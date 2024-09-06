@@ -25,11 +25,12 @@ class DifficultyLevelComponent: UIView {
     
     var levelDifficulty: Int?{
         didSet{
-            loadLevel()
+            DispatchQueue.main.async {
+                self.loadLevel()
+            }
+            
         }
     }
-    
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -48,6 +49,22 @@ class DifficultyLevelComponent: UIView {
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         contentView.clipsToBounds = true
+        
+        rect0.layer.borderColor = UIColor.appColor1.cgColor
+        rect0.layer.borderWidth = 0.5
+        
+        rect1.layer.borderColor = UIColor.appColor1.cgColor
+        rect1.layer.borderWidth = 0.5
+        
+        rect2.layer.borderColor = UIColor.appColor1.cgColor
+        rect2.layer.borderWidth = 0.5
+        
+        rect3.layer.borderColor = UIColor.appColor1.cgColor
+        rect3.layer.borderWidth = 0.5
+        
+        rect4.layer.borderColor = UIColor.appColor1.cgColor
+        rect4.layer.borderWidth = 0.5
+        
         
     }
     

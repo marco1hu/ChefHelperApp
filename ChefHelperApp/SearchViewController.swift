@@ -10,6 +10,7 @@ import UIKit
 class SearchViewController: UIViewController {
 
     @IBOutlet weak var diffcultyBar: DifficultyLevelComponent!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         diffcultyBar.levelDifficulty = 4

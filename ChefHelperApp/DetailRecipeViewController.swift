@@ -13,6 +13,7 @@ class DetailRecipeViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var detailTableView: UITableView!
     
     public var image: UIImage!
+    public var categoria: String!
     public var recipeData: RecipeData!
     
     override func viewDidLoad() {
@@ -20,7 +21,12 @@ class DetailRecipeViewController: UIViewController, UITableViewDelegate, UITable
 
         detailTableView.dataSource = self
         detailTableView.delegate = self
+        
+        detailTableView.estimatedRowHeight = 100
+        detailTableView.rowHeight = UITableView.automaticDimension
+        
         detailTableView.register(UINib(nibName: "DetailRecipe0TableViewCell", bundle: nil), forCellReuseIdentifier: DetailRecipe0TableViewCell.reusableIdentifier)
+        detailTableView.register(UINib(nibName: "DetailRecipe1TableViewCell", bundle: nil), forCellReuseIdentifier: DetailRecipe1TableViewCell.reusableIdentifier)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -53,7 +59,19 @@ class DetailRecipeViewController: UIViewController, UITableViewDelegate, UITable
             
             return cell
         case 1:
-            return UITableViewCell()
+            let cell = tableView.dequeueReusableCell(withIdentifier: DetailRecipe1TableViewCell.reusableIdentifier,
+                                                     for: indexPath) as! DetailRecipe1TableViewCell
+            
+            cell.categoriaTextLabel.text = categoria
+            
+            cell.difficultyLevelComponent.levelDifficulty = recipeData.difficulty
+            
+            cell.porzioniTextLabel.text = String(recipeData.portions)
+            
+            let ingredients = recipeData.ingredients.map { "• " + $0 }.joined(separator: "\n")
+            cell.ingredientiTextLabel.text = ingredients
+            
+            return cell
         case 2:
             return UITableViewCell()
         default:
@@ -62,11 +80,11 @@ class DetailRecipeViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.item{
+        switch indexPath.section{
         case 0:
             return view.bounds.height - ((3/10)*view.bounds.height)
         case 1:
-            return 0
+            return UITableView.automaticDimension
         case 2:
             return 0
         default:

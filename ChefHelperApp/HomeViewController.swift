@@ -146,6 +146,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 if let data = data {
                     vc.recipeData = data
                     vc.image = self.recipes[indexPath.item].image
+                    vc.categoria = self.recipes[indexPath.item].categoria
                     self.navigationController?.pushViewController(vc, animated: true)
                 } else {
                     self.present(Utilities.shared.alertErrorGeneral(error: "Errore interno"), animated: true)
@@ -207,7 +208,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     private func getRecipesDataById(id: Int, completion: @escaping (RecipeData?)->Void){
         //TODO: chiamata API
-        let dataDummy = RecipeData(id: 0, title: "Spaghetti Cacio e Pepe", subtitle: "Dalla tradizione", portions: 3, difficulty: 0, ingredients: ["Formaggio Cacio", "Pepe", "Pasta"],
+        let dataDummy = RecipeData(id: 0, title: "Spaghetti Cacio e Pepe", subtitle: "Dalla tradizione", portions: 3, difficulty: 3, ingredients: ["Formaggio Cacio", "Pepe", "Pasta"],
                                    steps: ["Prendi pentolino metti acqua e sale fai bollire",
                                           "Taglia il formaggio",
                                           "Macina pepe",

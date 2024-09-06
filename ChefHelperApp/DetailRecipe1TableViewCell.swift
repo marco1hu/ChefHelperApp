@@ -9,15 +9,29 @@ import UIKit
 
 class DetailRecipe1TableViewCell: UITableViewCell {
 
+    @IBOutlet weak var categoriaTextLabel: UILabel!
+    @IBOutlet weak var difficultyLevelComponent: DifficultyLevelComponent!
+    @IBOutlet weak var porzioniTextLabel: UILabel!
+    @IBOutlet weak var ingredientiTextLabel: UILabel!
+    
+    var difficulty: Int?{
+        didSet{
+            DispatchQueue.main.async {
+                self.difficultyLevelComponent.levelDifficulty = self.difficulty
+            }
+            
+        }
+    }
+    static var reusableIdentifier = "detail1Cell"
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setup()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    private func setup(){
+        self.selectionStyle = .none
     }
+
     
 }

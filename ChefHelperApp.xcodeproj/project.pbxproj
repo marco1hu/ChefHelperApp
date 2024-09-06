@@ -305,7 +305,6 @@
 			children = (
 				38253A272C8756C8008FA9F8 /* DifficultyLevelComponent */,
 				38253A262C875481008FA9F8 /* DetailCells */,
-				38CD3F222C873C29007B4AE1 /* New Group */,
 				3896DFF32C840BC900C3AF25 /* FloatingLabelTextField */,
 				3896DFFE2C840BE800C3AF25 /* CategoriesCollectionCell */,
 				3896E0032C840C0700C3AF25 /* RecipeCollectionCell */,
@@ -400,13 +399,6 @@
 				3896E0132C85CEBD00C3AF25 /* Utilities.swift */,
 			);
 			name = SupportingFiles;
-			sourceTree = "<group>";
-		};
-		38CD3F222C873C29007B4AE1 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

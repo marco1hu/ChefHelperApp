@@ -28,10 +28,18 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="301" id="ZiQ-aE-xLL">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="detail1Cell" rowHeight="301" id="ZiQ-aE-xLL" customClass="DetailRecipe1TableViewCell" customModule="ChefHelperApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="194" width="393" height="301"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZiQ-aE-xLL" id="Lkn-b6-4VX">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="301"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="301" id="7mf-Ha-Ewl">
+                                        <rect key="frame" x="0.0" y="495" width="393" height="301"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7mf-Ha-Ewl" id="Cth-Jx-0YD">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="301"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
