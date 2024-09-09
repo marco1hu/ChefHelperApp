@@ -13,7 +13,7 @@ class DetailRecipeViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var detailTableView: UITableView!
     
     public var image: UIImage!
-    public var categoria: String!
+    public var categorie: [String]!
     public var recipeData: RecipeData!
     
     override func viewDidLoad() {
@@ -62,7 +62,7 @@ class DetailRecipeViewController: UIViewController, UITableViewDelegate, UITable
             let cell = tableView.dequeueReusableCell(withIdentifier: DetailRecipe1TableViewCell.reusableIdentifier,
                                                      for: indexPath) as! DetailRecipe1TableViewCell
             
-            cell.categoriaTextLabel.text = categoria
+            cell.categoriaTextLabel.text = categorie.joined(separator: ", ")
             
             cell.difficultyLevelComponent.levelDifficulty = recipeData.difficulty
             

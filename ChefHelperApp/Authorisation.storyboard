@@ -32,7 +32,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="o7O-kV-jZX">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="JEB-sd-4qv">
+                        <barButtonItem key="rightBarButtonItem" style="done" id="JEB-sd-4qv">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" id="kD1-ot-jEg">
                                 <rect key="frame" x="337" y="6" width="40" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

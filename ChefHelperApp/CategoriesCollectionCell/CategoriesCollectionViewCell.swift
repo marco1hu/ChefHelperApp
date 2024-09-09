@@ -19,6 +19,10 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
     private let height: CGFloat = 30
     var isSelectedCell: Bool = false
     
+    public var handleSelection: ((String)->Void)?
+    public var handleDeselection: ((String)->Void)?
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         updateUI()
@@ -45,21 +49,25 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
             backView.heightAnchor.constraint(equalToConstant: height)
             
         ])
-        
-       
-        
     }
     
     func toggleSelected (){
-        
         DispatchQueue.main.async {
             if self.isSelectedCell {
-                self.backView.backgroundColor = #colorLiteral(red: 0.5803921569, green: 0.7058823529, blue: 0.6235294118, alpha: 1)
+                self.setSelected()
+                self.handleSelection?(self.label.text!)
             }else{
-                self.backView.backgroundColor = #colorLiteral(red: 0.9882352941, green: 0.9725490196, blue: 0.9098039216, alpha: 1)
+                self.setDeselected()
+                self.handleDeselection?(self.label.text!)
             }
         }
-        
     }
     
+    func setSelected(){
+        backView.backgroundColor = #colorLiteral(red: 0.5803921569, green: 0.7058823529, blue: 0.6235294118, alpha: 1)
+    }
+    
+    func setDeselected(){
+        backView.backgroundColor = #colorLiteral(red: 0.9882352941, green: 0.9725490196, blue: 0.9098039216, alpha: 1)
+    }
 }

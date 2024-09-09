@@ -12,16 +12,16 @@ public class RecipeModel{
     let id: Int
     let title: String
     let image: UIImage //TODO: Image Base64??
-    let categoria: String
+    let categorie: [String]
     let dataId: Int
     let recipePostingDate: String
     
     
-    init(id: Int, title: String, image: UIImage, categoria: String, dataId: Int, recipePostingDate:String) {
+    init(id: Int, title: String, image: UIImage, categorie: [String], dataId: Int, recipePostingDate:String) {
         self.id = id
         self.title = title
         self.image = image
-        self.categoria = categoria
+        self.categorie = categorie
         self.dataId = dataId
         self.recipePostingDate = recipePostingDate
     }

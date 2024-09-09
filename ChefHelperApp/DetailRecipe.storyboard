@@ -3,8 +3,8 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,7 +18,10 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mi7-dX-ZVy">
                                 <rect key="frame" x="0.0" y="59" width="393" height="793"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="AppColor3"/>
+                                <color key="separatorColor" name="AppColor3"/>
+                                <color key="sectionIndexBackgroundColor" name="AppColor3"/>
+                                <color key="sectionIndexTrackingBackgroundColor" name="AppColor3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="detail0Cell" rowHeight="144" id="Gpp-XU-nlY" customClass="DetailRecipe0TableViewCell" customModule="ChefHelperApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="144"/>
@@ -27,6 +30,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="144"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" name="AppColor3"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="detail1Cell" rowHeight="301" id="ZiQ-aE-xLL" customClass="DetailRecipe1TableViewCell" customModule="ChefHelperApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="194" width="393" height="301"/>
@@ -35,20 +39,22 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="301"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" name="AppColor3"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="301" id="7mf-Ha-Ewl">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="deatil2Cell" rowHeight="301" id="7mf-Ha-Ewl">
                                         <rect key="frame" x="0.0" y="495" width="393" height="301"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7mf-Ha-Ewl" id="Cth-Jx-0YD">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="301"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" name="AppColor3"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="AppColor3"/>
                         <constraints>
                             <constraint firstItem="mi7-dX-ZVy" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="1Xg-aN-OUQ"/>
                             <constraint firstItem="mi7-dX-ZVy" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="c7W-yv-ThG"/>
@@ -66,8 +72,8 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="AppColor3">
+            <color red="0.9882352941176471" green="0.97254901960784312" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
