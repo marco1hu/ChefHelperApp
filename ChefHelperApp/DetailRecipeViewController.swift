@@ -16,6 +16,7 @@ class DetailRecipeViewController: UIViewController, UITableViewDelegate, UITable
     public var categorie: [String]!
     public var recipeData: RecipeData!
     
+    //MARK: - App Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,22 +28,21 @@ class DetailRecipeViewController: UIViewController, UITableViewDelegate, UITable
         
         detailTableView.register(UINib(nibName: "DetailRecipe0TableViewCell", bundle: nil), forCellReuseIdentifier: DetailRecipe0TableViewCell.reusableIdentifier)
         detailTableView.register(UINib(nibName: "DetailRecipe1TableViewCell", bundle: nil), forCellReuseIdentifier: DetailRecipe1TableViewCell.reusableIdentifier)
+        detailTableView.register(UINib(nibName: "DetailRecipe2TableViewCell", bundle: nil), forCellReuseIdentifier: DetailRecipe2TableViewCell.reusableIdentifier)
     }
     
+    //MARK: - TableView Configuration and Delegates
+    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section{
-        case 0:
-            return 1
-        case 1:
-            return 1
         case 2:
             return recipeData.steps.count
         default:
-            return 0
+            return 1
         }
     }
     
@@ -63,21 +63,30 @@ class DetailRecipeViewController: UIViewController, UITableViewDelegate, UITable
                                                      for: indexPath) as! DetailRecipe1TableViewCell
             
             cell.categoriaTextLabel.text = categorie.joined(separator: ", ")
-            
             cell.difficultyLevelComponent.levelDifficulty = recipeData.difficulty
-            
             cell.porzioniTextLabel.text = String(recipeData.portions)
-            
             let ingredients = recipeData.ingredients.map { "• " + $0 }.joined(separator: "\n")
             cell.ingredientiTextLabel.text = ingredients
             
             return cell
-        case 2:
-            return UITableViewCell()
+        case 2:         
+            let cell = tableView.dequeueReusableCell(withIdentifier: DetailRecipe2TableViewCell.reusableIdentifier,
+                                                     for: indexPath) as! DetailRecipe2TableViewCell
+
+            cell.stepTitleLabel.text = "Step n° \(indexPath.row + 1)"
+            cell.stepDescription.text = recipeData.steps[indexPath.row]
+            
+            return cell
         default:
-            return UITableViewCell()
+            let cell = UITableViewCell()
+            
+            cell.backgroundColor = UIColor.appColor3
+            
+            return cell
         }
     }
+    
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section{
@@ -86,9 +95,9 @@ class DetailRecipeViewController: UIViewController, UITableViewDelegate, UITable
         case 1:
             return UITableView.automaticDimension
         case 2:
-            return 0
+            return UITableView.automaticDimension
         default:
-            return 0
+            return 60
         }
     }
     

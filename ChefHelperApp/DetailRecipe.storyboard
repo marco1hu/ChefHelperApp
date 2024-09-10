@@ -41,7 +41,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="AppColor3"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="deatil2Cell" rowHeight="301" id="7mf-Ha-Ewl">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="detail2Cell" rowHeight="301" id="7mf-Ha-Ewl" customClass="DetailRecipe2TableViewCell" customModule="ChefHelperApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="495" width="393" height="301"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7mf-Ha-Ewl" id="Cth-Jx-0YD">

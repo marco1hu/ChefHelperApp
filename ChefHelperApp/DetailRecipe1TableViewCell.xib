@@ -36,7 +36,7 @@
                             <constraint firstAttribute="height" constant="40" id="qGc-gi-0tM"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Porzioni" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9f-ey-p06">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Porzioni" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9f-ey-p06">
                         <rect key="frame" x="16" y="97.333333333333329" width="64.666666666666671" height="21"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                         <nil key="textColor"/>
@@ -55,7 +55,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="248" text="- Pasta 100g" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wD-3W-4fn">
-                        <rect key="frame" x="16" y="167.33333333333334" width="309" height="58.666666666666657"/>
+                        <rect key="frame" x="16" y="167.33333333333334" width="309" height="33.666666666666657"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -63,6 +63,12 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Primi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G13-r2-qMW">
                         <rect key="frame" x="286" y="16.333333333333336" width="39" height="20.333333333333336"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preparazione:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uz1-rX-4Qp">
+                        <rect key="frame" x="16" y="221" width="111" height="21"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -78,16 +84,18 @@
                     <constraint firstItem="G13-r2-qMW" firstAttribute="centerY" secondItem="wUw-H7-xWN" secondAttribute="centerY" id="K9b-oi-Igy"/>
                     <constraint firstItem="7wD-3W-4fn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Tlo-KF-ScG"/>
                     <constraint firstItem="wtb-h5-bV0" firstAttribute="top" secondItem="wUw-H7-xWN" secondAttribute="bottom" constant="20" id="USC-nq-gSo"/>
+                    <constraint firstItem="uz1-rX-4Qp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="V4L-RE-uwV"/>
                     <constraint firstItem="q1g-Si-gRj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="WuO-ZK-jH8"/>
+                    <constraint firstItem="uz1-rX-4Qp" firstAttribute="top" secondItem="7wD-3W-4fn" secondAttribute="bottom" constant="20" id="Xvm-bT-e57"/>
                     <constraint firstItem="7wD-3W-4fn" firstAttribute="top" secondItem="q1g-Si-gRj" secondAttribute="bottom" constant="8" id="cOu-7f-AUm"/>
                     <constraint firstItem="U9f-ey-p06" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="iBw-7w-rao"/>
                     <constraint firstItem="wUw-H7-xWN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="iiK-tI-L7Z"/>
                     <constraint firstItem="RKW-PI-YyR" firstAttribute="centerY" secondItem="wtb-h5-bV0" secondAttribute="centerY" id="kdx-we-cIA"/>
                     <constraint firstItem="U9f-ey-p06" firstAttribute="top" secondItem="wtb-h5-bV0" secondAttribute="bottom" constant="20" id="lh2-Fh-QhQ"/>
                     <constraint firstAttribute="trailing" secondItem="G13-r2-qMW" secondAttribute="trailing" constant="16" id="m0X-NY-fe0"/>
+                    <constraint firstAttribute="bottom" secondItem="uz1-rX-4Qp" secondAttribute="bottom" id="md8-lf-xkM"/>
                     <constraint firstAttribute="trailing" secondItem="7wD-3W-4fn" secondAttribute="trailing" constant="16" id="oQq-8a-h45"/>
                     <constraint firstItem="x1g-4w-Rlx" firstAttribute="top" secondItem="RKW-PI-YyR" secondAttribute="bottom" constant="6" id="qPx-tv-7nQ"/>
-                    <constraint firstAttribute="bottom" secondItem="7wD-3W-4fn" secondAttribute="bottom" constant="16" id="tie-CJ-3wL"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

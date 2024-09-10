@@ -3,8 +3,8 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,24 +16,69 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Authorisation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOg-ds-PUR">
-                                <rect key="frame" x="146" y="415.66666666666669" width="101" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="Sge-PC-MV7">
+                                <rect key="frame" x="33" y="103" width="327" height="160"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo1" translatesAutoresizingMaskIntoConstraints="NO" id="jSr-TV-9rr">
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="jSr-TV-9rr" secondAttribute="height" multiplier="1:1" id="DQK-jp-HpL"/>
+                                            <constraint firstAttribute="width" constant="160" id="Rja-2g-rAW"/>
+                                            <constraint firstAttribute="height" constant="160" id="akT-rW-KSd"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chef Helper" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXt-KK-2FM">
+                                        <rect key="frame" x="167" y="0.0" width="160" height="160"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="160" id="FHc-se-gw6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="40"/>
+                                        <color key="textColor" name="AppColor1"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WEN-VN-XNo">
+                                <rect key="frame" x="40" y="679" width="313" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Fn3-Dw-e4h"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="tintColor" name="AppColor1"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Registrati">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U8H-iB-zSG">
+                                <rect key="frame" x="40" y="603" width="313" height="60"/>
+                                <color key="backgroundColor" name="AppColor1"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="0rd-L4-1jl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Accedi"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="AppColor3"/>
                         <constraints>
-                            <constraint firstItem="oOg-ds-PUR" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="M8Z-L8-ABl"/>
-                            <constraint firstItem="oOg-ds-PUR" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="iFL-PZ-mjD"/>
+                            <constraint firstItem="Sge-PC-MV7" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="7Vs-ym-CNV"/>
+                            <constraint firstItem="Sge-PC-MV7" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="BJ7-tR-yRT"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="U8H-iB-zSG" secondAttribute="trailing" constant="40" id="QVw-lY-RdA"/>
+                            <constraint firstItem="WEN-VN-XNo" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="XUj-nD-PWW"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="WEN-VN-XNo" secondAttribute="bottom" constant="30" id="pSd-h5-qJh"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="WEN-VN-XNo" secondAttribute="trailing" constant="40" id="xfy-2v-f6y"/>
+                            <constraint firstItem="U8H-iB-zSG" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="znx-MB-X8I"/>
+                            <constraint firstItem="WEN-VN-XNo" firstAttribute="top" secondItem="U8H-iB-zSG" secondAttribute="bottom" constant="16" id="zxR-fz-JSB"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="o7O-kV-jZX">
                         <barButtonItem key="rightBarButtonItem" style="done" id="JEB-sd-4qv">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" id="kD1-ot-jEg">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" id="kD1-ot-jEg">
                                 <rect key="frame" x="337" y="6" width="40" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
@@ -73,8 +118,12 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="logo1" width="1024" height="1024"/>
+        <namedColor name="AppColor1">
+            <color red="0.58039215686274515" green="0.70588235294117652" blue="0.62352941176470589" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="AppColor3">
+            <color red="0.9882352941176471" green="0.97254901960784312" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

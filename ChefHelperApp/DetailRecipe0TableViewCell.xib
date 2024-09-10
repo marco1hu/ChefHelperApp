@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGu-9k-Xr5">
-                        <rect key="frame" x="20" y="8" width="431" height="45.666666666666664"/>
+                        <rect key="frame" x="20" y="8" width="383" height="45.666666666666664"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="38"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -38,27 +39,49 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QDv-LF-DEl">
+                        <rect key="frame" x="419" y="16" width="32" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="32" id="v6u-mo-rpS"/>
+                            <constraint firstAttribute="height" constant="32" id="xc8-pw-Z4g"/>
+                        </constraints>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal">
+                            <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
+                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                        </state>
+                        <state key="selected">
+                            <imageReference key="image" image="heart.fill" catalog="system" symbolScale="large"/>
+                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                        </state>
+                        <connections>
+                            <action selector="heartPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="xqf-HS-kvw"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="gGu-9k-Xr5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="QIT-DW-8nj"/>
+                    <constraint firstItem="QDv-LF-DEl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="EBs-cO-0Ez"/>
                     <constraint firstAttribute="trailing" secondItem="ThS-oz-wy3" secondAttribute="trailing" constant="20" id="Vy6-EK-QRH"/>
-                    <constraint firstItem="gGu-9k-Xr5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="W3A-t0-0nP"/>
                     <constraint firstItem="FWR-wM-lmj" firstAttribute="top" secondItem="scM-un-2oc" secondAttribute="bottom" constant="8" id="WOf-lA-Cu2"/>
                     <constraint firstItem="FWR-wM-lmj" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Xs2-7L-6pQ"/>
                     <constraint firstAttribute="bottom" secondItem="ThS-oz-wy3" secondAttribute="bottom" constant="8" id="ZNq-lj-CKh"/>
-                    <constraint firstAttribute="trailing" secondItem="gGu-9k-Xr5" secondAttribute="trailing" constant="20" id="b5p-nT-GkO"/>
+                    <constraint firstItem="QDv-LF-DEl" firstAttribute="leading" secondItem="gGu-9k-Xr5" secondAttribute="trailing" constant="16" id="aaF-VM-wsZ"/>
                     <constraint firstAttribute="trailing" secondItem="scM-un-2oc" secondAttribute="trailing" constant="20" id="bQA-IN-P6X"/>
                     <constraint firstItem="ThS-oz-wy3" firstAttribute="top" secondItem="FWR-wM-lmj" secondAttribute="bottom" constant="8" id="eBu-Za-qXS"/>
+                    <constraint firstAttribute="trailing" secondItem="QDv-LF-DEl" secondAttribute="trailing" constant="20" id="gHh-Py-QBx"/>
                     <constraint firstItem="scM-un-2oc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="hod-se-mpc"/>
+                    <constraint firstItem="scM-un-2oc" firstAttribute="top" secondItem="gGu-9k-Xr5" secondAttribute="bottom" constant="8" id="j2j-Ju-GG5"/>
                     <constraint firstItem="FWR-wM-lmj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="ltC-yB-eAn"/>
-                    <constraint firstItem="scM-un-2oc" firstAttribute="top" secondItem="gGu-9k-Xr5" secondAttribute="bottom" constant="8" id="q3z-lM-ll2"/>
+                    <constraint firstItem="gGu-9k-Xr5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="m7d-T9-U6N"/>
                     <constraint firstItem="ThS-oz-wy3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="qKJ-EX-7on"/>
+                    <constraint firstItem="gGu-9k-Xr5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="wps-RM-509"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" name="AppColor3"/>
             <connections>
                 <outlet property="authorLabel" destination="ThS-oz-wy3" id="hLT-mc-cSt"/>
+                <outlet property="heartButton" destination="QDv-LF-DEl" id="a6j-Dv-PcZ"/>
                 <outlet property="recipeMainImageView" destination="FWR-wM-lmj" id="LCn-NJ-Ex6"/>
                 <outlet property="subtitleLabel" destination="scM-un-2oc" id="5gJ-4a-iIa"/>
                 <outlet property="titleLabel" destination="gGu-9k-Xr5" id="ue0-h6-kGI"/>
@@ -67,6 +90,8 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="heart.fill" catalog="system" width="128" height="107"/>
         <namedColor name="AppColor3">
             <color red="0.9882352941176471" green="0.97254901960784312" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
