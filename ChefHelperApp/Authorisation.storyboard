@@ -78,7 +78,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="o7O-kV-jZX">
                         <barButtonItem key="rightBarButtonItem" style="done" id="JEB-sd-4qv">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" id="kD1-ot-jEg">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" id="kD1-ot-jEg">
                                 <rect key="frame" x="337" y="6" width="40" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
@@ -93,6 +93,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="logInBtn" destination="U8H-iB-zSG" id="kYX-tS-Gpf"/>
+                        <outlet property="logoView" destination="jSr-TV-9rr" id="vdJ-gv-oZA"/>
+                        <outlet property="signUpBtn" destination="WEN-VN-XNo" id="nSK-G0-8My"/>
+                        <outlet property="titleLbl" destination="GXt-KK-2FM" id="LhA-qc-2a7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
