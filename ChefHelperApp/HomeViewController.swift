@@ -176,11 +176,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     //MARK: - Filter Logics
     
-    private func handleFilterByCategories(){
-        //TODO: Logica filtri per categorie
-        
-    }
-    
     private func handleSelectionCategory(category: String) {
         selectedCategories.append(category)
         
@@ -188,34 +183,31 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             let recipeCategoriesSet = Set(recipe.categorie)
             let selectedCategoriesSet = Set(selectedCategories)
             
-            return !recipeCategoriesSet.isDisjoint(with: selectedCategoriesSet)
+            // Mostra solo le ricette che contengono tutte le categorie selezionate
+            return selectedCategoriesSet.isSubset(of: recipeCategoriesSet)
         }
-        
         
         recipesCollectionView.reloadData()
     }
-    
-    
-    private func handleDeselectionCategory(category: String){
+
+    private func handleDeselectionCategory(category: String) {
         selectedCategories.removeAll { $0 == category }
         
-        shownRecipes = allRecipes.filter({ recipe in
-            for category in self.selectedCategories{
-                if recipe.categorie.contains(category){
-                    return true
-                }else{
-                    return false
-                }
-            }
-            return false
-        })
-        
-        if selectedCategories.isEmpty{
+        if selectedCategories.isEmpty {
             shownRecipes = allRecipes
+        } else {
+            shownRecipes = allRecipes.filter { recipe in
+                let recipeCategoriesSet = Set(recipe.categorie)
+                let selectedCategoriesSet = Set(selectedCategories)
+                
+                // Mostra solo le ricette che contengono tutte le categorie selezionate
+                return selectedCategoriesSet.isSubset(of: recipeCategoriesSet)
+            }
         }
         
         recipesCollectionView.reloadData()
     }
+
 }
 
 
@@ -236,7 +228,7 @@ extension HomeViewController{
         self.allRecipes = [
             RecipeModel(id: 0, title: "Spaghetti Cacio e Pepe", image: UIImage(named: "spagCacioPepe.jpeg")!, categorie: ["Primo"], dataId: 0, recipePostingDate: "2024-09-02" ),
             RecipeModel(id: 1, title: "Pasta Carbonara", image: UIImage(named: "carbonara.png")!, categorie: ["Primo"], dataId: 1, recipePostingDate: "2024-09-02" ),
-            RecipeModel(id: 2,  title: "Rattaouille", image: UIImage(named: "ratatouille.jpeg")!, categorie: ["Contorno"], dataId: 2, recipePostingDate: "2024-09-02"),
+            RecipeModel(id: 2,  title: "Rattaouille", image: UIImage(named: "ratatouille.jpeg")!, categorie: ["Contorno", "Senza glutine"], dataId: 2, recipePostingDate: "2024-09-02"),
             RecipeModel(id: 3, title: "Ravioli cinesi al vapore", image: UIImage(named: "ravioli.jpeg")!, categorie: ["Etnico"], dataId: 3, recipePostingDate: "2024-09-02"),
             RecipeModel(id: 4, title: "Spaghetti Alfredo", image: UIImage(named: "spagAlfredo.jpeg")!, categorie: ["Primo"], dataId: 4, recipePostingDate: "2024-09-02"),
             RecipeModel(id: 5, title: "Spaghetti allo Scoglio", image: UIImage(named: "spagScoglio.jpeg")!, categorie: ["Primo"], dataId: 5, recipePostingDate: "2024-09-02"),
@@ -248,7 +240,7 @@ extension HomeViewController{
             RecipeModel(id: 11, title: "1Spaghetti allo Scoglio", image: UIImage(named: "spagScoglio.jpeg")!, categorie: ["Primo"], dataId: 5, recipePostingDate: "2024-09-02"),
             RecipeModel(id: 0, title: "Spaghetti Cacio e Pepe", image: UIImage(named: "spagCacioPepe.jpeg")!, categorie:["Primo"], dataId: 0, recipePostingDate: "2024-09-02" ),
             RecipeModel(id: 12, title: "2Pasta Carbonara", image: UIImage(named: "carbonara.png")!, categorie: ["Primo"], dataId: 1, recipePostingDate: "2024-09-02" ),
-            RecipeModel(id: 13,  title: "2Rattaouille", image: UIImage(named: "ratatouille.jpeg")!, categorie: ["Contorno", "Salsa"], dataId: 2, recipePostingDate: "2024-09-02"),
+            RecipeModel(id: 13,  title: "2Rattaouille", image: UIImage(named: "ratatouille.jpeg")!, categorie: ["Contorno", "Salsa", "Senza glutine"], dataId: 2, recipePostingDate: "2024-09-02"),
             RecipeModel(id: 14, title: "2Ravioli cinesi al vapore", image: UIImage(named: "ravioli.jpeg")!, categorie: ["Etnico", "Antipasto"], dataId: 3, recipePostingDate: "2024-09-02"),
             RecipeModel(id: 15, title: "2Spaghetti Alfredo", image: UIImage(named: "spagAlfredo.jpeg")!, categorie: ["Primo"], dataId: 4, recipePostingDate: "2024-09-02"),
             RecipeModel(id: 16, title: "2Spaghetti allo Scoglio", image: UIImage(named: "spagScoglio.jpeg")!, categorie: ["Primo"], dataId: 5, recipePostingDate: "2024-09-02"),

@@ -9,19 +9,88 @@ import UIKit
 import Lottie
 
 class AuthorisationViewController: UIViewController {
-
+    
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var logoView: UIImageView!
+    
+    let animationView = LottieAnimationView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupUI()
+        animateElements()
+        startAnimation()
     }
-        
-    @IBOutlet weak var titleLbl: UILabel!
-    @IBOutlet weak var signUpBtn: UIButton!
-    @IBOutlet weak var logInBtn: UIButton!
-    @IBOutlet weak var logoView: UIImageView!
 
+    private func setupUI(){
+        registerButton.layer.cornerRadius = 15
+        loginButton.layer.cornerRadius = 15
+        
+        logoView.transform = CGAffineTransform(translationX: 0, y: 20)
+        loginButton.transform = CGAffineTransform(translationX: 0, y: 20)
+        registerButton.transform = CGAffineTransform(translationX: 0, y: 20)
+       
+        
+    }
+    
+    
     @IBAction func handleCancel(_ sender: Any) {
         self.dismiss(animated: true)
+    }
+    
+    
+    
+    
+    private func animateElements(){
+        let duration = 1.0
+        let delayIncrement = 0.3
+
+        titleLbl.text = ""
+        var charIndex: Double = 0
+        let titleText = "Chef Helper"
+        
+        for letter in titleText{
+            Timer.scheduledTimer(withTimeInterval: 0.2 * charIndex, repeats: false) { _ in
+                self.titleLbl.text?.append(letter)
+            }
+            charIndex += 1
+        }
+        
+        UIView.animate(withDuration: duration, delay: 0.0, options: [.curveEaseInOut], animations: {
+            self.logoView.alpha = 1.0
+            self.logoView.transform = .identity
+        }, completion: nil)
+        
+        UIView.animate(withDuration: duration, delay: delayIncrement, options: [.curveEaseInOut], animations: {
+            self.loginButton.alpha = 1.0
+            self.loginButton.transform = .identity
+        }, completion: nil)
+        
+        UIView.animate(withDuration: duration, delay: delayIncrement * 2, options: [.curveEaseInOut], animations: {
+            self.registerButton.alpha = 1.0
+            self.registerButton.transform = .identity
+            self.registerButton.transform = .identity
+            
+        }, completion: nil)
+        
+    }
+    
+    private func startAnimation(){
+        let animation = LottieAnimation.named("PersonCooking")
+        
+        animationView.animation = animation
+        animationView.isUserInteractionEnabled = false
+                    
+        animationView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width-self.view.frame.width/5, height: 800)
+        animationView.center = self.view.center
+        
+        animationView.loopMode = .loop
+        animationView.animationSpeed = 1.5
+        animationView.play()
+        self.view.addSubview(animationView)
+        
     }
 }

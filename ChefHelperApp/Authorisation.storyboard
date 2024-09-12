@@ -94,9 +94,9 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="logInBtn" destination="U8H-iB-zSG" id="kYX-tS-Gpf"/>
+                        <outlet property="loginButton" destination="U8H-iB-zSG" id="kYX-tS-Gpf"/>
                         <outlet property="logoView" destination="jSr-TV-9rr" id="vdJ-gv-oZA"/>
-                        <outlet property="signUpBtn" destination="WEN-VN-XNo" id="nSK-G0-8My"/>
+                        <outlet property="registerButton" destination="WEN-VN-XNo" id="nSK-G0-8My"/>
                         <outlet property="titleLbl" destination="GXt-KK-2FM" id="LhA-qc-2a7"/>
                     </connections>
                 </viewController>

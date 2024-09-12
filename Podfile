@@ -6,7 +6,7 @@ target 'ChefHelperApp' do
   use_frameworks!
 
   # Pods for ChefHelperApp
-  pod 'lottie-ios', '~> 3.4.0'
+   pod 'lottie-ios', '4.4.3'
 
   target 'ChefHelperAppTests' do
     inherit! :search_paths

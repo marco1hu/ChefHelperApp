@@ -20,7 +20,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     //MARK: - Methods
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         
-        if tabBarController.selectedIndex == 3{
+        if tabBarController.selectedIndex == 3 || tabBarController.selectedIndex == 2 {
             let isLogged = UserDefaults.standard.bool(forKey: "userLogged")
             if !isLogged{
                 

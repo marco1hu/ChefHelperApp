@@ -15,6 +15,7 @@
 		38253A252C87542F008FA9F8 /* DetailRecipe1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38253A232C87542F008FA9F8 /* DetailRecipe1TableViewCell.xib */; };
 		38253A2D2C875A29008FA9F8 /* DifficultyLevelComponent.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38253A2C2C875A29008FA9F8 /* DifficultyLevelComponent.xib */; };
 		38253A2F2C875A3F008FA9F8 /* DifficultyLevelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38253A2E2C875A3F008FA9F8 /* DifficultyLevelComponent.swift */; };
+		384ED3C62C933CBE0095D509 /* PersonCooking.json in Resources */ = {isa = PBXBuildFile; fileRef = 384ED3C52C933CBE0095D509 /* PersonCooking.json */; };
 		3896DF862C83EE6400C3AF25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DF852C83EE6400C3AF25 /* AppDelegate.swift */; };
 		3896DF882C83EE6400C3AF25 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896DF872C83EE6400C3AF25 /* SceneDelegate.swift */; };
 		3896DF8D2C83EE6400C3AF25 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3896DF8C2C83EE6400C3AF25 /* Base */; };
@@ -88,6 +89,7 @@
 		38253A232C87542F008FA9F8 /* DetailRecipe1TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailRecipe1TableViewCell.xib; sourceTree = "<group>"; };
 		38253A2C2C875A29008FA9F8 /* DifficultyLevelComponent.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DifficultyLevelComponent.xib; sourceTree = "<group>"; };
 		38253A2E2C875A3F008FA9F8 /* DifficultyLevelComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyLevelComponent.swift; sourceTree = "<group>"; };
+		384ED3C52C933CBE0095D509 /* PersonCooking.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PersonCooking.json; sourceTree = "<group>"; };
 		3896DF822C83EE6400C3AF25 /* ChefHelperApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChefHelperApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3896DF852C83EE6400C3AF25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3896DF872C83EE6400C3AF25 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -214,6 +216,14 @@
 			path = DifficultyLevelComponent;
 			sourceTree = "<group>";
 		};
+		384ED3C42C933C9E0095D509 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				384ED3C52C933CBE0095D509 /* PersonCooking.json */,
+			);
+			name = Animations;
+			sourceTree = "<group>";
+		};
 		3896DF792C83EE6400C3AF25 = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +249,7 @@
 		3896DF842C83EE6400C3AF25 /* ChefHelperApp */ = {
 			isa = PBXGroup;
 			children = (
+				384ED3C42C933C9E0095D509 /* Animations */,
 				3896DFC92C83F18B00C3AF25 /* CustomComponents */,
 				3896DFB82C83EFC000C3AF25 /* MainTabBar */,
 				3896E0152C85CEC800C3AF25 /* SupportingFiles */,
@@ -452,7 +463,6 @@
 				D53A15250435CD06C2C793B9 /* Pods-ChefHelperAppTests.debug.xcconfig */,
 				C587A57098C27B939191B66E /* Pods-ChefHelperAppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -582,6 +592,7 @@
 				3896DF8D2C83EE6400C3AF25 /* Base in Resources */,
 				3896DFF92C840BC900C3AF25 /* TextFieldLeftView.xib in Resources */,
 				3896DFBF2C83F12300C3AF25 /* Home.storyboard in Resources */,
+				384ED3C62C933CBE0095D509 /* PersonCooking.json in Resources */,
 				3896DFC42C83F14200C3AF25 /* Saved.storyboard in Resources */,
 				3896DFC62C83F14A00C3AF25 /* Profile.storyboard in Resources */,
 				3896E0052C840C0700C3AF25 /* RecipeCollectionViewCell.xib in Resources */,
@@ -929,8 +940,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F8J5BWAXX8;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ChefHelperApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ChefHelper;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -958,8 +972,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F8J5BWAXX8;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ChefHelperApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ChefHelper;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
