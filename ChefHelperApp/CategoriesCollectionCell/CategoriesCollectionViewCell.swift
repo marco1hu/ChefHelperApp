@@ -49,6 +49,8 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
             backView.heightAnchor.constraint(equalToConstant: height)
             
         ])
+        
+        
     }
     
     func toggleSelected (){

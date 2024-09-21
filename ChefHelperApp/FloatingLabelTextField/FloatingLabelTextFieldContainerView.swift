@@ -124,10 +124,10 @@ class FloatingLabelTextFieldContainerView: UIView, UITextFieldDelegate {
     private var fLabelFinalConstraints:[NSLayoutConstraint] = []
     
     private var leftView: TextFieldLeftView!
-    private var rightView: TextFieldRightView!
+    var rightView: TextFieldRightView!
     
     
-    private var floatingLabel = UILabel()
+    var floatingLabel = UILabel()
     
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var textfield: UITextField!
@@ -237,7 +237,7 @@ class FloatingLabelTextFieldContainerView: UIView, UITextFieldDelegate {
 
     }
     
-    @objc private func addFloatingLabel() {
+    @objc func addFloatingLabel() {
         if textfield.text == "" {
                         
             NSLayoutConstraint.activate(fLabelInitialConstraints)
@@ -255,7 +255,7 @@ class FloatingLabelTextFieldContainerView: UIView, UITextFieldDelegate {
     }
     
     
-    @objc private func removeFloatingLabel() {
+    @objc func removeFloatingLabel() {
         if textfield.text == "" {
             NSLayoutConstraint.activate(fLabelFinalConstraints)
             self.layoutIfNeeded()
@@ -273,5 +273,15 @@ class FloatingLabelTextFieldContainerView: UIView, UITextFieldDelegate {
     
     @objc private func buttonTapped(_ sender: UIButton){
         textfield.isSecureTextEntry = !textfield.isSecureTextEntry
+    }
+    
+    func resetfLabel(){
+        DispatchQueue.main.async {
+            NSLayoutConstraint.deactivate(self.fLabelFinalConstraints)
+            NSLayoutConstraint.deactivate(self.fLabelInitialConstraints)
+            self.layoutIfNeeded()
+            self.removeFloatingLabel()
+        }
+        
     }
 }

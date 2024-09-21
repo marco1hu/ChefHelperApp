@@ -39,27 +39,33 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WEN-VN-XNo">
-                                <rect key="frame" x="40" y="679" width="313" height="60"/>
+                                <rect key="frame" x="40" y="689" width="313" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="Fn3-Dw-e4h"/>
+                                    <constraint firstAttribute="height" constant="50" id="Fn3-Dw-e4h"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <color key="tintColor" name="AppColor1"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Registrati">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="handleRegisterButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="DNP-FS-qt6"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U8H-iB-zSG">
-                                <rect key="frame" x="40" y="603" width="313" height="60"/>
+                                <rect key="frame" x="40" y="623" width="313" height="50"/>
                                 <color key="backgroundColor" name="AppColor1"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="0rd-L4-1jl"/>
+                                    <constraint firstAttribute="height" constant="50" id="0rd-L4-1jl"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Accedi"/>
+                                <connections>
+                                    <action selector="handleLoginButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="CuK-JL-8u3"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -97,11 +103,33 @@
                         <outlet property="logoView" destination="jSr-TV-9rr" id="vdJ-gv-oZA"/>
                         <outlet property="registerButton" destination="WEN-VN-XNo" id="nSK-G0-8My"/>
                         <outlet property="titleLbl" destination="GXt-KK-2FM" id="LhA-qc-2a7"/>
+                        <segue destination="w43-FG-NJb" kind="show" id="u7Q-U9-jYj"/>
+                        <segue destination="Ahw-Qg-PkT" kind="show" id="ux2-rm-R1w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1057.2519083969464" y="-34.507042253521128"/>
+        </scene>
+        <!--Registration-->
+        <scene sceneID="Glp-1c-7fk">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Registration" storyboardName="Registration" id="w43-FG-NJb" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="6h8-Dv-CWz"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I0Z-TJ-MzZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2053" y="-277"/>
+        </scene>
+        <!--Login-->
+        <scene sceneID="mvJ-u1-b4V">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Login" storyboardName="Login" id="Ahw-Qg-PkT" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Pyc-Ln-Oto"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TE7-Ys-CMC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2053" y="154"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2cG-u7-dcN">

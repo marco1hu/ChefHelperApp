@@ -173,6 +173,14 @@ final class FloatingLabelTextField: UIView {
         }
     }
     
+    /// BackgroundColor
+    var FLTextFieldBackgroundColor: UIColor?{
+        didSet{
+            self.backgroundColor = FLTextFieldBackgroundColor
+            self.containerView.backgroundColor = FLTextFieldBackgroundColor
+            self.containerView.floatingLabel.backgroundColor = FLTextFieldBackgroundColor
+        }
+    }
     
     @IBOutlet private var contentView: UIView!
     @IBOutlet weak var containerView: FloatingLabelTextFieldContainerView!
@@ -214,6 +222,11 @@ final class FloatingLabelTextField: UIView {
     public func reDrawTextField(){
         self.containerView.changeColorTextFieldFromOriginal = false
         self.containerView.reDrawBorder()
+    }
+    
+    public func deleteAllText(){
+        self.containerView.textfield.text  = ""
+        self.containerView.resetfLabel()
     }
     
     

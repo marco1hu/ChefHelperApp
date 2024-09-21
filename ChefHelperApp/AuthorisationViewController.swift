@@ -17,6 +17,8 @@ class AuthorisationViewController: UIViewController {
     
     let animationView = LottieAnimationView()
     
+    
+    //MARK: - App Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,20 +34,27 @@ class AuthorisationViewController: UIViewController {
         logoView.transform = CGAffineTransform(translationX: 0, y: 20)
         loginButton.transform = CGAffineTransform(translationX: 0, y: 20)
         registerButton.transform = CGAffineTransform(translationX: 0, y: 20)
-       
         
+        navigationItem.backBarButtonItem = UIBarButtonItem(
+            title: "Indietro", style: .plain, target: nil, action: nil)
     }
     
-    
+    //MARK: - IBActions
     @IBAction func handleCancel(_ sender: Any) {
         self.dismiss(animated: true)
     }
     
+    @IBAction func handleLoginButton(_ sender: UIButton) {
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "Login") as? LoginViewController else { return }
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
+    @IBAction func handleRegisterButton(_ sender: UIButton) {
+    }
     
-    
+    //MARK: - Animations
     private func animateElements(){
-        let duration = 1.0
+        let duration = 0.8
         let delayIncrement = 0.3
 
         titleLbl.text = ""
@@ -91,6 +100,7 @@ class AuthorisationViewController: UIViewController {
         animationView.animationSpeed = 1.5
         animationView.play()
         self.view.addSubview(animationView)
+        
         
     }
 }
