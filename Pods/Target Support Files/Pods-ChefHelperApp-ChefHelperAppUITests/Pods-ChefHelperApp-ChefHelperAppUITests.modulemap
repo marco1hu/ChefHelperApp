@@ -1,0 +1,6 @@
+framework module Pods_ChefHelperApp_ChefHelperAppUITests {
+  umbrella header "Pods-ChefHelperApp-ChefHelperAppUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
