@@ -11,7 +11,7 @@ import UIKit
 public class RecipeModel{
     let id: Int
     let title: String
-    let image: UIImage //TODO: Image Base64??
+    let image: UIImage
     let categorie: [String]
     let dataId: Int
     let recipePostingDate: String
