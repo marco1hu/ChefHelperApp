@@ -66,10 +66,10 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
     }
     
     func setSelected(){
-        backView.backgroundColor = #colorLiteral(red: 0.5803921569, green: 0.7058823529, blue: 0.6235294118, alpha: 1)
+        backView.backgroundColor = #colorLiteral(red: 0.9254901961, green: 0.7019607843, blue: 0.5647058824, alpha: 1)
     }
     
     func setDeselected(){
-        backView.backgroundColor = #colorLiteral(red: 0.9882352941, green: 0.9725490196, blue: 0.9098039216, alpha: 1)
+        backView.backgroundColor = #colorLiteral(red: 0.9254901961, green: 0.8671232717, blue: 0.7085848917, alpha: 1)
     }
 }

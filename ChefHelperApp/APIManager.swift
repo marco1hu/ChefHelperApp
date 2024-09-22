@@ -12,6 +12,8 @@ import Alamofire
 class APIManager {
     static let shared = APIManager()
     
+    var dataList: [RecipeModel] = []
+    
     /// Configurazione (custom) del session manager
     let sessionManager: Session = {
         let configuration = URLSessionConfiguration.af.default

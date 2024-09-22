@@ -224,33 +224,7 @@ extension HomeViewController{
     
     private func getRecipes(){
         //TODO: chiamata API
-        
-        self.allRecipes = [
-            RecipeModel(id: 0, title: "Spaghetti Cacio e Pepe", image: UIImage(named: "spagCacioPepe.jpeg")!, categorie: ["Primo"], dataId: 0, recipePostingDate: "2024-09-02" ),
-            RecipeModel(id: 1, title: "Pasta Carbonara", image: UIImage(named: "carbonara.png")!, categorie: ["Primo"], dataId: 1, recipePostingDate: "2024-09-02" ),
-            RecipeModel(id: 2,  title: "Rattaouille", image: UIImage(named: "ratatouille.jpeg")!, categorie: ["Contorno", "Senza glutine"], dataId: 2, recipePostingDate: "2024-09-02"),
-            RecipeModel(id: 3, title: "Ravioli cinesi al vapore", image: UIImage(named: "ravioli.jpeg")!, categorie: ["Etnico"], dataId: 3, recipePostingDate: "2024-09-02"),
-            RecipeModel(id: 4, title: "Spaghetti Alfredo", image: UIImage(named: "spagAlfredo.jpeg")!, categorie: ["Primo"], dataId: 4, recipePostingDate: "2024-09-02"),
-            RecipeModel(id: 5, title: "Spaghetti allo Scoglio", image: UIImage(named: "spagScoglio.jpeg")!, categorie: ["Primo"], dataId: 5, recipePostingDate: "2024-09-02"),
-            RecipeModel(id: 6, title: "1Spaghetti Cacio e Pepe", image: UIImage(named: "spagCacioPepe.jpeg")!, categorie: ["Primo"], dataId: 0, recipePostingDate: "2024-09-02" ),
-            RecipeModel(id: 7, title: "1Pasta Carbonara", image: UIImage(named: "carbonara.png")!, categorie:["Primo"], dataId: 1, recipePostingDate: "2024-09-02" ),
-            RecipeModel(id: 8,  title: "1Rattaouille", image: UIImage(named: "ratatouille.jpeg")!, categorie: ["Contorno"], dataId: 2, recipePostingDate: "2024-09-02"),
-            RecipeModel(id: 9, title: "1Ravioli cinesi al vapore", image: UIImage(named: "ravioli.jpeg")!, categorie: ["Antipasto"], dataId: 3, recipePostingDate: "2024-09-02"),
-            RecipeModel(id: 10, title: "1Spaghetti Alfredo", image: UIImage(named: "spagAlfredo.jpeg")!, categorie: ["Primo"], dataId: 4, recipePostingDate: "2024-09-02"),
-            RecipeModel(id: 11, title: "1Spaghetti allo Scoglio", image: UIImage(named: "spagScoglio.jpeg")!, categorie: ["Primo"], dataId: 5, recipePostingDate: "2024-09-02"),
-            RecipeModel(id: 0, title: "Spaghetti Cacio e Pepe", image: UIImage(named: "spagCacioPepe.jpeg")!, categorie:["Primo"], dataId: 0, recipePostingDate: "2024-09-02" ),
-            RecipeModel(id: 12, title: "2Pasta Carbonara", image: UIImage(named: "carbonara.png")!, categorie: ["Primo"], dataId: 1, recipePostingDate: "2024-09-02" ),
-            RecipeModel(id: 13,  title: "2Rattaouille", image: UIImage(named: "ratatouille.jpeg")!, categorie: ["Contorno", "Salsa", "Senza glutine"], dataId: 2, recipePostingDate: "2024-09-02"),
-            RecipeModel(id: 14, title: "2Ravioli cinesi al vapore", image: UIImage(named: "ravioli.jpeg")!, categorie: ["Etnico", "Antipasto"], dataId: 3, recipePostingDate: "2024-09-02"),
-            RecipeModel(id: 15, title: "2Spaghetti Alfredo", image: UIImage(named: "spagAlfredo.jpeg")!, categorie: ["Primo"], dataId: 4, recipePostingDate: "2024-09-02"),
-            RecipeModel(id: 16, title: "2Spaghetti allo Scoglio", image: UIImage(named: "spagScoglio.jpeg")!, categorie: ["Primo"], dataId: 5, recipePostingDate: "2024-09-02"),
-            RecipeModel(id: 17, title: "2Spaghetti Cacio e Pepe", image: UIImage(named: "spagCacioPepe.jpeg")!, categorie: ["Primo"], dataId: 0, recipePostingDate: "2024-09-02" ),
-            RecipeModel(id: 18, title: "3Pasta Carbonara", image: UIImage(named: "carbonara.png")!, categorie: ["Primo"], dataId: 1, recipePostingDate: "2024-09-02" ),
-            RecipeModel(id: 19,  title: "3Rattaouille", image: UIImage(named: "ratatouille.jpeg")!, categorie: ["Contorno"], dataId: 2, recipePostingDate: "2024-09-02"),
-            RecipeModel(id: 20, title: "3Ravioli cinesi al vapore", image: UIImage(named: "ravioli.jpeg")!, categorie: ["Antipasto"], dataId: 3, recipePostingDate: "2024-09-02"),
-            RecipeModel(id: 21, title: "3Spaghetti Alfredo", image: UIImage(named: "spagAlfredo.jpeg")!, categorie: ["Primo"], dataId: 4, recipePostingDate: "2024-09-02"),
-            RecipeModel(id: 22, title: "3Spaghetti allo Scoglio", image: UIImage(named: "spagScoglio.jpeg")!, categorie: ["Primo"], dataId: 5, recipePostingDate: "2024-09-02")
-        ]
+        self.allRecipes = APIManager.shared.dataList
         shownRecipes = allRecipes
     }
     

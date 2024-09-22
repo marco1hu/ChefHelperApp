@@ -66,6 +66,8 @@
 		3896E0102C85C89600C3AF25 /* DetailRecipe.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3896E00F2C85C89600C3AF25 /* DetailRecipe.storyboard */; };
 		3896E0122C85C8E100C3AF25 /* DetailRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896E0112C85C8E100C3AF25 /* DetailRecipeViewController.swift */; };
 		3896E0142C85CEBD00C3AF25 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3896E0132C85CEBD00C3AF25 /* Utilities.swift */; };
+		38A9E65E2CA06F9000A52491 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A9E65C2CA06F9000A52491 /* SearchTableViewCell.swift */; };
+		38A9E65F2CA06F9000A52491 /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38A9E65D2CA06F9000A52491 /* SearchTableViewCell.xib */; };
 		38D8A3922C90325200AFB151 /* DetailRecipe2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D8A3902C90325200AFB151 /* DetailRecipe2TableViewCell.swift */; };
 		38D8A3932C90325200AFB151 /* DetailRecipe2TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38D8A3912C90325200AFB151 /* DetailRecipe2TableViewCell.xib */; };
 		FBA2CDE7E63D7BF663C2579B /* Pods_ChefHelperAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FF8F42572F2AAEC8AAE8AE6 /* Pods_ChefHelperAppTests.framework */; };
@@ -149,6 +151,8 @@
 		3896E00F2C85C89600C3AF25 /* DetailRecipe.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailRecipe.storyboard; sourceTree = "<group>"; };
 		3896E0112C85C8E100C3AF25 /* DetailRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRecipeViewController.swift; sourceTree = "<group>"; };
 		3896E0132C85CEBD00C3AF25 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		38A9E65C2CA06F9000A52491 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		38A9E65D2CA06F9000A52491 /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		38D8A3902C90325200AFB151 /* DetailRecipe2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRecipe2TableViewCell.swift; sourceTree = "<group>"; };
 		38D8A3912C90325200AFB151 /* DetailRecipe2TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailRecipe2TableViewCell.xib; sourceTree = "<group>"; };
 		3FF8F42572F2AAEC8AAE8AE6 /* Pods_ChefHelperAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChefHelperAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -376,6 +380,7 @@
 		3896DFC92C83F18B00C3AF25 /* CustomComponents */ = {
 			isa = PBXGroup;
 			children = (
+				38A9E65B2CA06F6F00A52491 /* SearchTableViewCell */,
 				38253A272C8756C8008FA9F8 /* DifficultyLevelComponent */,
 				38253A262C875481008FA9F8 /* DetailCells */,
 				3896DFF32C840BC900C3AF25 /* FloatingLabelTextField */,
@@ -474,6 +479,15 @@
 				3896E0132C85CEBD00C3AF25 /* Utilities.swift */,
 			);
 			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		38A9E65B2CA06F6F00A52491 /* SearchTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				38A9E65C2CA06F9000A52491 /* SearchTableViewCell.swift */,
+				38A9E65D2CA06F9000A52491 /* SearchTableViewCell.xib */,
+			);
+			path = SearchTableViewCell;
 			sourceTree = "<group>";
 		};
 		38D8A38F2C90321300AFB151 /* Detail2RecipeCell */ = {
@@ -640,6 +654,7 @@
 				384C93C82C96E38600101FBF /* Registration.storyboard in Resources */,
 				3896DFC42C83F14200C3AF25 /* Saved.storyboard in Resources */,
 				3896DFC62C83F14A00C3AF25 /* Profile.storyboard in Resources */,
+				38A9E65F2CA06F9000A52491 /* SearchTableViewCell.xib in Resources */,
 				3896E0052C840C0700C3AF25 /* RecipeCollectionViewCell.xib in Resources */,
 				3896DFFF2C840BE800C3AF25 /* CategoriesCollectionViewCell.xib in Resources */,
 				38D8A3932C90325200AFB151 /* DetailRecipe2TableViewCell.xib in Resources */,
@@ -788,6 +803,7 @@
 				3896DFFA2C840BC900C3AF25 /* TextFieldRightView.swift in Sources */,
 				38253A2F2C875A3F008FA9F8 /* DifficultyLevelComponent.swift in Sources */,
 				3896DFDD2C83F66400C3AF25 /* Router.swift in Sources */,
+				38A9E65E2CA06F9000A52491 /* SearchTableViewCell.swift in Sources */,
 				38253A1E2C874414008FA9F8 /* DetailRecipe0TableViewCell.swift in Sources */,
 				3896DFD42C83F5D700C3AF25 /* APIManager.swift in Sources */,
 				3896DFF82C840BC900C3AF25 /* TextFieldLeftView.swift in Sources */,
