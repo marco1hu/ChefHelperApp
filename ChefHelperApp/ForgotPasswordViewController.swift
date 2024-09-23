@@ -18,6 +18,11 @@ class ForgotPasswordViewController: UIViewController {
     
     private func setupUI(){
         emailTextField.cornerRadius = 15
+        emailTextField.placeholder = "Email"
+        emailTextField.leftImage = "icon.person.png"
+        emailTextField.FLTextFieldBackgroundColor = UIColor.appColor3
+        emailTextField.containerView.textfield.textContentType = .emailAddress
+        emailTextField.containerView.textfield.keyboardType = .emailAddress
     }
     
     

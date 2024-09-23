@@ -17,6 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo1" translatesAutoresizingMaskIntoConstraints="NO" id="hro-1c-GlG">
+                                <rect key="frame" x="156.66666666666666" y="109" width="80" height="81.333333333333314"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hro-1c-GlG" secondAttribute="height" multiplier="131:133" id="O3b-Wn-CZ9"/>
+                                    <constraint firstAttribute="width" constant="80" id="dEg-yl-Y9r"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SignUp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zqM-UM-Ra2">
                                 <rect key="frame" x="40" y="214.33333333333331" width="313" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -31,31 +38,31 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="79I-ij-3Fo">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="79I-ij-3Fo">
                                 <rect key="frame" x="32" y="356" width="329" height="280"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rg8-A7-pME" customClass="FloatingLabelTextField" customModule="ChefHelperApp" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rg8-A7-pME" customClass="FloatingLabelTextField" customModule="ChefHelperApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="329" height="70"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="6q6-Bz-y0q"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aWa-qZ-VOm" customClass="FloatingLabelTextField" customModule="ChefHelperApp" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aWa-qZ-VOm" customClass="FloatingLabelTextField" customModule="ChefHelperApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="70" width="329" height="70"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="eOs-wi-RDJ"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="juq-9r-MCm" customClass="FloatingLabelTextField" customModule="ChefHelperApp" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="juq-9r-MCm" customClass="FloatingLabelTextField" customModule="ChefHelperApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="140" width="329" height="70"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="XVx-BK-t9V"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y9L-Iq-Akc" customClass="FloatingLabelTextField" customModule="ChefHelperApp" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y9L-Iq-Akc" customClass="FloatingLabelTextField" customModule="ChefHelperApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="210" width="329" height="70"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -64,7 +71,7 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pmy-cm-q6O">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pmy-cm-q6O">
                                 <rect key="frame" x="40" y="698" width="313" height="50"/>
                                 <color key="backgroundColor" name="AppColor1"/>
                                 <constraints>
@@ -83,6 +90,12 @@
                         <color key="backgroundColor" name="AppColor3"/>
                         <constraints>
                             <constraint firstItem="Pmy-cm-q6O" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="0rD-Iq-Gl4"/>
+                            <constraint firstItem="Pmy-cm-q6O" firstAttribute="centerX" secondItem="79I-ij-3Fo" secondAttribute="centerX" id="7t7-hZ-JMP"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Pmy-cm-q6O" secondAttribute="bottom" constant="70" id="Fb9-Xy-bt7"/>
+                            <constraint firstItem="79I-ij-3Fo" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="32" id="G1Q-bE-IWM"/>
+                            <constraint firstItem="Pmy-cm-q6O" firstAttribute="top" secondItem="79I-ij-3Fo" secondAttribute="bottom" constant="62" id="MIe-13-nMZ"/>
+                            <constraint firstItem="zqM-UM-Ra2" firstAttribute="top" secondItem="hro-1c-GlG" secondAttribute="bottom" constant="24" id="anD-nF-fQd"/>
+                            <constraint firstItem="hro-1c-GlG" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="j0J-y3-uT0"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Pmy-cm-q6O" secondAttribute="trailing" constant="40" id="tHc-lM-fyc"/>
                         </constraints>
                     </view>
@@ -100,6 +113,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="logo1" width="1024" height="1024"/>
         <namedColor name="AppColor1">
             <color red="0.58039215686274515" green="0.70588235294117652" blue="0.62352941176470589" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

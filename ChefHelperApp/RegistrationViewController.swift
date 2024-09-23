@@ -40,23 +40,39 @@ class RegistrationViewController: UIViewController {
         signUpButton.layer.cornerRadius = 15
         emailTextField.cornerRadius = 15
         passwordTextField.cornerRadius = 15
-        
+        nomeTextField.cornerRadius = 15
+        confirmPasswordTextField.cornerRadius = 15
+
+        emailTextField.placeholder = "Email"
         emailTextField.leftImage = "icon.person.png"
+
+        passwordTextField.placeholder = "Password"
         passwordTextField.leftImage = "icon.lock.png"
         passwordTextField.rightImageOn = "x-eye-icon.png"
         passwordTextField.rightImageOff = "eye-icon.png"
-        emailTextField.placeholder = "Username"
-        passwordTextField.placeholder = "Password"
-        emailTextField.textfieldTag = 0
-        passwordTextField.textfieldTag = 1
+        
+        nomeTextField.placeholder = "Nome utente"
+        nomeTextField.leftImage = "icon.person.png"
+        
+        confirmPasswordTextField.placeholder = "Conferma password"
+        confirmPasswordTextField.leftImage = "icon.lock.png"
+        confirmPasswordTextField.rightImageOn = "x-eye-icon.png"
+        confirmPasswordTextField.rightImageOff = "eye-icon.png"
+        
+        nomeTextField.textfieldTag = 0
+        emailTextField.textfieldTag = 1
+        passwordTextField.textfieldTag = 2
+        confirmPasswordTextField.textfieldTag = 3
         
         emailTextField.containerView.textfield.textContentType = .emailAddress
         emailTextField.containerView.textfield.keyboardType = .emailAddress
         passwordTextField.containerView.textfield.textContentType = .password
-        
+        confirmPasswordTextField.containerView.textfield.textContentType = .password
         
         emailTextField.FLTextFieldBackgroundColor = UIColor.appColor3
         passwordTextField.FLTextFieldBackgroundColor = UIColor.appColor3
+        nomeTextField.FLTextFieldBackgroundColor = UIColor.appColor3
+        confirmPasswordTextField.FLTextFieldBackgroundColor = UIColor.appColor3
         
     }
     

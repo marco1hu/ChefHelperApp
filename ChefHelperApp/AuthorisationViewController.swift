@@ -48,9 +48,9 @@ class AuthorisationViewController: UIViewController {
     @IBAction func handleLoginButton(_ sender: UIButton) {
             
             if Auth.auth().currentUser != nil {
-                storyboard?.instantiateViewController(withIdentifier: "Login")
-            }else{
                 self.dismiss(animated: true)
+            }else{
+                performSegue(withIdentifier: "Login", sender: nil)
             }
         
     }
@@ -60,7 +60,7 @@ class AuthorisationViewController: UIViewController {
         if Auth.auth().currentUser != nil {
             self.dismiss(animated: true)
         }else{
-            storyboard?.instantiateViewController(withIdentifier: "Registration")
+            performSegue(withIdentifier: "Registration", sender: nil)
         }
         
     }

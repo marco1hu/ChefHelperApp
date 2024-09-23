@@ -47,7 +47,7 @@ class LoginViewController: UIViewController {
         passwordTextField.leftImage = "icon.lock.png"
         passwordTextField.rightImageOn = "x-eye-icon.png"
         passwordTextField.rightImageOff = "eye-icon.png"
-        emailTextField.placeholder = "Username"
+        emailTextField.placeholder = "Email"
         passwordTextField.placeholder = "Password"
         emailTextField.textfieldTag = 0
         passwordTextField.textfieldTag = 1
@@ -90,7 +90,7 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func handleForgotButton(_ sender: UIButton) {
-        storyboard?.instantiateViewController(withIdentifier: "ForgotPw")
+        performSegue(withIdentifier: "ForgotPw", sender: nil)
     }
     
     
