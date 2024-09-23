@@ -103,8 +103,8 @@
                         <outlet property="logoView" destination="jSr-TV-9rr" id="vdJ-gv-oZA"/>
                         <outlet property="registerButton" destination="WEN-VN-XNo" id="nSK-G0-8My"/>
                         <outlet property="titleLbl" destination="GXt-KK-2FM" id="LhA-qc-2a7"/>
-                        <segue destination="w43-FG-NJb" kind="show" id="u7Q-U9-jYj"/>
-                        <segue destination="Ahw-Qg-PkT" kind="show" id="ux2-rm-R1w"/>
+                        <segue destination="w43-FG-NJb" kind="show" identifier="Registration" id="u7Q-U9-jYj"/>
+                        <segue destination="Ahw-Qg-PkT" kind="show" identifier="Login" id="ux2-rm-R1w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

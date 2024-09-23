@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
@@ -64,13 +65,32 @@ class LoginViewController: UIViewController {
     //MARK: - IBActions
     @IBAction func handleLoginButton(_ sender: UIButton) {
         //Logiche di login
+        
         UserDefaults.standard.set(true, forKey: "userLogged")
         self.dismiss(animated: true)
+        
+        if emailTextField.text?.replacingOccurrences(of: " ", with: "") == "" || passwordTextField.text?.replacingOccurrences(of: " ", with: "") == ""  {
+            self.present(Utilities.shared.alertErrorGeneral(error: "Uno o più campi non sono stati compilati."), animated: true)
+        
+        }else {
+            Auth.auth().signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { [weak self] authResult, error in
+                guard let strongSelf = self else { return }
+                
+                if error != nil{
+                    
+                    self!.present(Utilities.shared.alertErrorGeneral(error: "Un errore è stato riscontrato durante l'accesso."), animated: true)
+                    print("Codice errore: \(error!.localizedDescription)")
+                    
+                }else{
+                    self?.dismiss(animated: true)
+                }
+            }
+        }
     }
     
     
     @IBAction func handleForgotButton(_ sender: UIButton) {
-        //Segue view recuopero password
+        storyboard?.instantiateViewController(withIdentifier: "ForgotPw")
     }
     
     

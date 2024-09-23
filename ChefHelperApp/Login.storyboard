@@ -104,7 +104,7 @@
                         <outlet property="forgotPasswordButton" destination="eLM-Yk-9G7" id="o3f-LX-wlv"/>
                         <outlet property="loginButton" destination="4Tk-Rw-FMc" id="JlB-K4-Do1"/>
                         <outlet property="passwordTextField" destination="8Rr-6o-gfg" id="Zeo-ar-Fnn"/>
-                        <segue destination="ycA-Vx-X6i" kind="show" id="Os9-Ka-Rf7"/>
+                        <segue destination="ycA-Vx-X6i" kind="show" identifier="ForgotPw" id="Os9-Ka-Rf7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

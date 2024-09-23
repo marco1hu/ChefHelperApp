@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ForgotPasswordViewController: UIViewController {
     @IBOutlet weak var emailTextField: FloatingLabelTextField!
@@ -18,6 +19,17 @@ class ForgotPasswordViewController: UIViewController {
     private func setupUI(){
         emailTextField.cornerRadius = 15
     }
-
-  
+    
+    
+    @IBAction func handleRecoveryButton(_ sender: Any) {
+        
+        Auth.auth().sendPasswordReset(withEmail: emailTextField.text!) { error in
+            
+            if self.emailTextField.text?.isEmpty==true || error != nil {
+                self.present(Utilities.shared.alertErrorGeneral(error: "Reset fallito"), animated: true)
+                        } else {
+                            self.present(Utilities.shared.alertErrorGeneral(error: "Email di reset inviata"), animated: true)
+                        }
+        }
+    }
 }

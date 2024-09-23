@@ -7,6 +7,7 @@
 
 import UIKit
 import Lottie
+import FirebaseAuth
 
 class AuthorisationViewController: UIViewController {
     
@@ -45,11 +46,23 @@ class AuthorisationViewController: UIViewController {
     }
     
     @IBAction func handleLoginButton(_ sender: UIButton) {
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "Login") as? LoginViewController else { return }
-        navigationController?.pushViewController(vc, animated: true)
+            
+            if Auth.auth().currentUser != nil {
+                storyboard?.instantiateViewController(withIdentifier: "Login")
+            }else{
+                self.dismiss(animated: true)
+            }
+        
     }
     
     @IBAction func handleRegisterButton(_ sender: UIButton) {
+        
+        if Auth.auth().currentUser != nil {
+            self.dismiss(animated: true)
+        }else{
+            storyboard?.instantiateViewController(withIdentifier: "Registration")
+        }
+        
     }
     
     //MARK: - Animations
