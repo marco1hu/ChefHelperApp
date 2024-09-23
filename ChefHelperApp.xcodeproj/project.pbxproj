@@ -93,7 +93,7 @@
 		78A29B592CA07E52009DF7E9 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 78A29B582CA07E52009DF7E9 /* FirebaseStorage */; };
 		78A29B5B2CA07E52009DF7E9 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 78A29B5A2CA07E52009DF7E9 /* FirebaseStorageCombine-Community */; };
 		78A29B5D2CA07E52009DF7E9 /* FirebaseVertexAI-Preview in Frameworks */ = {isa = PBXBuildFile; productRef = 78A29B5C2CA07E52009DF7E9 /* FirebaseVertexAI-Preview */; };
-		78C742652CA1A20D001CFA8D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 78C742642CA1A20D001CFA8D /* GoogleService-Info.plist */; };
+		78C7426B2CA1BCD8001CFA8D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 78C7426A2CA1BCD8001CFA8D /* GoogleService-Info.plist */; };
 		FBA2CDE7E63D7BF663C2579B /* Pods_ChefHelperAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FF8F42572F2AAEC8AAE8AE6 /* Pods_ChefHelperAppTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -181,7 +181,7 @@
 		38D8A3912C90325200AFB151 /* DetailRecipe2TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailRecipe2TableViewCell.xib; sourceTree = "<group>"; };
 		3FF8F42572F2AAEC8AAE8AE6 /* Pods_ChefHelperAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChefHelperAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7637235EF7A8DC3870373D5D /* Pods-ChefHelperApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChefHelperApp.debug.xcconfig"; path = "Target Support Files/Pods-ChefHelperApp/Pods-ChefHelperApp.debug.xcconfig"; sourceTree = "<group>"; };
-		78C742642CA1A20D001CFA8D /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "/Users/ifts50/Downloads/GoogleService-Info.plist"; sourceTree = "<absolute>"; };
+		78C7426A2CA1BCD8001CFA8D /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84EF97684A28F8C8CE7B2871 /* Pods-ChefHelperApp-ChefHelperAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChefHelperApp-ChefHelperAppUITests.release.xcconfig"; path = "Target Support Files/Pods-ChefHelperApp-ChefHelperAppUITests/Pods-ChefHelperApp-ChefHelperAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C587A57098C27B939191B66E /* Pods-ChefHelperAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChefHelperAppTests.release.xcconfig"; path = "Target Support Files/Pods-ChefHelperAppTests/Pods-ChefHelperAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		D53A15250435CD06C2C793B9 /* Pods-ChefHelperAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChefHelperAppTests.debug.xcconfig"; path = "Target Support Files/Pods-ChefHelperAppTests/Pods-ChefHelperAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -353,7 +353,7 @@
 				3896DF932C83EE6600C3AF25 /* LaunchScreen.storyboard */,
 				3896DF962C83EE6600C3AF25 /* Info.plist */,
 				3896DF8E2C83EE6400C3AF25 /* ChefHelperApp.xcdatamodeld */,
-				78C742642CA1A20D001CFA8D /* GoogleService-Info.plist */,
+				78C7426A2CA1BCD8001CFA8D /* GoogleService-Info.plist */,
 			);
 			path = ChefHelperApp;
 			sourceTree = "<group>";
@@ -712,7 +712,7 @@
 			files = (
 				3896DF922C83EE6600C3AF25 /* Assets.xcassets in Resources */,
 				3896DFE52C83F8E800C3AF25 /* Authorisation.storyboard in Resources */,
-				78C742652CA1A20D001CFA8D /* GoogleService-Info.plist in Resources */,
+				78C7426B2CA1BCD8001CFA8D /* GoogleService-Info.plist in Resources */,
 				384C93C42C96E34600101FBF /* Login.storyboard in Resources */,
 				386084B52C9702E000E3FE3F /* ForgotPassword.storyboard in Resources */,
 				3896DFF52C840BC900C3AF25 /* FloatingLabelTextField.xib in Resources */,

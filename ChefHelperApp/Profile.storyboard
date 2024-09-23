@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1pk-aP-8KT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1pk-aP-8KT">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Saved View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="SavedViewController" customModule="ChefHelperApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Y6W-OH-hqX" customClass="ProfileViewController" customModule="ChefHelperApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,15 +23,34 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQV-dN-Svi">
+                                <rect key="frame" x="40" y="599" width="313" height="50"/>
+                                <color key="backgroundColor" name="AppColor1"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="mv9-hk-a40"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="handleLogOut:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="sVr-zh-5qI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="EQV-dN-Svi" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="AxU-Ty-1gz"/>
                             <constraint firstItem="hNt-Bi-4iu" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="YdV-O9-4Wc"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="EQV-dN-Svi" secondAttribute="trailing" constant="40" id="e8a-it-ny2"/>
                             <constraint firstItem="hNt-Bi-4iu" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="jqF-5J-8CM"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="EQV-dN-Svi" secondAttribute="bottom" constant="120" id="tKb-ri-yZU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZqG-N7-VV3"/>
+                    <connections>
+                        <outlet property="logOutButton" destination="EQV-dN-Svi" id="yn3-rw-yj5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -59,6 +79,9 @@
     </scenes>
     <resources>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <namedColor name="AppColor1">
+            <color red="0.58039215686274515" green="0.70588235294117652" blue="0.62352941176470589" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

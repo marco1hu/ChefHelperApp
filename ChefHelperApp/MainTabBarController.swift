@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
 
+    var handle: AuthStateDidChangeListenerHandle?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
@@ -46,22 +49,25 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         
         if tabBarController.selectedIndex == 3 || tabBarController.selectedIndex == 2 {
-            let isLogged = UserDefaults.standard.bool(forKey: "userLogged")
-            if !isLogged{
-                
-                let storyboard = UIStoryboard(name: "Authorisation", bundle: nil)
-                
-                guard let navController = storyboard.instantiateViewController(withIdentifier: "AuthorisationNavigationController") as? UINavigationController else {
-                    print("Failed to instantiate AuthorisationNavigationController")
-                    return
+            
+            handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+
+                if user == nil {
+                    let storyboard = UIStoryboard(name: "Authorisation", bundle: nil)
+                    
+                    guard let navController = storyboard.instantiateViewController(withIdentifier: "AuthorisationNavigationController") as? UINavigationController else {
+                        print("Failed to instantiate AuthorisationNavigationController")
+                        return}
+                    navController.modalPresentationStyle = .fullScreen
+                    self.present(navController, animated: true)
+                    tabBarController.selectedIndex = 0
                 }
-                
-                navController.modalPresentationStyle = .fullScreen
-                present(navController, animated: true)
-                tabBarController.selectedIndex = 0
-                
             }
         }
     }
 
+
+
+    
+    
 }
