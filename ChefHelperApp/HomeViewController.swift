@@ -6,6 +6,10 @@
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseFirestore
+import FirebaseAuth
+import FirebaseDatabase
 
 class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -219,11 +223,52 @@ extension HomeViewController{
     
     private func getCategories(){
         //TODO: chiamata API
-        categories = ["Antipasto", "Primo", "Secondo", "Senza glutine", "Dessert", "Salsa", "Etnico", "Healthy", "Altro", "Contorno"]
+        
+        let ref = Database.database().reference()
+        ref.child("antipasti").observe(.childAdded, with: { (snap) in
+            if let dict = snap.value as? [String: AnyObject]{
+                
+                let category = dict["category"] as! String
+                
+                
+                //TODO: filtrare le categorie (al momento solo 1, ma devo finire il db) e fare append in categories
+                
+            }
+        })
+        
+        
+        //    categories = ["Antipasto", "Primo", "Secondo", "Senza glutine", "Dessert", "Salsa", "Etnico", "Healthy", "Altro", "Contorno"]
     }
     
     private func getRecipes(){
         //TODO: chiamata API
+        
+        
+        let ref = Database.database().reference()
+        ref.child("antipasti").observe(.childAdded, with: { (snap) in
+            if let dict = snap.value as? [String: AnyObject]{
+                let title = dict["title"] as! String
+                let image = dict["image"] as! String
+                let category = dict["category"] as! String
+                let difficulty = dict["difficulty"] as! String
+                let habits = dict["habits"] as! String
+                let id = dict["id"] as! Int
+                let ingredients = dict["ingredients"] as! String
+                let portions = dict["portions"] as! Int
+                let steps = dict["steps"] as! String
+                let time = dict["time"] as! String
+                let year_period = dict["year_period"] as! String
+
+                
+          //      print(difficulty, habits, id)
+            }
+             })
+        
+        
+        
+        
+        
+        
         self.allRecipes = APIManager.shared.dataList
         shownRecipes = allRecipes
     }
@@ -241,5 +286,19 @@ extension HomeViewController{
         completion(dataDummy)
     }
     
+
+}
+
+extension Array where Element: Hashable {
+    func removingDuplicates() -> [Element] {
+        var addedDict = [Element: Bool]()
+        
+        return filter {
+            addedDict.updateValue(true, forKey: $0) == nil
+        }
+    }
     
+    mutating func removeDuplicates() {
+        self = self.removingDuplicates()
+    }
 }
