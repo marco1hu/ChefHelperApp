@@ -240,38 +240,23 @@ extension HomeViewController{
         //    categories = ["Antipasto", "Primo", "Secondo", "Senza glutine", "Dessert", "Salsa", "Etnico", "Healthy", "Altro", "Contorno"]
     }
     
+    
+    
+    
+    
+    
+    
     private func getRecipes(){
-        //TODO: chiamata API
-        
-        
-        let ref = Database.database().reference()
-        ref.child("antipasti").observe(.childAdded, with: { (snap) in
-            if let dict = snap.value as? [String: AnyObject]{
-                let title = dict["title"] as! String
-                let image = dict["image"] as! String
-                let category = dict["category"] as! String
-                let difficulty = dict["difficulty"] as! String
-                let habits = dict["habits"] as! String
-                let id = dict["id"] as! Int
-                let ingredients = dict["ingredients"] as! String
-                let portions = dict["portions"] as! Int
-                let steps = dict["steps"] as! String
-                let time = dict["time"] as! String
-                let year_period = dict["year_period"] as! String
-
-                
-          //      print(difficulty, habits, id)
-            }
-             })
-        
-        
-        
-        
-        
-        
         self.allRecipes = APIManager.shared.dataList
         shownRecipes = allRecipes
     }
+    
+    
+    
+    
+    
+    
+    
     
     private func getRecipesDataById(id: Int, completion: @escaping (RecipeData?)->Void){
         //TODO: chiamata API
