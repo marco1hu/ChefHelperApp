@@ -40,12 +40,10 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
                 let time = dict["time"] as! String
                 let year_period = dict["year_period"] as! String
                 
-                let recipe = RecipeModel(id: id,
-                                         title: title,
-                                         image: <#T##UIImage#>,
-                                         categorie: <#T##[String]#>,
-                                         dataId: <#T##Int#>,
-                                         recipePostingDate: <#T##String#>)
+                let dataId = dict["id"] as! Int
+                
+                let recipe = RecipeModel(id: id, title: title, portions: portions, difficulty: difficulty, ingredients: ingredients, steps: steps, image: image, category: [category], habits: habits, time: time, year_period: year_period, dataId: dataId)
+                
                 recipes.append(recipe)
                 
             }

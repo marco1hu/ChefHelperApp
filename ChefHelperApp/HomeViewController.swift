@@ -136,7 +136,16 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 
                 
                 cell.title.text = shownRecipes[indexPath.item].title
-                cell.imageView.image = shownRecipes[indexPath.item].image
+                
+                if (APIManager.shared.dataList[indexPath.item].image != "") {
+                    let url = URL(string: APIManager.shared.dataList[indexPath.item].image)
+                    let data = try? Data(contentsOf: url!)
+                    cell.imageView.image = UIImage(data: data!)
+                }
+                
+                
+                
+               // cell.imageView.image = shownRecipes[indexPath.item].image
                 
                 return cell
             }
@@ -164,8 +173,20 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 
                 if let data = data {
                     vc.recipeData = data
-                    vc.image = self.shownRecipes[indexPath.item].image
-                    vc.categorie = self.shownRecipes[indexPath.item].categorie
+                    
+                    
+                    if (APIManager.shared.dataList[indexPath.item].image != "") {
+                        let url = URL(string: APIManager.shared.dataList[indexPath.item].image)
+                        let data = try? Data(contentsOf: url!)
+                        vc.image = UIImage(data: data!)
+                    }
+                    
+                //    vc.image = self.shownRecipes[indexPath.item].image
+                  //  vc.categorie = self.shownRecipes[indexPath.item].categorie
+                    
+                    vc.categorie = self.shownRecipes[indexPath.item].category
+                    
+                    
                     self.navigationController?.pushViewController(vc, animated: true)
                 } else {
                     self.present(Utilities.shared.alertErrorGeneral(error: "Errore interno"), animated: true)
@@ -184,7 +205,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         selectedCategories.append(category)
         
         shownRecipes = allRecipes.filter { recipe in
-            let recipeCategoriesSet = Set(recipe.categorie)
+          //  let recipeCategoriesSet = Set(recipe.categorie)
+            let recipeCategoriesSet = Set(recipe.category)
             let selectedCategoriesSet = Set(selectedCategories)
             
             // Mostra solo le ricette che contengono tutte le categorie selezionate
@@ -201,7 +223,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             shownRecipes = allRecipes
         } else {
             shownRecipes = allRecipes.filter { recipe in
-                let recipeCategoriesSet = Set(recipe.categorie)
+             //   let recipeCategoriesSet = Set(recipe.categorie)
+                
+                let recipeCategoriesSet = Set(recipe.category)
                 let selectedCategoriesSet = Set(selectedCategories)
                 
                 // Mostra solo le ricette che contengono tutte le categorie selezionate
