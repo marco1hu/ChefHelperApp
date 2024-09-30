@@ -11,19 +11,27 @@ import FirebaseFirestore
 import FirebaseAuth
 import FirebaseDatabase
 
-
 class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     
     var handle: AuthStateDidChangeListenerHandle?
     var reference: DatabaseReference!
+    var recipes: [RecipeModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
         
         
-        //TODO: chiamata API
-        var recipes: [RecipeModel] = []
+        loadRecipes { [weak self] in
+            
+            guard let strongSelf = self else { return }
+            APIManager.shared.dataList = strongSelf.recipes
+           
+        }
+    }
+    
+    
+    func loadRecipes(completion: @escaping () -> Void) {
         let ref = Database.database().reference()
         
         ref.child("antipasti").observe(.childAdded, with: { (snap) in
@@ -39,18 +47,48 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
                 let steps = dict["steps"] as! String
                 let time = dict["time"] as! String
                 let year_period = dict["year_period"] as! String
-                
                 let dataId = dict["id"] as! Int
-                
-                let recipe = RecipeModel(id: id, title: title, portions: portions, difficulty: difficulty, ingredients: ingredients, steps: steps, image: image, category: [category], habits: habits, time: time, year_period: year_period, dataId: dataId)
-                
-                recipes.append(recipe)
-                
+                self.recipes.append(RecipeModel(id: id,
+                                                title: title,
+                                                portions: portions,
+                                                difficulty: difficulty,
+                                                ingredients: ingredients,
+                                                steps: steps,
+                                                image: image,
+                                                category: [category],
+                                                habits: habits,
+                                                time: time,
+                                                year_period: year_period,
+                                                dataId: dataId))
             }
-        })
-        
-        APIManager.shared.dataList = recipes
             
+            completion()
+        })
+    }
+    
+
+    // MARK: - Methods
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if tabBarController.selectedIndex == 3 || tabBarController.selectedIndex == 2 {
+            handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+                if user == nil {
+                    let storyboard = UIStoryboard(name: "Authorisation", bundle: nil)
+                    
+                    guard let navController = storyboard.instantiateViewController(withIdentifier: "AuthorisationNavigationController") as? UINavigationController else {
+                        print("Failed to instantiate AuthorisationNavigationController")
+                        return
+                    }
+                    navController.modalPresentationStyle = .fullScreen
+                    self.present(navController, animated: true)
+                    tabBarController.selectedIndex = 0
+                }
+            }
+        }
+    }
+}
+
+
+
 //            APIManager.shared.dataList = [
 //                RecipeModel(id: 0, title: "Spaghetti Cacio e Pepe", image: UIImage(named: "spagCacioPepe.jpeg")!, categorie: ["Primo"], dataId: 0, recipePostingDate: "2024-09-02" ),
 //                RecipeModel(id: 1, title: "Pasta Carbonara", image: UIImage(named: "carbonara.png")!, categorie: ["Primo"], dataId: 1, recipePostingDate: "2024-09-02" ),
@@ -77,33 +115,4 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
 //                RecipeModel(id: 21, title: "3Spaghetti Alfredo", image: UIImage(named: "spagAlfredo.jpeg")!, categorie: ["Primo"], dataId: 4, recipePostingDate: "2024-09-02"),
 //                RecipeModel(id: 22, title: "3Spaghetti allo Scoglio", image: UIImage(named: "spagScoglio.jpeg")!, categorie: ["Primo"], dataId: 5, recipePostingDate: "2024-09-02")
 //            ]
-        }
-        
-        
-        //MARK: - Methods
-        func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-            
-            if tabBarController.selectedIndex == 3 || tabBarController.selectedIndex == 2 {
-                
-                handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-                    
-                    if user == nil {
-                        let storyboard = UIStoryboard(name: "Authorisation", bundle: nil)
-                        
-                        guard let navController = storyboard.instantiateViewController(withIdentifier: "AuthorisationNavigationController") as? UINavigationController else {
-                            print("Failed to instantiate AuthorisationNavigationController")
-                            return}
-                        navController.modalPresentationStyle = .fullScreen
-                        self.present(navController, animated: true)
-                        tabBarController.selectedIndex = 0
-                    }
-                }
-            }
-        }
-        
-        
-        
-        
-        
-    }
 

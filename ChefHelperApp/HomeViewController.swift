@@ -16,7 +16,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
     @IBOutlet weak var recipesCollectionView: UICollectionView!
-    private var categories: [String] = []
+    private var categories: [String] = []{
+        didSet{
+            categoriesCollectionView.reloadData()
+        }
+    }
     private var allRecipes: [RecipeModel] = []
     private var shownRecipes: [RecipeModel] = []
     
@@ -30,6 +34,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         getCategories()
         getRecipes()
         setupUI()
+        NotificationCenter.default.addObserver(self, selector: #selector(dataListUpdated), name: Notification.Name("dataListUpdated"), object: nil)
         
     }
     
@@ -79,6 +84,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         recipesCollectionView.collectionViewLayout = generateLottiCollectionLayout()
     }
+    
     
     private func generateLottiCollectionLayout() -> UICollectionViewLayout {
         let itemSize = NSCollectionLayoutSize(
@@ -132,23 +138,33 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
             
         case 1:
-            if let cell = recipesCollectionView.dequeueReusableCell(withReuseIdentifier: RecipeCollectionViewCell.reusableIdentifier, for: indexPath) as? RecipeCollectionViewCell{
+            if let cell = recipesCollectionView.dequeueReusableCell(withReuseIdentifier: RecipeCollectionViewCell.reusableIdentifier, for: indexPath) as? RecipeCollectionViewCell {
                 
-                
+              
                 cell.title.text = shownRecipes[indexPath.item].title
                 
-                if (APIManager.shared.dataList[indexPath.item].image != "") {
-                    let url = URL(string: APIManager.shared.dataList[indexPath.item].image)
-                    let data = try? Data(contentsOf: url!)
-                    cell.imageView.image = UIImage(data: data!)
+                // Verifica se l'immagine è presente
+                if let imageUrlString = APIManager.shared.dataList[indexPath.item].image, !imageUrlString.isEmpty {
+                    if let url = URL(string: imageUrlString) {
+                        // Usa URLSession per caricare l'immagine in modo asincrono
+                        URLSession.shared.dataTask(with: url) { (data, response, error) in
+                            if let error = error {
+                                print("Errore nel download dell'immagine: \(error)")
+                                return
+                            }
+                            print(imageUrlString)
+                            if let data = data, let image = UIImage(data: data) {
+                                DispatchQueue.main.async {
+                                    cell.imageView.image = image
+                                }
+                            }
+                        }.resume() // Avvia il task
+                    }
                 }
-                
-                
-                
-               // cell.imageView.image = shownRecipes[indexPath.item].image
                 
                 return cell
             }
+            
         default:
             return UICollectionViewCell()
         }
@@ -169,20 +185,20 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             guard let vc = storyboard?.instantiateViewController(withIdentifier: "detailRecipe") as? DetailRecipeViewController else { return }
             
             
-            getRecipesDataById(id: shownRecipes[indexPath.item].dataId){ data in
+            getRecipesDataById(id: shownRecipes[indexPath.item].dataId!){ data in
                 
                 if let data = data {
                     vc.recipeData = data
                     
                     
                     if (APIManager.shared.dataList[indexPath.item].image != "") {
-                        let url = URL(string: APIManager.shared.dataList[indexPath.item].image)
+                        let url = URL(string: APIManager.shared.dataList[indexPath.item].image!)
                         let data = try? Data(contentsOf: url!)
                         vc.image = UIImage(data: data!)
                     }
                     
-                //    vc.image = self.shownRecipes[indexPath.item].image
-                  //  vc.categorie = self.shownRecipes[indexPath.item].categorie
+                    //    vc.image = self.shownRecipes[indexPath.item].image
+                    //  vc.categorie = self.shownRecipes[indexPath.item].categorie
                     
                     vc.categorie = self.shownRecipes[indexPath.item].category
                     
@@ -204,38 +220,41 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     private func handleSelectionCategory(category: String) {
         selectedCategories.append(category)
         
-        shownRecipes = allRecipes.filter { recipe in
-          //  let recipeCategoriesSet = Set(recipe.categorie)
-            let recipeCategoriesSet = Set(recipe.category)
-            let selectedCategoriesSet = Set(selectedCategories)
-            
-            // Mostra solo le ricette che contengono tutte le categorie selezionate
-            return selectedCategoriesSet.isSubset(of: recipeCategoriesSet)
-        }
+        //        shownRecipes = allRecipes.filter { recipe in
+        //          //  let recipeCategoriesSet = Set(recipe.categorie)
+        //            let recipeCategoriesSet = Set(recipe.category)
+        //            let selectedCategoriesSet = Set(selectedCategories)
+        //
+        //            // Mostra solo le ricette che contengono tutte le categorie selezionate
+        //            return selectedCategoriesSet.isSubset(of: recipeCategoriesSet)
+        //        }
         
         recipesCollectionView.reloadData()
     }
-
+    
     private func handleDeselectionCategory(category: String) {
         selectedCategories.removeAll { $0 == category }
         
-        if selectedCategories.isEmpty {
-            shownRecipes = allRecipes
-        } else {
-            shownRecipes = allRecipes.filter { recipe in
-             //   let recipeCategoriesSet = Set(recipe.categorie)
-                
-                let recipeCategoriesSet = Set(recipe.category)
-                let selectedCategoriesSet = Set(selectedCategories)
-                
-                // Mostra solo le ricette che contengono tutte le categorie selezionate
-                return selectedCategoriesSet.isSubset(of: recipeCategoriesSet)
-            }
-        }
+        //        if selectedCategories.isEmpty {
+        //            shownRecipes = allRecipes
+        //        } else {
+        //            shownRecipes = allRecipes.filter { recipe in
+        //             //   let recipeCategoriesSet = Set(recipe.categorie)
+        //
+        //                let recipeCategoriesSet = Set(recipe.category)
+        //                let selectedCategoriesSet = Set(selectedCategories)
+        //
+        //                // Mostra solo le ricette che contengono tutte le categorie selezionate
+        //                return selectedCategoriesSet.isSubset(of: recipeCategoriesSet)
+        //            }
+        //        }
         
         recipesCollectionView.reloadData()
     }
-
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: Notification.Name("dataListUpdated"), object: nil)
+    }
+    
 }
 
 
@@ -253,8 +272,7 @@ extension HomeViewController{
             if let dict = snap.value as? [String: AnyObject]{
                 
                 let category = dict["category"] as! String
-                
-                
+    
                 //TODO: filtrare le categorie (al momento solo 1, ma devo finire il db) e fare append in categories
                 
             }
@@ -265,22 +283,15 @@ extension HomeViewController{
     }
     
     
-    
-    
-    
-    
-    
     private func getRecipes(){
         self.allRecipes = APIManager.shared.dataList
         shownRecipes = allRecipes
     }
     
-    
-    
-    
-    
-    
-    
+    @objc func dataListUpdated() {
+        getRecipes()
+        recipesCollectionView.reloadData()  // Assicurati di ricaricare la collection view dopo l'aggiornamento
+    }
     
     private func getRecipesDataById(id: Int, completion: @escaping (RecipeData?)->Void){
         //TODO: chiamata API
@@ -295,8 +306,9 @@ extension HomeViewController{
         completion(dataDummy)
     }
     
-
+    
 }
+
 
 extension Array where Element: Hashable {
     func removingDuplicates() -> [Element] {

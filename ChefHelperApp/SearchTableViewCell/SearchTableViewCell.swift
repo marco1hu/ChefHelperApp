@@ -26,7 +26,7 @@ class SearchTableViewCell: UITableViewCell {
     func configureCell(with recipe: RecipeModel) {
         recipeTitle.text = recipe.title
         
-        let url = URL(string: recipe.image)
+        let url = URL(string: recipe.image!)
         recipeImage.kf.setImage(with: url)
         
      //   recipeImage.image = recipe.image

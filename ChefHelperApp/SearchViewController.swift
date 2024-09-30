@@ -42,7 +42,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        print(filterData[indexPath.row].title)
+        print(filterData[indexPath.row].title!)
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -52,7 +52,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         }
         
         for recipe in APIManager.shared.dataList{
-            if recipe.title.uppercased().contains(searchText.uppercased()){
+            if recipe.title!.uppercased().contains(searchText.uppercased()){
                 filterData.append(recipe)
             }
         }

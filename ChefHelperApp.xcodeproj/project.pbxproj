@@ -506,7 +506,6 @@
 		3896E0062C851F8900C3AF25 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3896E0072C851FA400C3AF25 /* RecipeModel.swift */,
 				3896E00B2C85A35D00C3AF25 /* RecipeData.swift */,
 			);
 			name = Models;
@@ -524,6 +523,7 @@
 		3896E0152C85CEC800C3AF25 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				3896E0072C851FA400C3AF25 /* RecipeModel.swift */,
 				3896DFDE2C83F73A00C3AF25 /* Keychain */,
 				3896E0132C85CEBD00C3AF25 /* Utilities.swift */,
 			);

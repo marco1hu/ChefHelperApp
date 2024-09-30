@@ -11,6 +11,8 @@ import Alamofire
 
 /// Routing dei request utilizzabili
 enum Router: URLRequestConvertible{
+    case allRecipes
+    
     func asURLRequest() throws -> URLRequest {
         return URLRequest(url: URL(string: "")!)
     }

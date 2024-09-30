@@ -78,7 +78,7 @@ class LoginViewController: UIViewController {
                 
                 if error != nil{
                     
-                    self!.present(Utilities.shared.alertErrorGeneral(error: "Un errore è stato riscontrato durante l'accesso."), animated: true)
+                    strongSelf.present(Utilities.shared.alertErrorGeneral(error: "Un errore è stato riscontrato durante l'accesso."), animated: true)
                     print("Codice errore: \(error!.localizedDescription)")
                     
                 }else{
