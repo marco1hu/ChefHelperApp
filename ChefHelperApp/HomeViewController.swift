@@ -14,7 +14,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
     @IBOutlet weak var recipesCollectionView: UICollectionView!
     
-    
     private var categories: [String] = []{
         didSet{
             categoriesCollectionView.reloadData()
@@ -23,6 +22,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     private var allRecipes: [RecipeModel] = []
     private var shownRecipes: [RecipeModel] = []
     private var selectedCategory: String = ""
+    private let refreshControl = UIRefreshControl()
     
     //MARK: - App Life Cycle
     override func viewDidLoad() {
@@ -84,6 +84,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         recipesCollectionView.allowsSelection = true
         
         recipesCollectionView.collectionViewLayout = generateLottiCollectionLayout()
+        refreshControl.addTarget(self, action: #selector(refreshTableData), for: .valueChanged)
+        recipesCollectionView.addSubview(refreshControl)
     }
     
     
@@ -140,7 +142,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 cell.setDeselected()
             }
             return cell
-                        
+            
         case 1:
             if let cell = recipesCollectionView.dequeueReusableCell(withReuseIdentifier: RecipeCollectionViewCell.reusableIdentifier, for: indexPath) as? RecipeCollectionViewCell {
                 cell.title.text = shownRecipes[indexPath.item].title
@@ -226,7 +228,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         recipesCollectionView.reloadData()
     }
     
-  
+    
     //MARK: - Network Methods
     private func getCategories(){
         //TODO: chiamata API per categorie
@@ -273,6 +275,18 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                                            "ry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more rece"],
                                    author: "Cracco")
         completion(dataDummy)
+    }
+    @objc private func refreshTableData() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            MainTabBarController.loadRecipes{
+                APIManager.shared.dataList = MainTabBarController.recipes
+                self.getRecipes()
+                self.recipesCollectionView.reloadData()
+                self.refreshControl.endRefreshing()
+            }
+            
+            
+        }
     }
     
 }

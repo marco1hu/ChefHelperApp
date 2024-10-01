@@ -15,23 +15,23 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     
     var handle: AuthStateDidChangeListenerHandle?
     var reference: DatabaseReference!
-    var recipes: [RecipeModel] = []
+    static var recipes: [RecipeModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
         
         
-        loadRecipes { [weak self] in
+        MainTabBarController.loadRecipes { [weak self] in
             
             guard let strongSelf = self else { return }
-            APIManager.shared.dataList = strongSelf.recipes
+            APIManager.shared.dataList = MainTabBarController.recipes
            
         }
     }
     
     
-    func loadRecipes(completion: @escaping () -> Void) {
+    static func loadRecipes(completion: @escaping () -> Void) {
         let ref = Database.database().reference()
         
         ref.child("antipasti").observe(.childAdded, with: { (snap) in
