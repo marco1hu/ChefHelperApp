@@ -20,7 +20,7 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
     var isSelectedCell: Bool = false
     
     public var handleSelection: ((String)->Void)?
-    public var handleDeselection: ((String)->Void)?
+    
     
     
     override func awakeFromNib() {
@@ -57,11 +57,12 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
         DispatchQueue.main.async {
             if self.isSelectedCell {
                 self.setSelected()
-                self.handleSelection?(self.label.text!)
+               
             }else{
                 self.setDeselected()
-                self.handleDeselection?(self.label.text!)
+               
             }
+            self.handleSelection?(self.label.text!)
         }
     }
     

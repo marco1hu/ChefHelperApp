@@ -15,6 +15,7 @@
 		38253A252C87542F008FA9F8 /* DetailRecipe1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38253A232C87542F008FA9F8 /* DetailRecipe1TableViewCell.xib */; };
 		38253A2D2C875A29008FA9F8 /* DifficultyLevelComponent.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38253A2C2C875A29008FA9F8 /* DifficultyLevelComponent.xib */; };
 		38253A2F2C875A3F008FA9F8 /* DifficultyLevelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38253A2E2C875A3F008FA9F8 /* DifficultyLevelComponent.swift */; };
+		383061CD2CABE66A00063972 /* ExtensionArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383061CC2CABE66000063972 /* ExtensionArray.swift */; };
 		384C93C42C96E34600101FBF /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 384C93C32C96E34600101FBF /* Login.storyboard */; };
 		384C93C62C96E35600101FBF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384C93C52C96E35600101FBF /* LoginViewController.swift */; };
 		384C93C82C96E38600101FBF /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 384C93C72C96E38600101FBF /* Registration.storyboard */; };
@@ -121,6 +122,7 @@
 		38253A232C87542F008FA9F8 /* DetailRecipe1TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailRecipe1TableViewCell.xib; sourceTree = "<group>"; };
 		38253A2C2C875A29008FA9F8 /* DifficultyLevelComponent.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DifficultyLevelComponent.xib; sourceTree = "<group>"; };
 		38253A2E2C875A3F008FA9F8 /* DifficultyLevelComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyLevelComponent.swift; sourceTree = "<group>"; };
+		383061CC2CABE66000063972 /* ExtensionArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionArray.swift; sourceTree = "<group>"; };
 		384C93C32C96E34600101FBF /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		384C93C52C96E35600101FBF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		384C93C72C96E38600101FBF /* Registration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
@@ -278,6 +280,14 @@
 				38253A2E2C875A3F008FA9F8 /* DifficultyLevelComponent.swift */,
 			);
 			path = DifficultyLevelComponent;
+			sourceTree = "<group>";
+		};
+		383061CB2CABE65400063972 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				383061CC2CABE66000063972 /* ExtensionArray.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		384C93C12C96E32200101FBF /* Login */ = {
@@ -506,6 +516,7 @@
 		3896E0062C851F8900C3AF25 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3896E0072C851FA400C3AF25 /* RecipeModel.swift */,
 				3896E00B2C85A35D00C3AF25 /* RecipeData.swift */,
 			);
 			name = Models;
@@ -523,7 +534,7 @@
 		3896E0152C85CEC800C3AF25 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				3896E0072C851FA400C3AF25 /* RecipeModel.swift */,
+				383061CB2CABE65400063972 /* Extensions */,
 				3896DFDE2C83F73A00C3AF25 /* Keychain */,
 				3896E0132C85CEBD00C3AF25 /* Utilities.swift */,
 			);
@@ -895,6 +906,7 @@
 				3896DFE02C83F75500C3AF25 /* KeychainWrapper.swift in Sources */,
 				3896E0142C85CEBD00C3AF25 /* Utilities.swift in Sources */,
 				3896DF882C83EE6400C3AF25 /* SceneDelegate.swift in Sources */,
+				383061CD2CABE66A00063972 /* ExtensionArray.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
