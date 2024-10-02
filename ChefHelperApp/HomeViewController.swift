@@ -232,23 +232,27 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     //MARK: - Network Methods
     private func getCategories(){
         //TODO: chiamata API per categorie
-        //        print("CATEGORIE\n\n")
-        //        let ref = Database.database().reference()
-        //
-        //        print(ref.child("antipasti").database.)
-        //
-        //        ref.child("antipasti").observe(.childAdded, with: { (snap) in
-        //            if let dict = snap.value as? [String: AnyObject]{
-        //
-        //                let category = dict["category"] as! String
-        //
-        //                //TODO: filtrare le categorie (al momento solo 1, ma devo finire il db) e fare append in categories
-        //
-        //            }
-        //        })
         
         
-        categories = ["Antipasto", "Primo", "Secondo", "Senza glutine", "Dessert", "Salsa", "Etnico", "Healthy", "Altro", "Contorno"]
+        let ref = Database.database().reference()
+        ref.child("categorie").observe(.childAdded, with: { snap in
+            guard let value = snap.value else { return }
+            guard let dict = value as? [String] else {
+                print(value)
+                return
+            }
+//            for i in dict {
+//                    self.categories.append(i)
+//                }
+//                print (self.categories)
+            
+                })
+                //  let category = dict["category"] as! String
+                
+                //TODO: filtrare le categorie (al momento solo 1, ma devo finire il db) e fare append in categories
+            
+            //  categories = ["Antipasto", "Primo", "Secondo", "Senza glutine", "Dessert", "Salsa", "Etnico", "Healthy", "Altro", "Contorno"]
+        
     }
     
     

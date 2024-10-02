@@ -7,6 +7,7 @@ target 'ChefHelperApp' do
 
   # Pods for ChefHelperApp
    pod 'lottie-ios', '4.4.3'
+   pod 'Kingfisher'
 
   target 'ChefHelperAppTests' do
     inherit! :search_paths

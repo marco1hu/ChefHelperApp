@@ -10,6 +10,7 @@ import FirebaseCore
 import FirebaseFirestore
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseStorage
 
 class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     
@@ -32,12 +33,15 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     
     
     static func loadRecipes(completion: @escaping () -> Void) {
+     
         let ref = Database.database().reference()
+        let storage = Storage.storage()
         
-        ref.child("antipasti").observe(.childAdded, with: { (snap) in
+        
+        ref.child("ricettario").observe(.childAdded, with: { (snap) in
             if let dict = snap.value as? [String: AnyObject]{
                 let title = dict["title"] as! String
-                let image = dict["image"] as! String
+                
                 let category = dict["category"] as! String
                 let difficulty = dict["difficulty"] as! String
                 let habits = dict["habits"] as! String
@@ -48,6 +52,34 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
                 let time = dict["time"] as! String
                 let year_period = dict["year_period"] as! String
                 let dataId = dict["id"] as! Int
+                let image = dict["image"] as? String
+                
+//                if let image = dict["image"] as? String {
+//                    let gsRef = storage.reference(forURL: "gs://chefhelper-ae6a9.appspot.com/foto-ricette/\(image)")
+//                    gsRef.downloadURL { url, error in
+//                        if let error = error {
+//                            print(error)
+//                        } else {
+//                            let imgUrl: String = (url?.absoluteString) ?? ""
+//                            
+//                            self.recipes.append(RecipeModel(id: id,
+//                                                            title: title,
+//                                                            portions: portions,
+//                                                            difficulty: difficulty,
+//                                                            ingredients: ingredients,
+//                                                            steps: steps,
+//                                                            image: imgUrl,
+//                                                            category: [category],
+//                                                            habits: habits,
+//                                                            time: time,
+//                                                            year_period: year_period,
+//                                                            dataId: dataId))
+//                            
+//                        }
+//                    }
+//                }
+
+                
                 self.recipes.append(RecipeModel(id: id,
                                                 title: title,
                                                 portions: portions,
@@ -60,7 +92,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
                                                 time: time,
                                                 year_period: year_period,
                                                 dataId: dataId))
-            }
+          }
             
             completion()
         })
