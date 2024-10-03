@@ -7,7 +7,11 @@ target 'ChefHelperApp' do
 
   # Pods for ChefHelperApp
    pod 'lottie-ios', '4.4.3'
+<<<<<<< Updated upstream
    pod 'Kingfisher'
+=======
+   pod 'Kingfisher', '~> 8.0'
+>>>>>>> Stashed changes
 
   target 'ChefHelperAppTests' do
     inherit! :search_paths

@@ -23,11 +23,8 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         self.delegate = self
         
         
-        MainTabBarController.loadRecipes { [weak self] in
-            
-            guard let strongSelf = self else { return }
+        MainTabBarController.loadRecipes {
             APIManager.shared.dataList = MainTabBarController.recipes
-           
         }
     }
     
@@ -35,8 +32,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     static func loadRecipes(completion: @escaping () -> Void) {
      
         let ref = Database.database().reference()
-        let storage = Storage.storage()
-        
+        //let storage = Storage.storage()
         
         ref.child("ricettario").observe(.childAdded, with: { (snap) in
             if let dict = snap.value as? [String: AnyObject]{
@@ -53,31 +49,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
                 let year_period = dict["year_period"] as! String
                 let dataId = dict["id"] as! Int
                 let image = dict["image"] as? String
-                
-//                if let image = dict["image"] as? String {
-//                    let gsRef = storage.reference(forURL: "gs://chefhelper-ae6a9.appspot.com/foto-ricette/\(image)")
-//                    gsRef.downloadURL { url, error in
-//                        if let error = error {
-//                            print(error)
-//                        } else {
-//                            let imgUrl: String = (url?.absoluteString) ?? ""
-//                            
-//                            self.recipes.append(RecipeModel(id: id,
-//                                                            title: title,
-//                                                            portions: portions,
-//                                                            difficulty: difficulty,
-//                                                            ingredients: ingredients,
-//                                                            steps: steps,
-//                                                            image: imgUrl,
-//                                                            category: [category],
-//                                                            habits: habits,
-//                                                            time: time,
-//                                                            year_period: year_period,
-//                                                            dataId: dataId))
-//                            
-//                        }
-//                    }
-//                }
+
 
                 
                 self.recipes.append(RecipeModel(id: id,
@@ -93,7 +65,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
                                                 year_period: year_period,
                                                 dataId: dataId))
           }
-            
+          
             completion()
         })
     }

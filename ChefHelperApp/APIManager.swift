@@ -12,10 +12,17 @@ import Alamofire
 class APIManager {
     static let shared = APIManager()
     
+    
     var dataList: [RecipeModel] = []{
         didSet {
             // Invia una notifica quando dataList viene aggiornato
             NotificationCenter.default.post(name: Notification.Name("dataListUpdated"), object: nil)
+        }
+    }
+    
+    var categorieList: [String] = []{
+        didSet{
+            NotificationCenter.default.post(name: Notification.Name("categorieListUpdated"), object: nil)
         }
     }
     

@@ -17,27 +17,37 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     private var categories: [String] = []{
         didSet{
             categoriesCollectionView.reloadData()
+            print("Reload categories")
         }
     }
     private var allRecipes: [RecipeModel] = []
     private var shownRecipes: [RecipeModel] = []
     private var selectedCategory: String = ""
     private let refreshControl = UIRefreshControl()
+    private var categoriesData: [String] = []
     
     //MARK: - App Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(dataListUpdated), name: Notification.Name("dataListUpdated"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(categorieListUpdated), name: Notification.Name("categorieListUpdated"), object: nil)
+        
         setupRecipesCollectionView()
         setupCategoriesCollectionViews()
-        getCategories()
         getRecipes()
         setupUI()
-        NotificationCenter.default.addObserver(self, selector: #selector(dataListUpdated), name: Notification.Name("dataListUpdated"), object: nil)
+        getCategories {
+            APIManager.shared.categorieList = self.categoriesData
+            print("Completamento completion")
+        }
+
         
+
     }
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: Notification.Name("dataListUpdated"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: Notification.Name("categorieListUpdated"), object: nil)
     }
     
     
@@ -230,28 +240,17 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     
     //MARK: - Network Methods
-    private func getCategories(){
-        //TODO: chiamata API per categorie
-        
-        
+    private func getCategories(completion: @escaping () -> Void){
         let ref = Database.database().reference()
+
         ref.child("categorie").observe(.childAdded, with: { snap in
             guard let value = snap.value else { return }
-            guard let dict = value as? [String] else {
-                print(value)
-                return
+            if let cat = value as? String{
+                self.categoriesData.append(cat)
             }
-//            for i in dict {
-//                    self.categories.append(i)
-//                }
-//                print (self.categories)
-            
-                })
-                //  let category = dict["category"] as! String
-                
-                //TODO: filtrare le categorie (al momento solo 1, ma devo finire il db) e fare append in categories
-            
-            //  categories = ["Antipasto", "Primo", "Secondo", "Senza glutine", "Dessert", "Salsa", "Etnico", "Healthy", "Altro", "Contorno"]
+            print("Inizio completion")
+            completion()
+        })
         
     }
     
@@ -291,6 +290,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
             
         }
+    }
+    
+    @objc private func categorieListUpdated(){
+        print("Update categories")
+        self.categories =  APIManager.shared.categorieList
     }
     
 }
