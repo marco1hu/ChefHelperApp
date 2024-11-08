@@ -156,22 +156,22 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         case 1:
             if let cell = recipesCollectionView.dequeueReusableCell(withReuseIdentifier: RecipeCollectionViewCell.reusableIdentifier, for: indexPath) as? RecipeCollectionViewCell {
                 cell.title.text = shownRecipes[indexPath.item].title
-                
-                if let imageUrlString = APIManager.shared.dataList[indexPath.item].image, !imageUrlString.isEmpty {
-                    if let url = URL(string: imageUrlString) {
-                        URLSession.shared.dataTask(with: url) { (data, response, error) in
-                            if let error = error {
-                                print("Errore nel download dell'immagine: \(error)")
-                                return
-                            }
-                            if let data = data, let image = UIImage(data: data) {
-                                DispatchQueue.main.async {
-                                    cell.imageView.image = image
-                                }
-                            }
-                        }.resume()
-                    }
-                }
+                cell.imageView.image = shownRecipes[indexPath.item].image
+//                if let imageUrlString = APIManager.shared.dataList[indexPath.item].image, !imageUrlString.isEmpty {
+//                    if let url = URL(string: imageUrlString) {
+//                        URLSession.shared.dataTask(with: url) { (data, response, error) in
+//                            if let error = error {
+//                                print("Errore nel download dell'immagine: \(error)")
+//                                return
+//                            }
+//                            if let data = data, let image = UIImage(data: data) {
+//                                DispatchQueue.main.async {
+//                                    cell.imageView.image = image
+//                                }
+//                            }
+//                        }.resume()
+//                    }
+//                }
                 return cell
             }
         default:
@@ -183,35 +183,55 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        switch collectionView.tag{
-        case 0:
-            
-            let cell = collectionView.cellForItem(at: indexPath) as! CategoriesCollectionViewCell
-            cell.isSelectedCell = !cell.isSelectedCell
-            cell.toggleSelected()
-            
-        case 1:
-            guard let vc = storyboard?.instantiateViewController(withIdentifier: "detailRecipe") as? DetailRecipeViewController else { return }
-            getRecipesDataById(id: shownRecipes[indexPath.item].dataId!){ data in
+            switch collectionView.tag{
+            case 0:
                 
-                if let data = data {
-                    vc.recipeData = data
-                    if (APIManager.shared.dataList[indexPath.item].image != "") {
-                        let url = URL(string: APIManager.shared.dataList[indexPath.item].image!)
-                        let data = try? Data(contentsOf: url!)
-                        vc.image = UIImage(data: data!)
-                    }
-                    vc.categorie = self.shownRecipes[indexPath.item].category
-                    self.navigationController?.pushViewController(vc, animated: true)
-                } else {
-                    self.present(Utilities.shared.alertErrorGeneral(error: "Errore interno"), animated: true)
+                let cell = collectionView.cellForItem(at: indexPath) as! CategoriesCollectionViewCell
+                cell.isSelectedCell = !cell.isSelectedCell
+                cell.toggleSelected()
+                
+            case 1:
+                guard let vc = storyboard?.instantiateViewController(withIdentifier: "detailRecipe") as? DetailRecipeViewController else { return }
+                getRecipesDataById(id: shownRecipes[indexPath.item].dataId!) { data in
+                    if let data = data {
+                        vc.recipeData = data
+                        vc.categorie = self.shownRecipes[indexPath.item].category
+                        vc.image = self.shownRecipes[indexPath.item].image
+                        
+//                        if let imageUrlString = APIManager.shared.dataList[indexPath.item].image,
+//                           let imageUrl = URL(string: imageUrlString) {
+//                            
+//                            // Load image data asynchronously
+//                            URLSession.shared.dataTask(with: imageUrl) { data, response, error in
+//                                if let data = data, error == nil {
+//                                    DispatchQueue.main.async {
+//                                        vc.image = UIImage(data: data)
+//                                        self.navigationController?.pushViewController(vc, animated: true)
+//                                    }
+//                                } else {
+//                                    DispatchQueue.main.async {
+//                                        self.present(Utilities.shared.alertErrorGeneral(error: "Errore di caricamento immagine"), animated: true)
+//                                    }
+//                                }
+//                            }.resume()
+//                        } else {
+//                            // Push the view controller if there's no image to load
+//                            DispatchQueue.main.async {
+//                                self.navigationController?.pushViewController(vc, animated: true)
+//                            }
+//                        }
+//                    } else {
+//                        DispatchQueue.main.async {
+//                            self.present(Utilities.shared.alertErrorGeneral(error: "Errore interno"), animated: true)
+//                        }
+                   }
                 }
+
+                
+            default:
+                return
             }
-            
-        default:
-            return
         }
-    }
     
     
     //MARK: - Filter Logics

@@ -15,7 +15,7 @@ public class RecipeModel{
     let difficulty: Int?
     let ingredients: [String]?
     let steps: [String]?
-    let image: String?
+    let image: UIImage?
     let category: [String]?
     let habits: String?
     let time: String?
@@ -24,7 +24,7 @@ public class RecipeModel{
     
     
     
-    init(id: Int?, title: String?, portions:Int?, difficulty: Int?, ingredients: [String]?, steps: [String]?, image: String?, category: [String]?, habits: String?, time: String?, year_period: String?, dataId: Int?) {
+    init(id: Int?, title: String?, portions:Int?, difficulty: Int?, ingredients: [String]?, steps: [String]?, image: UIImage?, category: [String]?, habits: String?, time: String?, year_period: String?, dataId: Int?) {
         self.id = id
         self.title = title
         self.portions = portions

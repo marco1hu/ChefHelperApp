@@ -47,9 +47,23 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
                 let time = dict["time"] as! String
                 let year_period = dict["year_period"] as! String
                 let dataId = dict["id"] as! Int
-                let image = dict["image"] as? String
+                let imageURL = dict["image"] as? String
 
-
+                var recipeImage: UIImage?
+                if let url = URL(string: imageURL!) {
+                        URLSession.shared.dataTask(with: url) { (data, response, error) in
+                            if let error = error {
+                                print("Errore nel download dell'immagine: \(error)")
+                                return
+                            }
+                            if let data = data, let image = UIImage(data: data) {
+                                DispatchQueue.main.async {
+                                    recipeImage = image
+                                }
+                            }
+                        }.resume()
+                    }
+                
                 
                 self.recipes.append(RecipeModel(id: id,
                                                 title: title,
@@ -57,7 +71,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
                                                 difficulty: difficulty,
                                                 ingredients: ingredients,
                                                 steps: steps,
-                                                image: image,
+                                                image: recipeImage,
                                                 category: [category],
                                                 habits: habits,
                                                 time: time,
