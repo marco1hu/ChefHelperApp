@@ -33,7 +33,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
      
         let ref = Database.database().reference()
         
-        ref.child("ricettario").observe(.childAdded, with: { (snap) in
+        ref.child("ricettario").queryOrdered(byChild: "id").observe(.childAdded, with: { (snap) in
             if let dict = snap.value as? [String: AnyObject]{
                 let title = dict["title"] as! String
                 

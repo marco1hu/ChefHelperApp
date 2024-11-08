@@ -270,24 +270,25 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     private func getRecipesDataById(id: Int, completion: @escaping (RecipeData?)->Void){
         //TODO: chiamata API
         
+        
+        
         let ref = Database.database().reference()
         
-        ref.child("ricettario").observe(.childAdded, with: { (snap) in
-            if let dict = snap.value as? [String: AnyObject]{
-                let title = dict["title"] as! String
-                
-                let difficulty = dict["difficulty"] as! Int
-                let id = dict["id"] as! Int
-                let ingredients = dict["ingredients"] as! [String]
-                let portions = dict["portions"] as! Int
-                let steps = dict["steps"] as! [String]
-                let image = dict["image"] as? String
-                
-                
-                self.detailRecipe.append(RecipeData(id: id, title: title, portions: portions, difficulty: difficulty, ingredients: ingredients, steps: steps))
+        ref.child("ricettario").queryOrdered(byChild: "id").queryEqual(toValue: id).observeSingleEvent(of: .value, with: { (snap) in
+            for child in snap.children.allObjects as! [DataSnapshot] {
+                if let data = child.value as? [String: AnyObject]{
+                    let title = data["title"] as! String
+                    let difficulty = data["difficulty"] as! Int
+                    let id = data["id"] as! Int
+                    let ingredients = data["ingredients"] as! [String]
+                    let portions = data["portions"] as! Int
+                    let steps = data["steps"] as! [String]
+ 
+                    
+                    completion(RecipeData(id: id, title: title, portions: portions, difficulty: difficulty, ingredients: ingredients, steps: steps))
+                }
             }
             
-            completion()
         })
         
         
