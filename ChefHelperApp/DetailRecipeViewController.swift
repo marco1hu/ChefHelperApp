@@ -54,7 +54,7 @@ class DetailRecipeViewController: UIViewController, UITableViewDelegate, UITable
             
             cell.titleLabel.text = recipeData.title
             cell.recipeMainImageView.image = self.image
-            cell.author = recipeData.author
+           // cell.author = recipeData.author
             
             
             return cell

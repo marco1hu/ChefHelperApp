@@ -26,6 +26,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     private let refreshControl = UIRefreshControl()
     private var categoriesData: [String] = []
     
+    private var detailRecipe: [RecipeData] = []
+    
     //MARK: - App Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +42,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             APIManager.shared.categorieList = self.categoriesData
             print("Completamento completion")
         }
-
-        
 
     }
     
@@ -269,16 +269,40 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     private func getRecipesDataById(id: Int, completion: @escaping (RecipeData?)->Void){
         //TODO: chiamata API
-        let dataDummy = RecipeData(id: 0, title: "Spaghetti Cacio e Pepe", subtitle: "Dalla tradizione", portions: 3, difficulty: 2, ingredients: ["Formaggio Cacio", "Pepe", "Pasta"],
-                                   steps: ["Prendi pentolino metti acqua e sale fai bollire",
-                                           "Taglia il formaggio",
-                                           "Macina pepe",
-                                           "Prepara ry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more rece",
-                                           "ry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more rece",
-                                           "ry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more rece"],
-                                   author: "Cracco")
-        completion(dataDummy)
+        
+        let ref = Database.database().reference()
+        
+        ref.child("ricettario").observe(.childAdded, with: { (snap) in
+            if let dict = snap.value as? [String: AnyObject]{
+                let title = dict["title"] as! String
+                
+                let difficulty = dict["difficulty"] as! Int
+                let id = dict["id"] as! Int
+                let ingredients = dict["ingredients"] as! [String]
+                let portions = dict["portions"] as! Int
+                let steps = dict["steps"] as! [String]
+                let image = dict["image"] as? String
+                
+                
+                self.detailRecipe.append(RecipeData(id: id, title: title, portions: portions, difficulty: difficulty, ingredients: ingredients, steps: steps))
+            }
+            
+            completion()
+        })
+        
+        
+//        let dataDummy = RecipeData(id: 0, title: "Spaghetti Cacio e Pepe", portions: 3, difficulty: 2, ingredients: ["Formaggio Cacio", "Pepe", "Pasta"],
+//                                   steps: ["Prendi pentolino metti acqua e sale fai bollire",
+//                                           "Taglia il formaggio",
+//                                           "Macina pepe",
+//                                           "Prepara ry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more rece",
+//                                           "ry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more rece",
+//                                           "ry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more rece"])
+//        completion(dataDummy)
+        
     }
+                                        
+                                        
     @objc private func refreshTableData() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             MainTabBarController.loadRecipes{

@@ -32,19 +32,18 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     static func loadRecipes(completion: @escaping () -> Void) {
      
         let ref = Database.database().reference()
-        //let storage = Storage.storage()
         
         ref.child("ricettario").observe(.childAdded, with: { (snap) in
             if let dict = snap.value as? [String: AnyObject]{
                 let title = dict["title"] as! String
                 
                 let category = dict["category"] as! String
-                let difficulty = dict["difficulty"] as! String
+                let difficulty = dict["difficulty"] as! Int
                 let habits = dict["habits"] as! String
                 let id = dict["id"] as! Int
-                let ingredients = dict["ingredients"] as! String
+                let ingredients = dict["ingredients"] as! [String]
                 let portions = dict["portions"] as! Int
-                let steps = dict["steps"] as! String
+                let steps = dict["steps"] as! [String]
                 let time = dict["time"] as! String
                 let year_period = dict["year_period"] as! String
                 let dataId = dict["id"] as! Int
