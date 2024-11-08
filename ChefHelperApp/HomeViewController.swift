@@ -14,6 +14,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
     @IBOutlet weak var recipesCollectionView: UICollectionView!
     
+    
+    static var recipes: [RecipeModel] = []
+    
+    
     private var categories: [String] = []{
         didSet{
             categoriesCollectionView.reloadData()
@@ -21,28 +25,44 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     private var allRecipes: [RecipeModel] = []
-    private var shownRecipes: [RecipeModel] = []
+    
+    
+    private var shownRecipes: [RecipeModel] = []{
+        didSet {
+            recipesCollectionView.reloadData()
+        }
+    }
+    
     private var selectedCategory: String = ""
     private let refreshControl = UIRefreshControl()
     private var categoriesData: [String] = []
     
     private var detailRecipe: [RecipeData] = []
     
+    
     //MARK: - App Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(dataListUpdated), name: Notification.Name("dataListUpdated"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(categorieListUpdated), name: Notification.Name("categorieListUpdated"), object: nil)
+        ActivityIndicatorManager.shared.showIndicator(on: self.view)
+        
+        HomeViewController.loadRecipes {
+            APIManager.shared.dataList = HomeViewController.recipes
+            self.getRecipes()
+        }
+        
+        Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(reload), userInfo: nil, repeats: false)
         
         setupRecipesCollectionView()
         setupCategoriesCollectionViews()
-        getRecipes()
+        
         setupUI()
         getCategories {
             APIManager.shared.categorieList = self.categoriesData
-            print("Completamento completion")
         }
-
+        
     }
     
     deinit {
@@ -157,21 +177,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             if let cell = recipesCollectionView.dequeueReusableCell(withReuseIdentifier: RecipeCollectionViewCell.reusableIdentifier, for: indexPath) as? RecipeCollectionViewCell {
                 cell.title.text = shownRecipes[indexPath.item].title
                 cell.imageView.image = shownRecipes[indexPath.item].image
-//                if let imageUrlString = APIManager.shared.dataList[indexPath.item].image, !imageUrlString.isEmpty {
-//                    if let url = URL(string: imageUrlString) {
-//                        URLSession.shared.dataTask(with: url) { (data, response, error) in
-//                            if let error = error {
-//                                print("Errore nel download dell'immagine: \(error)")
-//                                return
-//                            }
-//                            if let data = data, let image = UIImage(data: data) {
-//                                DispatchQueue.main.async {
-//                                    cell.imageView.image = image
-//                                }
-//                            }
-//                        }.resume()
-//                    }
-//                }
                 return cell
             }
         default:
@@ -183,55 +188,36 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            switch collectionView.tag{
-            case 0:
-                
-                let cell = collectionView.cellForItem(at: indexPath) as! CategoriesCollectionViewCell
-                cell.isSelectedCell = !cell.isSelectedCell
-                cell.toggleSelected()
-                
-            case 1:
-                guard let vc = storyboard?.instantiateViewController(withIdentifier: "detailRecipe") as? DetailRecipeViewController else { return }
-                getRecipesDataById(id: shownRecipes[indexPath.item].dataId!) { data in
-                    if let data = data {
-                        vc.recipeData = data
-                        vc.categorie = self.shownRecipes[indexPath.item].category
-                        vc.image = self.shownRecipes[indexPath.item].image
-                        
-//                        if let imageUrlString = APIManager.shared.dataList[indexPath.item].image,
-//                           let imageUrl = URL(string: imageUrlString) {
-//                            
-//                            // Load image data asynchronously
-//                            URLSession.shared.dataTask(with: imageUrl) { data, response, error in
-//                                if let data = data, error == nil {
-//                                    DispatchQueue.main.async {
-//                                        vc.image = UIImage(data: data)
-//                                        self.navigationController?.pushViewController(vc, animated: true)
-//                                    }
-//                                } else {
-//                                    DispatchQueue.main.async {
-//                                        self.present(Utilities.shared.alertErrorGeneral(error: "Errore di caricamento immagine"), animated: true)
-//                                    }
-//                                }
-//                            }.resume()
-//                        } else {
-//                            // Push the view controller if there's no image to load
-//                            DispatchQueue.main.async {
-//                                self.navigationController?.pushViewController(vc, animated: true)
-//                            }
-//                        }
-//                    } else {
-//                        DispatchQueue.main.async {
-//                            self.present(Utilities.shared.alertErrorGeneral(error: "Errore interno"), animated: true)
-//                        }
-                   }
+        reload()
+        
+        
+        switch collectionView.tag{
+        case 0:
+            
+            let cell = collectionView.cellForItem(at: indexPath) as! CategoriesCollectionViewCell
+            cell.isSelectedCell = !cell.isSelectedCell
+            cell.toggleSelected()
+            
+        case 1:
+            print("Selelcted")
+            guard let vc = storyboard?.instantiateViewController(withIdentifier: "detailRecipe") as? DetailRecipeViewController else { return }
+            getRecipesDataById(id: shownRecipes[indexPath.item].dataId!) { data in
+                if let data = data {
+                    vc.recipeData = data
+                    vc.categorie = self.shownRecipes[indexPath.item].category
+                    vc.image = self.shownRecipes[indexPath.item].image
+                    DispatchQueue.main.async {
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                    
                 }
-
-                
-            default:
-                return
             }
+            
+            
+        default:
+            return
         }
+    }
     
     
     //MARK: - Filter Logics
@@ -260,9 +246,69 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     
     //MARK: - Network Methods
+    static func loadRecipes(completion: @escaping () -> Void) {
+        
+        let ref = Database.database().reference()
+        
+        ref.child("ricettario").queryOrdered(byChild: "id").observe(.childAdded, with: { (snap) in
+            if let dict = snap.value as? [String: AnyObject]{
+                let title = dict["title"] as! String
+                
+                let category = dict["category"] as! String
+                let difficulty = dict["difficulty"] as! Int
+                let habits = dict["habits"] as! String
+                let id = dict["id"] as! Int
+                let ingredients = dict["ingredients"] as! [String]
+                let portions = dict["portions"] as! Int
+                let steps = dict["steps"] as! [String]
+                let time = dict["time"] as! String
+                let year_period = dict["year_period"] as! String
+                let dataId = dict["id"] as! Int
+                let imageURL = dict["image"] as? String
+                
+                if let url = URL(string: imageURL!) {
+                    URLSession.shared.dataTask(with: url) { (data, response, error) in
+                        if let error = error {
+                            print("Errore nel download dell'immagine: \(error)")
+                            return
+                        }
+                        if let data = data, let image = UIImage(data: data) {
+                            DispatchQueue.main.async {
+                                
+                                print(image)
+                                self.recipes.append(RecipeModel(id: id,
+                                                                title: title,
+                                                                portions: portions,
+                                                                difficulty: difficulty,
+                                                                ingredients: ingredients,
+                                                                steps: steps,
+                                                                image: image,
+                                                                category: [category],
+                                                                habits: habits,
+                                                                time: time,
+                                                                year_period: year_period,
+                                                                dataId: dataId))
+                            }
+                            
+                        }
+                        
+                    }.resume()
+                }
+                
+                
+            }
+            
+            
+        })
+        completion()
+    }
+    
+    
+    
+    
     private func getCategories(completion: @escaping () -> Void){
         let ref = Database.database().reference()
-
+        
         ref.child("categorie").observe(.childAdded, with: { snap in
             guard let value = snap.value else { return }
             if let cat = value as? String{
@@ -303,7 +349,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     let ingredients = data["ingredients"] as! [String]
                     let portions = data["portions"] as! Int
                     let steps = data["steps"] as! [String]
- 
+                    
                     
                     completion(RecipeData(id: id, title: title, portions: portions, difficulty: difficulty, ingredients: ingredients, steps: steps))
                 }
@@ -311,36 +357,32 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
         })
         
-        
-//        let dataDummy = RecipeData(id: 0, title: "Spaghetti Cacio e Pepe", portions: 3, difficulty: 2, ingredients: ["Formaggio Cacio", "Pepe", "Pasta"],
-//                                   steps: ["Prendi pentolino metti acqua e sale fai bollire",
-//                                           "Taglia il formaggio",
-//                                           "Macina pepe",
-//                                           "Prepara ry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more rece",
-//                                           "ry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more rece",
-//                                           "ry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more rece"])
-//        completion(dataDummy)
-        
     }
-                                        
-                                        
+    
     @objc private func refreshTableData() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            MainTabBarController.loadRecipes{
-                APIManager.shared.dataList = MainTabBarController.recipes
+            HomeViewController.loadRecipes{
+                APIManager.shared.dataList = HomeViewController.recipes
                 self.getRecipes()
                 self.recipesCollectionView.reloadData()
                 self.refreshControl.endRefreshing()
+                
             }
-            
-            
         }
     }
     
+    
+    @objc private func reload(){
+        APIManager.shared.dataList = HomeViewController.recipes
+        ActivityIndicatorManager.shared.hideIndicator()
+        getRecipes()
+        self.recipesCollectionView.reloadData()
+    }
+    
     @objc private func categorieListUpdated(){
-        print("Update categories")
         self.categories =  APIManager.shared.categorieList
     }
+    
     
 }
 
