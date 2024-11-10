@@ -16,7 +16,7 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
     
     static let reusableIdentifier = "categoriesCell"
     private let fontSize: CGFloat = 18
-    private let height: CGFloat = 30
+  //  private let height: CGFloat = 30
     var isSelectedCell: Bool = false
     
     public var handleSelection: ((String)->Void)?
@@ -46,7 +46,7 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             backView.leftAnchor.constraint(equalTo: label.leftAnchor, constant: -10),
             backView.rightAnchor.constraint(equalTo: label.rightAnchor, constant: 10),
-            backView.heightAnchor.constraint(equalToConstant: height)
+    //        backView.heightAnchor.constraint(equalToConstant: height)
             
         ])
         
