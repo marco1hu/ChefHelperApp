@@ -21,7 +21,10 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        filterData = APIManager.shared.dataList
+        filterData = APIManager.shared.dataList.sorted(by: { recipe1, recipe2 in
+            recipe1.title!.lowercased() < recipe2.title!.lowercased()
+        })
+        
         resultsTableView.register(UINib(nibName: "SearchTableViewCell", bundle: nil),
                                   forCellReuseIdentifier: SearchTableViewCell.reusableIdentifier)
         hideKeyboardWhenTappedAround()

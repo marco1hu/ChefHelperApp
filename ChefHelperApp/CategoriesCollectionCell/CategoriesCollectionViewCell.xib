@@ -29,7 +29,7 @@
                         </subviews>
                         <color key="backgroundColor" name="AppColor3"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="35" id="KPY-MZ-igc"/>
+                            <constraint firstAttribute="height" priority="999" constant="35" id="KPY-MZ-igc"/>
                             <constraint firstItem="qLP-uR-utr" firstAttribute="centerX" secondItem="2hS-mW-RYv" secondAttribute="centerX" id="k9Q-IB-vIN"/>
                             <constraint firstItem="qLP-uR-utr" firstAttribute="centerY" secondItem="2hS-mW-RYv" secondAttribute="centerY" id="ztQ-ta-s8Y"/>
                         </constraints>

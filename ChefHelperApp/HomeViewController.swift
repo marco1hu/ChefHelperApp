@@ -95,8 +95,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if let layout = categoriesCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
             layout.minimumLineSpacing = 10
-            layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 8, right: 16)
+            layout.sectionInset = UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16)
+            
         }
+
         
     }
     
@@ -113,13 +115,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         recipesCollectionView.allowsMultipleSelection = true
         recipesCollectionView.allowsSelection = true
         
-        recipesCollectionView.collectionViewLayout = generateLottiCollectionLayout()
+        recipesCollectionView.collectionViewLayout = generateCardCollectionLayout()
         refreshControl.addTarget(self, action: #selector(refreshTableData), for: .valueChanged)
         recipesCollectionView.addSubview(refreshControl)
     }
     
     
-    private func generateLottiCollectionLayout() -> UICollectionViewLayout {
+    private func generateCardCollectionLayout() -> UICollectionViewLayout {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
             heightDimension: .fractionalHeight(1.0))

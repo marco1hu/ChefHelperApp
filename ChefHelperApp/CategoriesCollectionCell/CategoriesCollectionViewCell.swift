@@ -41,11 +41,11 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
         backView.layer.cornerRadius = 10
         backView.backgroundColor = UIColor.appColor3
         
-        
+       
         NSLayoutConstraint.activate([
             backView.leftAnchor.constraint(equalTo: label.leftAnchor, constant: -10),
             backView.rightAnchor.constraint(equalTo: label.rightAnchor, constant: 10),
-            
+
         ])
         
         

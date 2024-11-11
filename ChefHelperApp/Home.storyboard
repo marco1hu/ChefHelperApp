@@ -44,10 +44,10 @@
                                 </constraints>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WnK-Ch-Pdv">
-                                <rect key="frame" x="0.0" y="175" width="393" height="40"/>
+                                <rect key="frame" x="0.0" y="175" width="393" height="55"/>
                                 <color key="backgroundColor" name="AppColor3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="idg-8M-pz1"/>
+                                    <constraint firstAttribute="height" constant="55" id="idg-8M-pz1"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="i8N-1I-zwQ">
                                     <size key="itemSize" width="128" height="36"/>
@@ -59,16 +59,16 @@
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="categoriesCell" id="TSo-Zo-63h" customClass="CategoriesCollectionViewCell" customModule="ChefHelperApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Diu-EE-ca9">
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="36"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
+                                        </view>
                                         <size key="customSize" width="128" height="36"/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="J3f-dD-Yrj">
-                                <rect key="frame" x="0.0" y="215" width="393" height="637"/>
+                                <rect key="frame" x="0.0" y="230" width="393" height="622"/>
                                 <color key="backgroundColor" name="AppColor3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vNQ-r5-dfn">
                                     <size key="itemSize" width="128" height="128"/>
