@@ -41,7 +41,7 @@ class Utilities {
         if password.isEmpty {
             return false
         }
-        let passwordRegex = "^[A-Z0-9a-z._%+-]+@[A-Z0-9a-z.-]+\\.[A-Za-z]{2,}$"
+        let passwordRegex = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&<>*~:`-]).{8,}$"
         let passwordTest = NSPredicate(format:"SELF MATCHES %@", passwordRegex)
         return passwordTest.evaluate(with: password)
     }
