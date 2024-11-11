@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.set(false, forKey: "userLogged")
             UserDefaults.standard.set(true, forKey: "isFirstLaunch")
         }
-        
+        print("Launch")
         FirebaseApp.configure()
         
         return true

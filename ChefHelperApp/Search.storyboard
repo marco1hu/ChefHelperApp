@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kUb-Kt-piJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kUb-Kt-piJ">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -61,11 +61,22 @@
                     <connections>
                         <outlet property="resultsTableView" destination="aAq-E6-55O" id="IEG-Et-DKY"/>
                         <outlet property="searchBar" destination="2hq-Z9-wnO" id="Duv-Wc-jKd"/>
+                        <segue destination="muR-fs-NJd" kind="show" identifier="toDetai" id="hcO-1e-urh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1054.1984732824426" y="-34.507042253521128"/>
+        </scene>
+        <!--DetailRecipe-->
+        <scene sceneID="e6l-ct-VBi">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="detailRecipe" storyboardName="DetailRecipe" id="muR-fs-NJd" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="4Yq-SB-3Zl"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ttl-pW-iUF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1955" y="-17"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2s1-W2-xq2">

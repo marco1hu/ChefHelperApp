@@ -323,7 +323,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     private func getRecipes(){
         self.allRecipes = APIManager.shared.dataList
-        shownRecipes = allRecipes
+        shownRecipes = allRecipes.shuffled()
     }
     
     
@@ -335,9 +335,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     private func getRecipesDataById(id: Int, completion: @escaping (RecipeData?)->Void){
         //TODO: chiamata API
-        
-        
-        
         let ref = Database.database().reference()
         
         ref.child("ricettario").queryOrdered(byChild: "id").queryEqual(toValue: id).observeSingleEvent(of: .value, with: { (snap) in
