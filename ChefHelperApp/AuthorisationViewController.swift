@@ -38,6 +38,8 @@ class AuthorisationViewController: UIViewController {
         
         navigationItem.backBarButtonItem = UIBarButtonItem(
             title: "Indietro", style: .plain, target: nil, action: nil)
+       
+        
     }
     
     //MARK: - IBActions

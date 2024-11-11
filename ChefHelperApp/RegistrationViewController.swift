@@ -21,20 +21,22 @@ class RegistrationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        hideKeyboardWhenTappedAround()
+     
+
+//        hideKeyboardWhenTappedAround()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+//        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+//    }
     
     private func setupUI(){
         signUpButton.layer.cornerRadius = 15
@@ -74,6 +76,8 @@ class RegistrationViewController: UIViewController {
         nomeTextField.FLTextFieldBackgroundColor = UIColor.appColor3
         confirmPasswordTextField.FLTextFieldBackgroundColor = UIColor.appColor3
         
+        
+        
     }
     
     
@@ -112,27 +116,27 @@ class RegistrationViewController: UIViewController {
     
     
     
-    //MARK: - Funzioni gestione tastiera
-    func hideKeyboardWhenTappedAround() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            let spacing = keyboardSize.height/5
-            self.view.frame.origin.y = -spacing
-        }
-    }
-    
-    @objc func keyboardWillHide(notification: NSNotification) {
-        self.view.frame.origin.y = 0
-    }
-    
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
+//    //MARK: - Funzioni gestione tastiera
+//    func hideKeyboardWhenTappedAround() {
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+//        tap.cancelsTouchesInView = false
+//        view.addGestureRecognizer(tap)
+//    }
+//    
+//    @objc func keyboardWillShow(notification: NSNotification) {
+//        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+//            let spacing = keyboardSize.height/5
+//            self.view.frame.origin.y = -spacing
+//        }
+//    }
+//    
+//    @objc func keyboardWillHide(notification: NSNotification) {
+//        self.view.frame.origin.y = 0
+//    }
+//    
+//    
+//    @objc func dismissKeyboard() {
+//        view.endEditing(true)
+//    }
     
 }
