@@ -133,8 +133,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="ZqG-N7-VV3"/>
                     <connections>
+                        <outlet property="accountButton" destination="EAq-nd-iAo" id="HRP-k1-pWL"/>
                         <outlet property="deleteButton" destination="UaM-TY-q8f" id="tcv-Ew-Gdb"/>
                         <outlet property="logOutButton" destination="EQV-dN-Svi" id="yn3-rw-yj5"/>
+                        <outlet property="notifyButton" destination="nIO-Ou-bTa" id="L96-cu-hED"/>
+                        <outlet property="prefButton" destination="FIA-sq-mUD" id="uoA-96-pxa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

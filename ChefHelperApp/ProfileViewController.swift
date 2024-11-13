@@ -15,6 +15,9 @@ class ProfileViewController: UIViewController {
 
     @IBOutlet weak var logOutButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var accountButton: UIButton!
+    @IBOutlet weak var prefButton: UIButton!
+    @IBOutlet weak var notifyButton: UIButton!
     
     
     override func viewDidLoad() {
@@ -26,6 +29,10 @@ class ProfileViewController: UIViewController {
 
     private func setupUI(){
         logOutButton.layer.cornerRadius = 15
+        deleteButton.layer.cornerRadius = 15
+        accountButton.layer.cornerRadius = 15
+        prefButton.layer.cornerRadius = 15
+        notifyButton.layer.cornerRadius = 15
     }
     
     @IBAction func handleLogOut(_ sender: Any) {
