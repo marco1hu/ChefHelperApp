@@ -24,9 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.set(false, forKey: "userLogged")
             UserDefaults.standard.set(true, forKey: "isFirstLaunch")
         }
-        print("Launch")
+        
         FirebaseApp.configure()
         IQKeyboardManager.shared.isEnabled = true
+        IQKeyboardManager.shared.resignOnTouchOutside = true
         
         return true
     }

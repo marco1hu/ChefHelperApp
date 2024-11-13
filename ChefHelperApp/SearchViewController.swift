@@ -18,12 +18,17 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     @IBOutlet weak var resultsTableView: UITableView!
     
     var filterData: [RecipeModel]!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        print("SearchViewController viewWillAppear")
         filterData = APIManager.shared.dataList.sorted(by: { recipe1, recipe2 in
             recipe1.title!.lowercased() < recipe2.title!.lowercased()
         })
+        resultsTableView.reloadData()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
         
         resultsTableView.register(UINib(nibName: "SearchTableViewCell", bundle: nil),
                                   forCellReuseIdentifier: SearchTableViewCell.reusableIdentifier)

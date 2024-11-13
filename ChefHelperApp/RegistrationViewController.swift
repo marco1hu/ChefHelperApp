@@ -23,7 +23,7 @@ class RegistrationViewController: UIViewController {
         setupUI()
      
 
-//        hideKeyboardWhenTappedAround()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,6 +71,8 @@ class RegistrationViewController: UIViewController {
         passwordTextField.containerView.textfield.textContentType = .password
         confirmPasswordTextField.containerView.textfield.textContentType = .password
         
+        emailTextField.containerView.textfield.autocorrectionType = .no
+        
         emailTextField.FLTextFieldBackgroundColor = UIColor.appColor3
         passwordTextField.FLTextFieldBackgroundColor = UIColor.appColor3
         nomeTextField.FLTextFieldBackgroundColor = UIColor.appColor3
@@ -117,11 +119,11 @@ class RegistrationViewController: UIViewController {
     
     
 //    //MARK: - Funzioni gestione tastiera
-//    func hideKeyboardWhenTappedAround() {
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-//        tap.cancelsTouchesInView = false
-//        view.addGestureRecognizer(tap)
-//    }
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
 //    
 //    @objc func keyboardWillShow(notification: NSNotification) {
 //        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
@@ -135,8 +137,8 @@ class RegistrationViewController: UIViewController {
 //    }
 //    
 //    
-//    @objc func dismissKeyboard() {
-//        view.endEditing(true)
-//    }
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
     
 }

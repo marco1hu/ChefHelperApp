@@ -15,13 +15,22 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var recipesCollectionView: UICollectionView!
     
     
-    static var recipes: [RecipeModel] = []
-    
+    var recipes: [RecipeModel] = []{
+        didSet {
+            print("recipes.count: \(recipes.count)")
+            if recipes.count == 179 {
+                DispatchQueue.main.async {
+                    self.reload()
+                }
+            }
+        }
+    }
     
     private var categories: [String] = []{
         didSet{
-            categoriesCollectionView.reloadData()
-            print("Reload categories")
+            DispatchQueue.main.async {
+                self.categoriesCollectionView.reloadData()
+            }
         }
     }
     private var allRecipes: [RecipeModel] = []
@@ -33,9 +42,31 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
-    private var selectedCategory: String = ""
+    private var selectedCategory: String? = nil{
+        didSet{
+            if selectedCategory != nil {
+                
+                shownRecipes = allRecipes.filter({ recipe in
+                    if let recipeCategory = recipe.category, recipeCategory.contains(selectedCategory!){
+                        return true
+                    }else{
+                        return false
+                    }
+                })
+            }else{
+                shownRecipes = allRecipes
+            }
+        }
+        
+    }
     private let refreshControl = UIRefreshControl()
-    private var categoriesData: [String] = []
+    private var categoriesData: [String] = []{
+        didSet{
+            if categoriesData.count == 4 {
+                categories = categoriesData
+            }
+        }
+    }
     
     private var detailRecipe: [RecipeData] = []
     
@@ -44,34 +75,23 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(dataListUpdated), name: Notification.Name("dataListUpdated"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(categorieListUpdated), name: Notification.Name("categorieListUpdated"), object: nil)
         ActivityIndicatorManager.shared.showIndicator(on: self.view)
         
-        HomeViewController.loadRecipes {
-            APIManager.shared.dataList = HomeViewController.recipes
+        self.loadRecipes {
+            APIManager.shared.dataList = self.recipes
             self.getRecipes()
         }
-        
-        Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(reload), userInfo: nil, repeats: false)
         
         setupRecipesCollectionView()
         setupCategoriesCollectionViews()
         
         setupUI()
-        getCategories {
+        self.getCategories {
             APIManager.shared.categorieList = self.categoriesData
         }
         
     }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self, name: Notification.Name("dataListUpdated"), object: nil)
-        NotificationCenter.default.removeObserver(self, name: Notification.Name("categorieListUpdated"), object: nil)
-    }
-    
-    
-    
+
     //MARK: - Setup UI Methods
     private func setupUI(){
         navigationItem.backBarButtonItem = UIBarButtonItem(
@@ -98,8 +118,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             layout.sectionInset = UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16)
             
         }
-
-        
     }
     
     private func setupRecipesCollectionView(){
@@ -116,6 +134,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         recipesCollectionView.allowsSelection = true
         
         recipesCollectionView.collectionViewLayout = generateCardCollectionLayout()
+        
+
         refreshControl.addTarget(self, action: #selector(refreshTableData), for: .valueChanged)
         recipesCollectionView.addSubview(refreshControl)
     }
@@ -166,12 +186,12 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             let category = categories[indexPath.item]
             
             cell.label.text = category
-            cell.handleSelection = handleSelectionCategory
-            
+
             if selectedCategory == category {
-                cell.setSelected()
+                cell.isSelectedCell = true
             } else {
-                cell.setDeselected()
+                cell.isSelectedCell = false
+
             }
             return cell
             
@@ -190,18 +210,25 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        reload()
-        
-        
         switch collectionView.tag{
         case 0:
-            
             let cell = collectionView.cellForItem(at: indexPath) as! CategoriesCollectionViewCell
             cell.isSelectedCell = !cell.isSelectedCell
-            cell.toggleSelected()
+            
+            if selectedCategory == cell.label.text! {
+                selectedCategory = nil
+                categoriesCollectionView.reloadData()
+
+            }else{
+                selectedCategory = cell.label.text!
+                categoriesCollectionView.reloadData()
+            }
+           
+            
+            
             
         case 1:
-            print("Selelcted")
+            
             guard let vc = storyboard?.instantiateViewController(withIdentifier: "detailRecipe") as? DetailRecipeViewController else { return }
             getRecipesDataById(id: shownRecipes[indexPath.item].dataId!) { data in
                 if let data = data {
@@ -222,33 +249,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     
-    //MARK: - Filter Logics
-    private func handleSelectionCategory(category: String) {
-        if category == selectedCategory {
-            selectedCategory = ""
-            shownRecipes = allRecipes
-        }else{
-            selectedCategory = ""
-            selectedCategory = category
-            
-            shownRecipes = allRecipes.filter({ recipe in
-                if let recipeCategory = recipe.category, recipeCategory.contains(category){
-                    return true
-                }else{
-                    return false
-                }
-            })
-            
-            
-            
-        }
-        categoriesCollectionView.reloadData()
-        recipesCollectionView.reloadData()
-    }
-    
-    
     //MARK: - Network Methods
-    static func loadRecipes(completion: @escaping () -> Void) {
+    
+    func loadRecipes(completion: @escaping () -> Void) {
         
         let ref = Database.database().reference()
         
@@ -291,16 +294,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                                                                 year_period: year_period,
                                                                 dataId: dataId))
                             }
-                            
                         }
                         
                     }.resume()
                 }
-                
-                
             }
-            
-            
         })
         completion()
     }
@@ -315,8 +313,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             guard let value = snap.value else { return }
             if let cat = value as? String{
                 self.categoriesData.append(cat)
+                print(self.categoriesData)
             }
-            print("Inizio completion")
             completion()
         })
         
@@ -324,8 +322,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     
     private func getRecipes(){
-        self.allRecipes = APIManager.shared.dataList
-        shownRecipes = allRecipes.shuffled()
+        self.allRecipes = APIManager.shared.dataList.shuffled()
+        shownRecipes = allRecipes
     }
     
     
@@ -359,27 +357,29 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     @objc private func refreshTableData() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            HomeViewController.loadRecipes{
-                APIManager.shared.dataList = HomeViewController.recipes
-                self.getRecipes()
-                self.recipesCollectionView.reloadData()
-                self.refreshControl.endRefreshing()
-                
-            }
+        
+        self.loadRecipes{
+            APIManager.shared.dataList = []
+            self.recipes = APIManager.shared.dataList
+            self.selectedCategory = nil
+            self.recipesCollectionView.reloadData()
         }
     }
     
     
     @objc private func reload(){
-        APIManager.shared.dataList = HomeViewController.recipes
+        APIManager.shared.dataList = recipes
         ActivityIndicatorManager.shared.hideIndicator()
+        self.refreshControl.endRefreshing()
         getRecipes()
         self.recipesCollectionView.reloadData()
     }
     
+    
+    
     @objc private func categorieListUpdated(){
         self.categories =  APIManager.shared.categorieList
+        
     }
     
     

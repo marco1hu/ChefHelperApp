@@ -16,11 +16,12 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
     
     static let reusableIdentifier = "categoriesCell"
     private let fontSize: CGFloat = 18
-    var isSelectedCell: Bool = false
-    
-    public var handleSelection: ((String)->Void)?
-    
-    
+    var isSelectedCell: Bool = false{
+        didSet {
+            toggleSelected()
+        }
+    }
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -40,6 +41,8 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
         
         backView.layer.cornerRadius = 10
         backView.backgroundColor = UIColor.appColor3
+//        backView.layer.borderWidth = 1
+//        backView.layer.borderColor = UIColor.appColor4.cgColor
         
        
         NSLayoutConstraint.activate([
@@ -58,17 +61,15 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
                
             }else{
                 self.setDeselected()
-               
             }
-            self.handleSelection?(self.label.text!)
         }
     }
     
     func setSelected(){
-        backView.backgroundColor = #colorLiteral(red: 0.9254901961, green: 0.7019607843, blue: 0.5647058824, alpha: 1)
+        backView.backgroundColor = UIColor.appColor4
     }
     
     func setDeselected(){
-        backView.backgroundColor = #colorLiteral(red: 0.9254901961, green: 0.8671232717, blue: 0.7085848917, alpha: 1)
+        backView.backgroundColor = UIColor.appColor5
     }
 }
