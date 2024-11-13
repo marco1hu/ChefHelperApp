@@ -7,10 +7,15 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseCore
+import FirebaseFirestore
+import FirebaseDatabase
 
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var logOutButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +38,24 @@ class ProfileViewController: UIViewController {
             }
     }
     
+    @IBAction func handleDelete(_ sender: Any) {
+        let user = Auth.auth().currentUser
+
+        user?.delete { error in
+          if let error = error {
+              self.present(Utilities.shared.alertErrorGeneral(error: "Eliminazione fallita"), animated: true)
+          } else {
+              let ref = Database.database().reference()
+              if let user = user {
+                  let uid = user.uid
+                  ref.child("users").child(uid).removeValue()
+                  
+                  try!  Auth.auth().signOut()
+                  self.navigationController?.popToRootViewController(animated: true)
+              }
+          }
+        }
+    }
     
 
 }

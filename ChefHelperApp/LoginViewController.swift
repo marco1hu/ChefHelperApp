@@ -66,8 +66,8 @@ class LoginViewController: UIViewController {
     @IBAction func handleLoginButton(_ sender: UIButton) {
         //Logiche di login
         
-        UserDefaults.standard.set(true, forKey: "userLogged")
-        self.dismiss(animated: true)
+//        UserDefaults.standard.set(true, forKey: "userLogged")
+//        self.dismiss(animated: true)
         
         if emailTextField.text?.replacingOccurrences(of: " ", with: "") == "" || passwordTextField.text?.replacingOccurrences(of: " ", with: "") == ""  {
             self.present(Utilities.shared.alertErrorGeneral(error: "Uno o più campi non sono stati compilati."), animated: true)
